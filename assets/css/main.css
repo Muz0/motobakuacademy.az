@@ -1213,8 +1213,8 @@ blockquote span::before {
 }
 
 .page-header__left {
-  padding-right: 100px;
-  padding-left: 100px;
+  padding-right: 0px;
+  padding-left: 50px;
 }
 
 .page-header__center {
