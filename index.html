@@ -15,6 +15,17 @@
       href="assets/images/favicon.html"
       type="image/x-icon"
     />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Oswald (200–700, latin-ext) + Oxygen (300,400,700, latin-ext) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Oxygen:wght@300;400;700&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="assets/css/uikit.min.css" />
     <link rel="stylesheet" href="assets/css/slick.css" />
     <link rel="stylesheet" href="assets/css/slick-theme.css" />
@@ -39,37 +50,11 @@
           <div class="page-header__center">
             <nav class="page-nav" data-uk-navbar>
               <ul class="uk-navbar-nav">
-                <li><a href="typography.html">About Us</a></li>
-                <li>
-                  <a href="#">Moto Pages</a>
-                  <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                      <li><a href="page-shop-grid.html">Page grid</a></li>
-                      <li><a href="page-shop-list.html">Page list</a></li>
-                      <li>
-                        <a href="page-shop-product-1.html">Page Single 1</a>
-                      </li>
-                      <li>
-                        <a href="page-shop-product-2.html">Page Single 2</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li>
-                  <a href="#">Our News</a>
-                  <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                      <li><a href="page-blog-grid.html">Page Blog grid</a></li>
-                      <li><a href="page-blog-list.html">Page Blog list</a></li>
-                      <li>
-                        <a href="page-blog-article.html">Page Blog article</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li><a href="page-contacts.html">Contact</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">Haqqımızda</a></li>
+                <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                <li><a href="./about.html">Bloqlar</a></li>
+                <li><a href="./about.html">Əlaqə</a></li>
               </ul>
             </nav>
           </div>
@@ -100,7 +85,7 @@
           >
             <div class="uk-position-relative" tabindex="-1">
               <ul class="uk-slideshow-items">
-                <li class="slideshow-item">
+                <!-- <li class="slideshow-item">
                   <img
                     src="assets/img/img-home-slideshow.jpg"
                     alt
@@ -158,8 +143,8 @@
                       </div>
                     </div>
                   </div>
-                </li>
-                <li class="slideshow-item">
+                </li> -->
+                <!-- <li class="slideshow-item">
                   <img
                     src="assets/img/img-home-slideshow-2.jpg"
                     alt
@@ -215,7 +200,7 @@
                       </div>
                     </div>
                   </div>
-                </li>
+                </li> -->
                 <li class="slideshow-item">
                   <img
                     src="assets/img/img-home-slideshow-3.jpg"
@@ -237,33 +222,31 @@
                               class="slideshow-item__title"
                               data-uk-slideshow-parallax="x: 100,-100"
                             >
-                              <span>Taking rides to a newer level</span>
+                              <span>MOTO BAKU ACADEMY</span>
                               <div class="uk-h2">
-                                modern designed<br />
-                                for a Sleek look
+                                Motosiklet sürmək arzunuzu
+                                <br />
+                                bizimlə həyata keçirin
                               </div>
                             </div>
                             <div
                               class="slideshow-item__desc"
                               data-uk-slideshow-parallax="x: 200,-200"
                             >
-                              <p>
-                                Consectetur adipiscing elit sed ipsum eiusmod
-                                tempor ncdidunt<br />
-                                labore et dolore magna aliqua quis ipsum
-                                suspendisse.
-                              </p>
+                              <p>Azərbaycanda ilk motosiklet təlim məktəbi!</p>
                             </div>
                             <div
                               class="slideshow-item__btns"
                               data-uk-slideshow-parallax="x: 300,-300"
                             >
-                              <a class="uk-button uk-button-danger" href="#!"
-                                >Learn more </a
+                              <a
+                                class="uk-button uk-button-danger"
+                                href="./about.html"
+                                >Haqqımızda</a
                               ><a
                                 class="uk-button uk-button-secondary"
-                                href="#!"
-                                >Motorcycles
+                                href="./packages.html"
+                                >Təlim paketlərimiz
                               </a>
                             </div>
                           </div>
@@ -275,7 +258,7 @@
                 </li>
               </ul>
             </div>
-            <div class="slideshow-nav">
+            <!-- <div class="slideshow-nav">
               <a
                 href="#"
                 data-uk-slidenav-previous
@@ -294,7 +277,7 @@
                 data-uk-slidenav-next
                 data-uk-slideshow-item="next"
               ></a>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="section-about" id="section-about">
@@ -310,19 +293,21 @@
               <div class="uk-width-2-3@m">
                 <div class="section-about__content">
                   <div class="section-title">
-                    <span>Taking rides to a newer level</span>
+                    <span
+                      >Moto Baku Academy - Azərbaycanda ilk motosiklet təlim
+                      məktəbi!</span
+                    >
                     <h3 class="uk-h2">
-                      Great performance<br />
-                      that matters in future
+                      2013-cü ildən bu günə qədər 5000+<br />
+                      Qadın və kişi tələbı ugurla məzun olub.
                     </h3>
                   </div>
                   <div class="section-content">
                     <p>
-                      Dolore magna aliqua quis nostrud exercitation ullamco
-                      laboris nisi ut aliquip exa comads consequat asuis aute
-                      irure dolor in reprehenderit in voluptate velit esse cilum
-                      dolore fugiat sed ipsum nulla pariatur nostrul done elit
-                      magna.
+                      Hal hazırda 100+ aktiv tələbə ilə təlimlər davam edir.
+                      &#x1F393; Təlimçilərimiz Türkiyədə ixtisaslaşmış, peşəkar
+                      mütəxəssislərdir. &#9989; Təjlüksiz və professional
+                      təlimlər təqdim edirik
                     </p>
                     <div class="uk-margin-medium">
                       <div class="uk-grid uk-child-width-1-2@s" data-uk-grid>
@@ -337,11 +322,11 @@
                             </div>
                             <div class="block-icon__desc">
                               <div class="block-icon__title">
-                                Cutting Edge Tech
+                                Premium Təlim paketi
                               </div>
                               <div class="block-icon__text">
-                                Exercitation ullamco laboris nis exa duis aute
-                                irure dolor.
+                                Daha geniş imkanlar və əlavə üstünlüklərlə
+                                effektiv öyrənmə.
                               </div>
                             </div>
                           </div>
@@ -357,11 +342,12 @@
                             </div>
                             <div class="block-icon__desc">
                               <div class="block-icon__title">
-                                Perfect Styling
+                                VİP Təlim Paketi
                               </div>
                               <div class="block-icon__text">
                                 Exercitation ullamco laboris nis exa duis aute
-                                irure dolor.
+                                Fərdi yanışma və xüsusi üstünlüklərlə yüksək
+                                səviyyəli təlim.
                               </div>
                             </div>
                           </div>
@@ -377,11 +363,10 @@
                             </div>
                             <div class="block-icon__desc">
                               <div class="block-icon__title">
-                                Distinctive Beauty
+                                Ekonom təlim paketi
                               </div>
                               <div class="block-icon__text">
-                                Exercitation ullamco laboris nis exa duis aute
-                                irure dolor.
+                                Ən sərfəli qiymətə keyfiyyətli öyrənmə imkanı.
                               </div>
                             </div>
                           </div>
@@ -397,11 +382,11 @@
                             </div>
                             <div class="block-icon__desc">
                               <div class="block-icon__title">
-                                Radiance Polishing
+                                Özəl təlim paketi
                               </div>
                               <div class="block-icon__text">
-                                Exercitation ullamco laboris nis exa duis aute
-                                irure dolor.
+                                Şəxsi tələblərə uyğunlaşdırılmış, tam
+                                fəedilərdirilmiş proqram.
                               </div>
                             </div>
                           </div>
@@ -435,7 +420,7 @@
             </div>
           </div>
         </div>
-        <div class="section-category" id="section-category">
+        <!-- <div class="section-category" id="section-category">
           <div class="uk-container uk-container-large">
             <div class="uk-position-relative" tabindex="-1" data-uk-slider>
               <ul
@@ -527,8 +512,8 @@
               ></ul>
             </div>
           </div>
-        </div>
-        <div class="section-products">
+        </div> -->
+        <!-- <div class="section-products">
           <div class="uk-section-large uk-container">
             <div class="section-title uk-text-center">
               <img src="assets/img/logo-dark.svg" alt="" /><span
@@ -1263,8 +1248,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="section-info">
+        </div> -->
+        <!-- <div class="section-info">
           <div class="uk-container uk-container-expand">
             <div
               class="uk-grid uk-flex-middle uk-child-width-1-2@m"
@@ -1353,33 +1338,42 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="section-video">
           <div class="video-block">
             <div class="video-info">
               <div class="video-info__title">
-                The Powerful performance<br />
-                With optimized balanced
+                Motosiklet sürməyin həyəcanının<br />
+                bizimlə yaşayın
               </div>
               <div class="video-info__subtitle">
-                Adipisicing elit sed do eiusmod tempor incididunt ut labore et
-                dolore.
+                Təlimlərimiz 150 kub, 300 kub, 600 kub motosikletlərlə
+                keçirilir.
               </div>
               <div class="video-info__list-thumb">
                 <ul>
-                  <li>
+                  <li style="font-size: x-large">
+                    <p class="video-info__subtitle uk-text-center">
+                      <strong>150</strong>
+                    </p>
                     <img
                       src="assets/img/img-video-thumb-1.jpg"
                       alt="img-video-thumb"
                     />
                   </li>
                   <li>
+                    <p class="video-info__subtitle uk-text-center">
+                      <strong>300</strong>
+                    </p>
                     <img
                       src="assets/img/img-video-thumb-2.jpg"
                       alt="img-video-thumb"
                     />
                   </li>
                   <li>
+                    <p class="video-info__subtitle uk-text-center">
+                      <strong>600</strong>
+                    </p>
                     <img
                       src="assets/img/img-video-thumb-3.jpg"
                       alt="img-video-thumb"
@@ -1403,7 +1397,7 @@
             </div>
           </div>
         </div>
-        <div class="section-rental">
+        <!-- <div class="section-rental">
           <div class="uk-section uk-container">
             <div class="section-title uk-text-center">
               <img src="assets/img/logo-dark.svg" alt="" /><span
@@ -2741,7 +2735,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="section-gallery">
           <div class="uk-section uk-container uk-container-large">
             <div
@@ -2843,10 +2837,10 @@
               </div>
               <div>
                 <div class="section-title">
-                  <span>Taking rides to a newer level</span>
+                  <span>Moto Baku Academy</span>
                   <div class="uk-h2">
-                    Why people are<br />
-                    talking about us
+                    Moto Baku Academy ilə əməkdaşlığa dəvət edirik <br />–
+                    birlikdə daha irəli!
                   </div>
                 </div>
                 <div class="section-content">
@@ -2858,15 +2852,16 @@
                             <div class="review-item">
                               <div class="review-item__desc">
                                 <p>
-                                  Magna aliqua quis nostrud exercitation ullamco
-                                  laboris nisut aliqua yxa consequat duis aute
-                                  irure dolor iny reprehenderit voluptate velit
-                                  esse cilum dols sed ipsum nulla pariatur
-                                  nostrul doney quis nostrud saercitation
-                                  ullamco laboris nisi ut aliquip reprehenderit.
+                                  Biz böyük məmnunluq və qürur hissi ilə
+                                  bildiririk ki, Moto Baku Academy, AzMoto
+                                  Riders Club və SpeedLine Motors kimi nüfuzlu
+                                  təşkilatlar bizimlə əməkdaşlıq edərək birlikdə
+                                  motosiklet təlimləri sahəsində yüksək
+                                  keyfiyyətli və peşəkar xidmətlərin təqdim
+                                  edilməsinə töhfə verirlə
                                 </p>
                               </div>
-                              <div class="review-item__user">
+                              <!-- <div class="review-item__user">
                                 <div>
                                   <div class="review-item__user-avatar">
                                     <img
@@ -2883,10 +2878,10 @@
                                     KTM Motorcycle Buyer
                                   </div>
                                 </div>
-                              </div>
+                              </div> -->
                             </div>
                           </li>
-                          <li>
+                          <!-- <li>
                             <div class="review-item">
                               <div class="review-item__desc">
                                 <p>
@@ -2949,7 +2944,7 @@
                                 </div>
                               </div>
                             </div>
-                          </li>
+                          </li> -->
                         </ul>
                       </div>
                       <ul
@@ -3091,12 +3086,12 @@
                 <div class="page-footer__column page-footer__menu">
                   <div class="uk-h4">About KeyMoto</div>
                   <ul class="list-decor">
-                    <li><a href="typography.html">Our Company</a></li>
-                    <li><a href="typography.html">Renting Facility</a></li>
-                    <li><a href="typography.html">KeyMoto Inventory</a></li>
-                    <li><a href="typography.html">Our Services</a></li>
-                    <li><a href="typography.html">Clients Testimonials</a></li>
-                    <li><a href="typography.html">Mission & Vision</a></li>
+                    <li><a href="./about.html">Our Company</a></li>
+                    <li><a href="./about.html">Renting Facility</a></li>
+                    <li><a href="./about.html">KeyMoto Inventory</a></li>
+                    <li><a href="./about.html">Our Services</a></li>
+                    <li><a href="./about.html">Clients Testimonials</a></li>
+                    <li><a href="./about.html">Mission & Vision</a></li>
                     <li><a href="page-contacts.html">Contact Us</a></li>
                   </ul>
                 </div>
@@ -3237,14 +3232,8 @@
             </div>
             <div class="uk-margin">
               <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
-                <li class="uk-parent">
-                  <a href="#">Home</a>
-                  <ul class="uk-nav-sub">
-                    <li><a href="index.html">Home 1</a></li>
-                    <li><a href="page-home-2.html">Home 2</a></li>
-                  </ul>
-                </li>
-                <li><a href="typography.html">About</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">Haqqımızda</a></li>
                 <li class="uk-parent">
                   <a href="#">News</a>
                   <ul class="uk-nav-sub">
