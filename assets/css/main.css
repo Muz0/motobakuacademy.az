@@ -209,7 +209,7 @@ a:hover {
 }
 
 .uk-slideshow .slideshow-nav__count ul li {
-  display: none;
+  /* display: none; */
 }
 
 .uk-slideshow .slideshow-nav__count ul li.uk-active {
@@ -2787,8 +2787,8 @@ body.page-home .section-hero__content {
   position: absolute;
   top: 43%;
   left: -120px;
-  left: -6.25vw;
-  max-width: 600px;
+  left: -12.25vw;
+  max-width: 800px;
   padding: 50px 80px;
   transform: translateY(-50%);
   border-bottom: 3px solid #e63619;
