@@ -576,10 +576,12 @@ a:hover {
 }
 
 .logo__link {
-  display: block;
-  position: relative;
-  text-align: center;
+  display: flex;
+  /* position: relative; */
+  /* text-align: center; */
+  align-items: center;
   text-decoration: none;
+  color: #e63619;
 }
 
 .logo__link:hover,
@@ -591,12 +593,12 @@ a:hover {
 .logo__icon {
   /* display: block; */
   /* position: relative; */
-  width: 50px;
-  height: 50px;
+  width: 120px;
+  height: 120px;
   margin-right: 15px;
 }
 
-.logo__text {
+.logo. .logo__text {
   font: normal 700 24px/1 Oswald;
   margin-top: 5px;
   color: #ffffff;
