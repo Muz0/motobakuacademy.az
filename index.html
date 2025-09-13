@@ -48,11 +48,17 @@
     <link rel="stylesheet" href="assets/css/slick.css" />
     <link rel="stylesheet" href="assets/css/slick-theme.css" />
     <link rel="stylesheet" href="assets/css/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="assets/css/main.css?v=1.0.1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=1.0.2" />
 
     <style>
       .video-info__subtitle {
         margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+      }
+      .uk-container {
+        padding: 25px;
       }
       .uk-section {
         padding: 25px;
@@ -63,6 +69,38 @@
         height: 60px;
         line-height: 60px;
         text-align: center;
+      }
+
+      .slideshow-item__desc {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+    <style>
+      .block-icon__icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .block-icon__icon {
+        font-size: 320px;
+        line-height: 1;
+      }
+      .block-icon--small {
+        transform: scale(0.8);
+        transform-origin: top center;
+        opacity: 0.9;
+        /* padding-left: 10px !important; */
+      }
+
+      .uk-grid-margin {
+        /* padding-left: 0; */
       }
     </style>
   </head>
@@ -86,7 +124,7 @@
               <a class="logo__link" href="index.html">
                 <img
                   class="logo__icon"
-                  src="assets/images/Logo.png"
+                  src="assets/images/logo.webp"
                   alt="KeyMoto"
                 />
                 <div class="logo__text">MOTO BAKU ACADEMY</div>
@@ -99,7 +137,7 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about.html">Haqqımızda</a></li>
                 <li><a href="./packages.html">Təlim paketlərimiz</a></li>
-                <li><a href="./about.html">Bloqlar</a></li>
+                <li><a href="./about.html">Qara Geyimli Adam</a></li>
                 <li><a href="./contact.html">Əlaqə</a></li>
               </ul>
             </nav>
@@ -135,6 +173,7 @@
                             <div
                               class="slideshow-item__decor"
                               data-uk-slideshow-parallax="opacity: 0,1"
+                              style="text-wrap: nowrap"
                             >
                               MOTO BAKU
                             </div>
@@ -161,8 +200,8 @@
                             >
                               <a
                                 class="uk-button uk-button-danger"
-                                href="./about.html"
-                                >Haqqımızda</a
+                                href="./contact.html"
+                                >Bizə qoşul !</a
                               ><a
                                 class="uk-button uk-button-secondary"
                                 href="./packages.html"
@@ -198,86 +237,117 @@
                       məktəbi!</span
                     >
                     <h3 class="uk-h2">
-                      2013-cü ildən bu günə qədər 5000+<br />
-                      Qadın və kişi tələbə uğurla məzun olub.
+                      2013-cü ildən bu günə qədər 10000+ Qadın və kişi tələbə
+                      uğurla məzun olub.
                     </h3>
                   </div>
                   <div class="section-content">
                     <p>
-                      Hal hazırda 100+ aktiv tələbə ilə təlimlər davam edir.
-                      &#x1F393; Təlimçilərimiz Türkiyədə ixtisaslaşmış, peşəkar
-                      mütəxəssislərdir. &#9989; Təjlüksiz və professional
-                      təlimlər təqdim edirik
+                      Hal-hazırda 200-dən çox aktiv tələbə ilə təlimlərimizi
+                      uğurla davam etdiririk. Təlimçilərimiz Türkiyədə
+                      ixtisaslaşmış, yüksək peşəkarlığa sahib mütəxəssislərdir.
+                      Biz yalnız motosiklet təlimləri ilə kifayətlənmirik —
+                      təhlükəsizlik, düzgün sürüş texnikaları, fərdi məsləhətlər
+                      və konsaltinq xidmətləri də təqdim edirik. <br />
+                      🔹Təhlükəsiz və professional yanaşma <br />
+                      🔹 Müasir metodika və təcrübəli mütəxəssislər <br />
+                      🔹 Həm yeni başlayanlar, həm də təcrübəsini artırmaq
+                      istəyənlər üçün fərdi proqramlar
                     </p>
-                    <style>
-                      .block-icon__icon {
-                        width: 60px;
-                        height: 60px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin-bottom: 10px;
-                      }
 
-                      .block-icon__icon {
-                        font-size: 320px;
-                        line-height: 1;
-                      }
-                    </style>
-
-                    <div class="uk-grid uk-child-width-1-2@s" data-uk-grid>
-                      <div class="block-icon">
-                        <div class="block-icon__icon">
-                          <i class="fas fa-tachometer-alt"></i>
-                        </div>
-                        <div class="block-icon__desc">
-                          <div class="block-icon__title">
-                            Premium Təlim paketi
+                    <div class="uk-grid uk-grid-match" data-uk-grid>
+                      <!-- Row 1 (2 items) -->
+                      <div class="uk-width-1-2@s">
+                        <div class="block-icon">
+                          <div class="block-icon__icon">
+                            <img
+                              src="./assets/images/icons/premium.png"
+                              alt=""
+                            />
                           </div>
-                          <div class="block-icon__text">
-                            Daha geniş imkanlar və əlavə üstünlüklərlə effektiv
-                            öyrənmə.
+                          <div class="block-icon__desc">
+                            <div class="block-icon__title">
+                              Premium Təlim paketi
+                            </div>
+                            <div class="block-icon__text">
+                              Daha geniş imkanlar və əlavə üstünlüklərlə
+                              effektiv öyrənmə.
+                            </div>
                           </div>
                         </div>
                       </div>
 
-                      <div class="block-icon">
-                        <div class="block-icon__icon">
-                          <i class="fas fa-star"></i>
-                        </div>
-                        <div class="block-icon__desc">
-                          <div class="block-icon__title">VİP Təlim Paketi</div>
-                          <div class="block-icon__text">
-                            Fərdi yanaşma və xüsusi üstünlüklərlə yüksək
-                            səviyyəli təlim.
+                      <div class="uk-width-1-2@s">
+                        <div class="block-icon">
+                          <div class="block-icon__icon">
+                            <img src="./assets/images/icons/vip.png" alt="" />
+                          </div>
+                          <div class="block-icon__desc">
+                            <div class="block-icon__title">
+                              VİP Təlim Paketi
+                            </div>
+                            <div class="block-icon__text">
+                              Fərdi yanaşma və xüsusi üstünlüklərlə yüksək
+                              səviyyəli təlim.
+                            </div>
                           </div>
                         </div>
                       </div>
 
-                      <div class="block-icon">
-                        <div class="block-icon__icon">
-                          <i class="fas fa-tags"></i>
-                        </div>
-                        <div class="block-icon__desc">
-                          <div class="block-icon__title">
-                            Ekonom təlim paketi
+                      <!-- Row 2 (3 items) -->
+                      <div class="uk-width-1-3@s">
+                        <div class="block-icon block-icon--small">
+                          <div class="block-icon__icon">
+                            <img
+                              src="./assets/images/icons/ekonom.png"
+                              alt=""
+                            />
                           </div>
-                          <div class="block-icon__text">
-                            Ən sərfəli qiymətə keyfiyyətli öyrənmə imkanı.
+                          <div class="block-icon__desc">
+                            <div class="block-icon__title">
+                              Ekonom təlim paketi
+                            </div>
+                            <div class="block-icon__text">
+                              Ən sərfəli qiymətə keyfiyyətli öyrənmə imkanı.
+                            </div>
                           </div>
                         </div>
                       </div>
 
-                      <div class="block-icon">
-                        <div class="block-icon__icon">
-                          <i class="fas fa-user-cog"></i>
+                      <div class="uk-width-1-3@s">
+                        <div class="block-icon block-icon--small">
+                          <div class="block-icon__icon">
+                            <img
+                              src="./assets/images/icons/personal.png"
+                              alt=""
+                            />
+                          </div>
+                          <div class="block-icon__desc">
+                            <div class="block-icon__title">
+                              Özəl təlim paketi
+                            </div>
+                            <div class="block-icon__text">
+                              Şəxsi tələblərə uyğunlaşdırılmış, tam
+                              fəedilərdirilmiş proqram.
+                            </div>
+                          </div>
                         </div>
-                        <div class="block-icon__desc">
-                          <div class="block-icon__title">Özəl təlim paketi</div>
-                          <div class="block-icon__text">
-                            Şəxsi tələblərə uyğunlaşdırılmış, tam
-                            fəedilərdirilmiş proqram.
+                      </div>
+
+                      <div class="uk-width-1-3@s">
+                        <div class="block-icon block-icon--small">
+                          <div class="block-icon__icon">
+                            <img
+                              src="./assets/images/icons/racing-helmet.png"
+                              alt=""
+                            />
+                          </div>
+                          <div class="block-icon__desc">
+                            <div class="block-icon__title">Racing paketi</div>
+                            <div class="block-icon__text">
+                              Sürət, dinamika və yarış ruhunu əks etdirən
+                              intensiv təcrübə
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -310,48 +380,369 @@
             </div>
           </div>
         </div>
+        <div class="page-content">
+          <div class="uk-section uk-container">
+            <style>
+              /* --- Team Intro --- */
+              .uk-text-center p {
+                margin: 6px 0;
+                line-height: 1.5;
+                color: #222; /* darker text for more emphasis */
+                font-weight: 500;
+                font-size: 22px;
+              }
+
+              .uk-text-center .uk-h4 {
+                font-size: 32px;
+                font-weight: 800; /* heavier heading */
+                margin-bottom: 12px;
+                text-transform: uppercase;
+              }
+
+              /* Optional underline / accent line */
+              .uk-text-center .uk-h4::after {
+                content: "";
+                display: block;
+                width: 80px;
+                height: 4px;
+                background-color: #e63946; /* stronger accent */
+                margin: 12px auto 0 auto;
+                border-radius: 2px;
+              }
+
+              /* --- Team Images --- */
+              .uk-inline-clip img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                aspect-ratio: 3/4;
+                border-radius: 12px; /* more pronounced rounded corners */
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* base shadow for weight */
+              }
+
+              /* Hover effect: stronger zoom + deeper shadow */
+              .uk-inline-clip:hover img {
+                transform: scale(1.08);
+                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+              }
+
+              /* Name tags overlay */
+              .uk-inline-clip .uk-position-bottom {
+                background: rgba(
+                  0,
+                  0,
+                  0,
+                  0.75
+                ); /* darker overlay for stronger contrast */
+                padding: 8px 0;
+                border-radius: 0 0 12px 12px;
+              }
+
+              /* Name tag text */
+              .uk-inline-clip .uk-position-bottom strong {
+                color: #fff;
+                font-size: 18px; /* bigger font */
+                font-weight: 700; /* heavier text */
+                display: block;
+                letter-spacing: 0.5px;
+              }
+
+              /* Spacing between grid items */
+              .uk-grid-small > * {
+                margin-bottom: 20px; /* more vertical space */
+              }
+
+              /* Responsive adjustments */
+              @media (max-width: 640px) {
+                .uk-inline-clip .uk-position-bottom strong {
+                  font-size: 16px;
+                }
+                .uk-text-center .uk-h4 {
+                  font-size: 26px;
+                }
+              }
+            </style>
+
+            <!-- Centered team intro -->
+            <div class="uk-text-center uk-margin-bottom">
+              <p class="uk-h4 uk-margin-remove">Komandamız:</p>
+              <p class="uk-margin-remove">
+                Sürüş təcrübənizi maksimum təhlükəsizlik və peşəkarlıqla inkişaf
+                etdirmək üçün hər zaman yanınızdayıq.
+              </p>
+              <p class="uk-margin-remove">
+                Hər bir tələbəmiz bizim üçün əvəzsizdir və fərdi yanaşma ilə
+                onların bacarıqlarını ən yüksək səviyyəyə çıxarmağa sadiqik.
+              </p>
+            </div>
+            <!-- Team gallery grid -->
+            <div
+              class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-6@m"
+              uk-grid
+            >
+              <!-- Person 1 -->
+              <div>
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                  <img
+                    src="./assets/images/team/mirfariz.png"
+                    alt="Person 1"
+                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                  />
+                  <div
+                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                  >
+                    <strong
+                      >Mirfariz <br />
+                      Təsisçi və Direktor (QGA)</strong
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Person 2 -->
+              <div>
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                  <img
+                    src="https://picsum.photos/300/400?random=2"
+                    alt="Person 2"
+                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                  />
+                  <div
+                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                  >
+                    <strong
+                      >Mərdan <br />
+                      Təsisçi və Direktor</strong
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Person 3 -->
+              <div>
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                  <img
+                    src="./assets/images/team/mirruzi.png"
+                    alt="Person 3"
+                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                  />
+                  <div
+                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                  >
+                    <strong
+                      >Mirruzi <br />
+                      Baş təlimçi</strong
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Person 4 -->
+              <div>
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                  <img
+                    src="./assets/images/team/mirsahib.png"
+                    alt="Person 4"
+                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                  />
+                  <div
+                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                  >
+                    <strong
+                      >Mirsahib <br />
+                      Təlimçi</strong
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Person 5 -->
+              <div>
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                  <img
+                    src="./assets/images/team/mirmehdi.png"
+                    alt="Person 5"
+                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                  />
+                  <div
+                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                  >
+                    <strong
+                      >Mirmehdi <br />
+                      Təlimçi</strong
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Person 5 -->
+              <div>
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                  <img
+                    src="https://picsum.photos/300/400?random=2"
+                    alt="Person 2"
+                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                  />
+                  <div
+                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                  >
+                    <strong
+                      >Əli <br />
+                      Təlimçi</strong
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- </div> -->
+
+            <style>
+              /* Make gallery images responsive and keep 3:4 ratio */
+              .uk-inline-clip img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                aspect-ratio: 3/4;
+                border-radius: 8px; /* optional: rounded corners */
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              }
+
+              /* Hover effect: slightly zoom the image */
+              .uk-inline-clip:hover img {
+                transform: scale(1.05);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+              }
+
+              /* Name tag overlay at bottom */
+              .uk-inline-clip .uk-position-bottom {
+                background: rgba(
+                  0,
+                  0,
+                  0,
+                  0.6
+                ); /* semi-transparent dark overlay */
+                padding: 6px 0;
+                border-radius: 0 0 8px 8px;
+              }
+
+              /* Name tag text */
+              .uk-inline-clip .uk-position-bottom strong {
+                color: #fff;
+                font-size: 16px;
+                display: block;
+              }
+
+              /* Optional: spacing between grid items */
+              .uk-grid-small > * {
+                margin-bottom: 15px;
+              }
+
+              /* Responsive text size for mobile */
+              @media (max-width: 640px) {
+                .uk-inline-clip .uk-position-bottom strong {
+                  font-size: 14px;
+                }
+              }
+            </style>
+          </div>
+        </div>
         <div class="section-video">
           <div class="video-block">
             <div class="video-info">
               <div class="video-info__title">
-                Motosiklet sürməyin həyəcanını<br />
-                bizimlə yaşayın
+                Motosiklet sürməyin həyəcanını bizimlə yaşayın
               </div>
-              <div class="video-info__subtitle">
-                Təlimlərimiz 150 kub, 300 kub, 600 kub motosikletlərlə
-                keçirilir.
+              <div class="video-info__subtitle" style="text-align: justify">
+                Təlimlərimiz 125, 150, 300 və 600 kub motosikletlərlə keçirilir.
               </div>
-              <div class="video-info__list-thumb">
+              <div class="video-thumb-grid">
                 <ul>
-                  <li style="font-size: x-large">
-                    <p class="video-info__subtitle uk-text-center">
-                      <strong>150 kub</strong>
-                    </p>
-                    <img
-                      src="assets/img/img-video-thumb-1.jpg"
-                      alt="img-video-thumb"
-                    />
+                  <li>
+                    <div class="video-thumb-grid__item">
+                      <img
+                        src="assets/img/img-video-thumb-1.jpg"
+                        alt="img-video-thumb"
+                      />
+                      <p class="video-thumb-grid__caption">125 kub</p>
+                    </div>
                   </li>
                   <li>
-                    <p class="video-info__subtitle uk-text-center">
-                      <strong>300 kub</strong>
-                    </p>
-                    <img
-                      src="assets/img/img-video-thumb-2.jpg"
-                      alt="img-video-thumb"
-                    />
+                    <div class="video-thumb-grid__item">
+                      <img
+                        src="assets/images/150-min.webp"
+                        alt="img-video-thumb"
+                        style=""
+                      />
+                      <p class="video-thumb-grid__caption">150 kub</p>
+                    </div>
                   </li>
                   <li>
-                    <p class="video-info__subtitle uk-text-center">
-                      <strong>600 kub</strong>
-                    </p>
-                    <img
-                      src="assets/img/img-video-thumb-3.jpg"
-                      alt="img-video-thumb"
-                    />
+                    <div class="video-thumb-grid__item">
+                      <img src="assets/images/300.webp" alt="img-video-thumb" />
+                      <p class="video-thumb-grid__caption">300 kub</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="video-thumb-grid__item">
+                      <img
+                        src="assets/img/img-video-thumb-3.jpg"
+                        alt="img-video-thumb"
+                      />
+                      <p class="video-thumb-grid__caption">600 kub</p>
+                    </div>
                   </li>
                 </ul>
               </div>
+
+              <style>
+                .video-thumb-grid ul {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 15px;
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                }
+
+                .video-thumb-grid li {
+                  flex: 1 1 calc(25% - 15px); /* 4 per row desktop */
+                }
+
+                .video-thumb-grid__item {
+                  position: relative;
+                  overflow: hidden;
+                  border-radius: 6px;
+                }
+
+                .video-thumb-grid__item img {
+                  display: block;
+                  width: 100%;
+                  height: auto;
+                }
+
+                .video-thumb-grid__caption {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  margin: 0;
+                  color: #fff;
+                  font-weight: bold;
+                  /* font-size: 1.2rem; */
+                  font-size: 32px;
+                  line-height: 1;
+                  text-align: center;
+                  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+                }
+
+                /* Mobile: 2 by 2 grid */
+                @media (max-width: 768px) {
+                  .video-thumb-grid li {
+                    flex: 1 1 calc(50% - 15px);
+                  }
+                }
+              </style>
             </div>
             <div class="video-box" data-uk-lightbox="video-autoplay: true">
               <a
@@ -377,30 +768,30 @@
             >
               <div>
                 <div>
-                  <a href="assets/img/img-gallery-1-big.jpg"
+                  <a href="assets/images/150-min.webp"
                     ><img
                       class="uk-width-1-1"
-                      src="assets/img/img-gallery-1.jpg"
+                      src="assets/images/150-min.webp"
                       alt="img-gallery"
                   /></a>
                 </div>
               </div>
               <div>
                 <div>
-                  <a href="assets/img/img-gallery-2-big.jpg"
+                  <a href="assets/images/sekil.webp"
                     ><img
                       class="uk-width-1-1"
-                      src="assets/img/img-gallery-2.jpg"
+                      src="assets/images/sekil.webp"
                       alt="img-gallery"
                   /></a>
                 </div>
               </div>
               <div>
                 <div>
-                  <a href="assets/img/img-gallery-3-big.jpg"
+                  <a href="assets/images/300.webp"
                     ><img
                       class="uk-width-1-1"
-                      src="assets/img/img-gallery-3.jpg"
+                      src="assets/images/300.webp"
                       alt="img-gallery"
                   /></a>
                 </div>
@@ -475,7 +866,7 @@
                     birlikdə daha irəli!
                   </div>
                 </div>
-                <div class="section-content">
+                <div class="section-content uk-flex-center">
                   <div class="reviews-vertical">
                     <div data-uk-slider="autoplay:true">
                       <div class="uk-position-relative" tabindex="-1">
@@ -483,14 +874,17 @@
                           <li>
                             <div class="review-item">
                               <div class="review-item__desc">
-                                <p>
-                                  Biz böyük məmnunluq və qürur hissi ilə
-                                  bildiririk ki, Moto Baku Academy, AzMoto
-                                  Riders Club və SpeedLine Motors kimi nüfuzlu
-                                  təşkilatlar bizimlə əməkdaşlıq edərək birlikdə
-                                  motosiklet təlimləri sahəsində yüksək
-                                  keyfiyyətli və peşəkar xidmətlərin təqdim
-                                  edilməsinə töhfə verirlə
+                                <p class="uk-text-justify">
+                                  Böyük məmnuniyyət və qürurla bildiririk ki,
+                                  Moto Baku Academy artıq Azərbaycanın aparıcı
+                                  brendləri – CFMoto Azərbaycan, Kawasaki
+                                  Azərbaycan, Kayo Motosiklet və Dainese
+                                  Azərbaycan ilə əməkdaşlıq edir.
+                                  <br />
+                                  Bu əməkdaşlıq sayəsində tələbələrimiz
+                                  beynəlxalq standartlara uyğun, yüksək
+                                  keyfiyyətli və peşəkar motosiklet təlimləri
+                                  ilə təmin olunur.
                                 </p>
                               </div>
                             </div>
@@ -512,13 +906,53 @@
             <div data-uk-slider="autoplay:true">
               <div class="uk-position-relative" tabindex="-1">
                 <ul
-                  class="uk-slider-items uk-grid uk-flex-middle uk-text-center uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-5@m"
+                  class="uk-slider-items uk-grid uk-flex-middle uk-text-center uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-4@m"
                 >
-                  <li><img src="assets/img/brand-1.png" alt="brand-logo" /></li>
-                  <li><img src="assets/img/brand-2.png" alt="brand-logo" /></li>
-                  <li><img src="assets/img/brand-3.png" alt="brand-logo" /></li>
-                  <li><img src="assets/img/brand-4.png" alt="brand-logo" /></li>
-                  <li><img src="assets/img/brand-5.png" alt="brand-logo" /></li>
+                  <li>
+                    <a
+                      href="https://www.kawasaki.com/en-us/"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <img
+                        src="assets/images/partners/kawasaki.webp"
+                        alt="Kawasaki Logo"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://cfmoto.az/" target="_blank" rel="noopener">
+                      <img
+                        src="assets/images/partners/cfmoto.webp"
+                        alt="CFMoto Logo"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/daineseazerbaijan/"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <img
+                        src="assets/images/partners/dainese.webp"
+                        alt="Dainese Logo"
+                      />
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="https://www.instagram.com/kayomoto.az/"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <img
+                        src="assets/images/partners/kayo.webp"
+                        alt="Kayo Logo"
+                      />
+                    </a>
+                  </li>
                 </ul>
               </div>
               <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
@@ -544,17 +978,30 @@
                 <div class="subscribe-box__form">
                   <form action="#!">
                     <div class="uk-flex uk-flex-middle">
+                      <style>
+                        .phone-placeholder {
+                          text-align: center;
+                          font-size: 32px;
+                        }
+
+                        /* Placeholder text styling */
+                        .phone-placeholder::placeholder {
+                          font-size: 32px;
+                          text-align: center;
+                          color: #333; /* optional */
+                        }
+                      </style>
                       <input
-                        class="uk-input"
-                        type="email"
-                        name="email"
-                        placeholder="Email Address ...."
-                      /><button
+                        class="uk-input phone-placeholder"
+                        placeholder="+994 51 473 59 59"
+                        disabled
+                      />
+                      <a
                         class="uk-button uk-button-danger"
-                        type="submit"
+                        href="./contact.html"
+                        style="text-wrap: nowrap"
+                        >Bizə qoşul !</a
                       >
-                        Subscribe
-                      </button>
                     </div>
                   </form>
                 </div>
@@ -575,7 +1022,7 @@
                   <div class="logo">
                     <a class="logo__link" href="index.html">
                       <div class="logo__icon">
-                        <img src="assets/images/Logo.png" alt="KeyMoto" />
+                        <img src="assets/images/logo.webp" alt="KeyMoto" />
                       </div>
                       <div class="logo__text">Moto Baku Academy</div>
                     </a>
@@ -594,7 +1041,7 @@
                         <div class="support__label">
                           Daha ətraflı məlumat üçün
                         </div>
-                        <div class="support__phone">+994 51 473 5959</div>
+                        <div class="support__phone">+994 51 473 59 59</div>
                       </div>
                     </a>
                   </div>
@@ -649,7 +1096,7 @@
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./about.html">Haqqımızda</a></li>
                     <li><a href="./packages.html">Təlim paketlərimiz</a></li>
-                    <li><a href="./about.html">Bloqlar</a></li>
+                    <li><a href="./about.html">Qara Geyimli Adam</a></li>
                     <li><a href="./contact.html">Əlaqə</a></li>
                   </ul>
                 </div>
@@ -711,6 +1158,16 @@
                       </div>
                     </li>
                   </ul>
+                  <br />
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.4245618756636!2d49.83578477598596!3d40.3332465976413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307f0068522305%3A0x9ededf0c1c83c71b!2sMoto%20Baku%20Academy%20Bay%C4%B1l%20filial%C4%B1!5e1!3m2!1sen!2saz!4v1757786950560!5m2!1sen!2saz"
+                    width="160"
+                    height="160"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -741,7 +1198,7 @@
               <div class="logo">
                 <a class="logo__link" href="index.html">
                   <div class="logo__icon">
-                    <img src="assets/images/Logo.png" alt="KeyMoto" />
+                    <img src="assets/images/logo.webp" alt="KeyMoto" />
                   </div>
                   <div class="logo__text">Moto Baku Academy</div>
                 </a>
@@ -752,7 +1209,7 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about.html">Haqqımızda</a></li>
                 <li><a href="./packages.html">Təlim paketlərimiz</a></li>
-                <li><a href="./page-blog-grid.html">Bloqlar</a></li>
+                <li><a href="./page-blog-grid.html">Qara Geyimli Adam</a></li>
                 <li><a href="./contact.html">Əlaqə </a></li>
               </ul>
             </div>

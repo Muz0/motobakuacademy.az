@@ -44,7 +44,15 @@
     <link rel="stylesheet" href="assets/css/slick.css" />
     <link rel="stylesheet" href="assets/css/slick-theme.css" />
     <link rel="stylesheet" href="assets/css/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="assets/css/main.css?v=1.0.1" />
+    <link rel="stylesheet" href="assets/css/main.css?v=1.0.2" />
+    <style>
+      .uk-container {
+        padding: 25px;
+      }
+      .uk-section {
+        padding: 25px;
+      }
+    </style>
   </head>
 
   <body class="page-article">
@@ -65,7 +73,7 @@
             <div class="logo">
               <a class="logo__link" href="index.html">
                 <div class="logo__icon">
-                  <img src="assets/images/Logo.png" alt="KeyMoto" />
+                  <img src="assets/images/logo.webp" alt="KeyMoto" />
                 </div>
                 <div class="logo__text">MOTO BAKU ACADEMY</div>
               </a>
@@ -77,7 +85,7 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about.html">Haqqımızda</a></li>
                 <li><a href="./packages.html">Təlim paketlərimiz</a></li>
-                <li><a href="./about.html">Bloqlar</a></li>
+                <li><a href="./about.html">Qara Geyimli Adam</a></li>
                 <li><a href="./contact.html">Əlaqə</a></li>
               </ul>
             </nav>
@@ -119,47 +127,335 @@
           </div>
         </div>
         <div class="page-content">
-          <div class="uk-section-large uk-container">
+          <div class="uk-section uk-container">
+            <div class="uk-section uk-container">
+              <style>
+                /* --- Team Intro --- */
+                .uk-text-center p {
+                  margin: 6px 0;
+                  line-height: 1.5;
+                  color: #222; /* darker text for more emphasis */
+                  font-weight: 500;
+                  font-size: 22px;
+                }
+
+                .uk-text-center .uk-h4 {
+                  font-size: 32px;
+                  font-weight: 800; /* heavier heading */
+                  margin-bottom: 12px;
+                  text-transform: uppercase;
+                }
+
+                /* Optional underline / accent line */
+                .uk-text-center .uk-h4::after {
+                  content: "";
+                  display: block;
+                  width: 80px;
+                  height: 4px;
+                  background-color: #e63946; /* stronger accent */
+                  margin: 12px auto 0 auto;
+                  border-radius: 2px;
+                }
+
+                /* --- Team Images --- */
+                .uk-inline-clip img {
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                  aspect-ratio: 3/4;
+                  border-radius: 12px; /* more pronounced rounded corners */
+                  transition: transform 0.4s ease, box-shadow 0.4s ease;
+                  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* base shadow for weight */
+                }
+
+                /* Hover effect: stronger zoom + deeper shadow */
+                .uk-inline-clip:hover img {
+                  transform: scale(1.08);
+                  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+                }
+
+                /* Name tags overlay */
+                .uk-inline-clip .uk-position-bottom {
+                  background: rgba(
+                    0,
+                    0,
+                    0,
+                    0.75
+                  ); /* darker overlay for stronger contrast */
+                  padding: 8px 0;
+                  border-radius: 0 0 12px 12px;
+                }
+
+                /* Name tag text */
+                .uk-inline-clip .uk-position-bottom strong {
+                  color: #fff;
+                  font-size: 18px; /* bigger font */
+                  font-weight: 700; /* heavier text */
+                  display: block;
+                  letter-spacing: 0.5px;
+                }
+
+                /* Spacing between grid items */
+                .uk-grid-small > * {
+                  margin-bottom: 20px; /* more vertical space */
+                }
+
+                /* Responsive adjustments */
+                @media (max-width: 640px) {
+                  .uk-inline-clip .uk-position-bottom strong {
+                    font-size: 16px;
+                  }
+                  .uk-text-center .uk-h4 {
+                    font-size: 26px;
+                  }
+                }
+              </style>
+              <!-- Centered team intro -->
+              <div class="uk-text-center uk-margin-bottom">
+                <p class="uk-h4 uk-margin-remove">Komandamız:</p>
+                <p class="uk-margin-remove">
+                  Sürüş təcrübənizi maksimum təhlükəsizlik və peşəkarlıqla
+                  inkişaf etdirmək üçün hər zaman yanınızdayıq.
+                </p>
+                <p class="uk-margin-remove">
+                  Hər bir tələbəmiz bizim üçün əvəzsizdir və fərdi yanaşma ilə
+                  onların bacarıqlarını ən yüksək səviyyəyə çıxarmağa sadiqik.
+                </p>
+              </div>
+              <!-- Team gallery grid -->
+              <div
+                class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-6@m"
+                uk-grid
+              >
+                <!-- Person 1 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="./assets/images/team/mirfariz.png"
+                      alt="Person 1"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mirfariz <br />
+                        Təsisçi və Direktor (QGA)</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 2 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="https://picsum.photos/300/400?random=2"
+                      alt="Person 2"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mərdan <br />
+                        Təsisçi və Direktor</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 3 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="./assets/images/team/mirruzi.png"
+                      alt="Person 3"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mirruzi <br />
+                        Baş təlimçi</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 4 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="./assets/images/team/mirsahib.png"
+                      alt="Person 4"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mirsahib <br />
+                        Təlimçi</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 5 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="./assets/images/team/mirmehdi.png"
+                      alt="Person 5"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mirmehdi <br />
+                        Təlimçi</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 5 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="https://picsum.photos/300/400?random=2"
+                      alt="Person 2"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Əli <br />
+                        Təlimçi</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <style>
+              /* Make gallery images responsive and keep 3:4 ratio */
+              .uk-inline-clip img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                aspect-ratio: 3/4;
+                border-radius: 8px; /* optional: rounded corners */
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+              }
+
+              /* Hover effect: slightly zoom the image */
+              .uk-inline-clip:hover img {
+                transform: scale(1.05);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+              }
+
+              /* Name tag overlay at bottom */
+              .uk-inline-clip .uk-position-bottom {
+                background: rgba(
+                  0,
+                  0,
+                  0,
+                  0.6
+                ); /* semi-transparent dark overlay */
+                padding: 6px 0;
+                border-radius: 0 0 8px 8px;
+              }
+
+              /* Name tag text */
+              .uk-inline-clip .uk-position-bottom strong {
+                color: #fff;
+                font-size: 16px;
+                display: block;
+              }
+
+              /* Optional: spacing between grid items */
+              .uk-grid-small > * {
+                margin-bottom: 15px;
+              }
+
+              /* Responsive text size for mobile */
+              @media (max-width: 640px) {
+                .uk-inline-clip .uk-position-bottom strong {
+                  font-size: 14px;
+                }
+              }
+            </style>
             <div class="uk-grid" data-uk-grid>
               <div class="uk-width-3-3@m">
-                <article class="article-full">
+                <article
+                  class="article-full"
+                  style="font-size: 24px; text-align: justify"
+                >
                   <p>
                     <strong>Moto Baku Academy</strong> – Azərbaycanda ilk və ən
                     nüfuzlu motosiklet təlim məktəbi!
                   </p>
+
                   <p>
-                    📅 2013-cü ildən etibarən fəaliyyət göstəririk və bu müddət
-                    ərzində 5000+ qadın və kişi tələbəmiz uğurla təlimlərimizi
-                    başa vuraraq sertifikat əldə edib. Təcrübəmiz və
-                    peşəkarlığımız sayəsində hər bir tələbəyə fərdi yanaşma
-                    təmin edirik.
+                    📅 2013-cü ildən fəaliyyət göstərən akademiyamız bu günə
+                    qədər 10,000-dən çox tələbəyə uğurla təlim keçərək onların
+                    motosiklet dünyasına peşəkar və təhlükəsiz addım atmasına
+                    şərait yaradıb. Təcrübəli heyətimiz hər bir iştirakçıya
+                    fərdi yanaşma tətbiq edir və biliklərin effektiv şəkildə
+                    mənimsənilməsini təmin edir.
                   </p>
+
                   <p>
-                    👥 Hal-hazırda 100+ aktiv tələbə ilə müxtəlif səviyyələrdə
-                    təlimlər davam edir. Məqsədimiz həm yeni başlayanlara, həm
-                    də təcrübəli sürücülərə yüksək səviyyəli bilik və bacarıqlar
-                    qazandırmaqdır.
+                    👥 Hal-hazırda 200-dən artıq aktiv tələbəmiz müxtəlif
+                    səviyyələr üzrə təlimlərini davam etdirir. Akademiyamız həm
+                    yeni başlayanlara, həm də təcrübəli sürücülərə uyğun
+                    proqramlar təqdim edir.
                   </p>
+
                   <p>
-                    🎓 Təlimçilərimiz peşəkar və ixtisaslıdır – Türkiyədə
-                    ixtisaslaşmış və beynəlxalq standartlara uyğun təlim
-                    metodları ilə sizə ən effektiv və təhlükəsiz tədrisi təqdim
-                    edirlər.
+                    🎓 Təlimçilərimiz Türkiyədə ixtisaslaşmış peşəkar
+                    mütəxəssislərdir. Onların beynəlxalq standartlara uyğun
+                    metodları sayəsində tələbələrimiz ən təhlükəsiz və praktik
+                    tədris imkanına sahib olurlar.
                   </p>
+
                   <p>
-                    ✅ Təhlükəsizlik bizim prioritetimizdir. Təlimlər zamanı hər
-                    bir tələbəyə xüsusi diqqət yetirilir və praktiki
-                    bacarıqların mükəmməl şəkildə öyrədilməsi təmin olunur.
+                    ✅ Təhlükəsizlik Moto Baku Academy-nin əsas prioritetidir.
+                    Hər bir dərs zamanı tələbələrə fərdi diqqət göstərilir və
+                    praktiki bacarıqlar real şəraitdə formalaşdırılır.
                   </p>
-                  <p>📍 İki rahat və əlverişli filialımız mövcuddur:</p>
+
+                  <p>📍 Akademiyamızın iki filialı mövcuddur:</p>
                   <ul class="list list-mark-1">
                     <li>Su İdman Sarayı</li>
                     <li>Elit Ticarət Mərkəzi</li>
                   </ul>
+
                   <p>
-                    🛵 Bununla yanaşı, Moto Baku Academy-də motosiklet satışı da
-                    mövcuddur. İstər yeni, istərsə də ikinci əl motosikletlər,
-                    həmçinin aksessuar və avadanlıqlar ilə xidmət göstəririk.
+                    🔹 Moto Baku Academy yalnız təlimlərlə məhdudlaşmır. Burada
+                    siz həmçinin aşağıdakı xidmətlərdən də yararlana bilərsiniz:
+                  </p>
+                  <ul class="list list-mark-1">
+                    <li>
+                      Motosiklet satışı – yeni və ikinci əl modellər, eləcə də
+                      bütün lazımi avadanlıqlar və aksessuarlar
+                    </li>
+                    <li>Motosiklet seçimi üzrə peşəkar məsləhətlər</li>
+                    <li>
+                      Moto evakuator xidməti – istənilən halda operativ dəstək
+                    </li>
+                    <li>Texniki servis və dəstək</li>
+                  </ul>
+
+                  <p>
+                    👉 Moto Baku Academy – öyrənmək, sürmək və tam dəstək almaq
+                    üçün etibarlı ünvan!
                   </p>
                 </article>
               </div>
@@ -176,25 +472,39 @@
             >
               <div>
                 <div class="section-title">
-                  <span>Latest news and deals directly to your inbox</span>
-                  <div class="uk-h2">Subscribe for updated</div>
+                  <span class="uk-h2" style="color: #e63619"
+                    >Sənin motosiklet yolun burada başlayır!</span
+                  >
                 </div>
               </div>
               <div>
                 <div class="subscribe-box__form">
                   <form action="#!">
                     <div class="uk-flex uk-flex-middle">
+                      <style>
+                        .phone-placeholder {
+                          text-align: center;
+                          font-size: 32px;
+                        }
+
+                        /* Placeholder text styling */
+                        .phone-placeholder::placeholder {
+                          font-size: 32px;
+                          text-align: center;
+                          color: #333; /* optional */
+                        }
+                      </style>
                       <input
-                        class="uk-input"
-                        type="email"
-                        name="email"
-                        placeholder="Email Address ...."
-                      /><button
+                        class="uk-input phone-placeholder"
+                        placeholder="+994 51 473 59 59"
+                        disabled
+                      />
+                      <a
                         class="uk-button uk-button-danger"
-                        type="submit"
+                        href="./contact.html"
+                        style="text-wrap: nowrap"
+                        >Bizə qoşul !</a
                       >
-                        Subscribe
-                      </button>
                     </div>
                   </form>
                 </div>
@@ -215,7 +525,7 @@
                   <div class="logo">
                     <a class="logo__link" href="index.html">
                       <div class="logo__icon">
-                        <img src="assets/images/Logo.png" alt="KeyMoto" />
+                        <img src="assets/images/logo.webp" alt="KeyMoto" />
                       </div>
                       <div class="logo__text">Moto Baku Academy</div>
                     </a>
@@ -234,7 +544,7 @@
                         <div class="support__label">
                           Daha ətraflı məlumat üçün
                         </div>
-                        <div class="support__phone">+994 51 473 5959</div>
+                        <div class="support__phone">+994 51 473 59 59</div>
                       </div>
                     </a>
                   </div>
@@ -289,7 +599,7 @@
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./about.html">Haqqımızda</a></li>
                     <li><a href="./packages.html">Təlim paketlərimiz</a></li>
-                    <li><a href="./about.html">Bloqlar</a></li>
+                    <li><a href="./about.html">Qara Geyimli Adam</a></li>
                     <li><a href="./contact.html">Əlaqə</a></li>
                   </ul>
                 </div>
@@ -351,6 +661,16 @@
                       </div>
                     </li>
                   </ul>
+                  <br />
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.4245618756636!2d49.83578477598596!3d40.3332465976413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307f0068522305%3A0x9ededf0c1c83c71b!2sMoto%20Baku%20Academy%20Bay%C4%B1l%20filial%C4%B1!5e1!3m2!1sen!2saz!4v1757786950560!5m2!1sen!2saz"
+                    width="160"
+                    height="160"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -381,7 +701,7 @@
               <div class="logo">
                 <a class="logo__link" href="index.html">
                   <div class="logo__icon">
-                    <img src="assets/images/Logo.png" alt="KeyMoto" />
+                    <img src="assets/images/logo.webp" alt="KeyMoto" />
                   </div>
                   <div class="logo__text">Moto Baku Academy</div>
                 </a>
@@ -392,7 +712,7 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about.html">Haqqımızda</a></li>
                 <li><a href="./packages.html">Təlim paketlərimiz</a></li>
-                <li><a href="./page-blog-grid.html">Bloqlar</a></li>
+                <li><a href="./page-blog-grid.html">Qara Geyimli Adam</a></li>
                 <li><a href="./contact.html">Əlaqə </a></li>
               </ul>
             </div>
