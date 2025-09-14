@@ -44,6 +44,14 @@
     <link rel="stylesheet" href="assets/css/slick-theme.css" />
     <link rel="stylesheet" href="assets/css/ion.rangeSlider.css" />
     <link rel="stylesheet" href="assets/css/main.css?v=1.0.2" />
+    <style>
+      .uk-container {
+        padding: 25px;
+      }
+      .uk-section {
+        padding: 25px;
+      }
+    </style>
   </head>
 
   <body class="page-article">
@@ -192,37 +200,6 @@
                       dolores eos qui ratione voluptatem sequi nesciunt. Neque
                       porro quisquam est qui dolorem.
                     </p>
-                    <blockquote>
-                      <p>
-                        Consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt labore et dolore magna aliqua nostrud
-                        exercitation.
-                      </p>
-                      <span>John Bolton</span>
-                    </blockquote>
-                    <p>
-                      Quasi architecto beatae vitae dicta. Sunt explicabo. Nemo
-                      enim ipsam voluptatem quia voluptas ipsu sit aspernatur
-                      aut odit aut fugit, sed onsequ untur magni dolores eos qui
-                      ratione voluptatem sequi nesciuny Neque porro quisquam est
-                      qui dolorem ipsum quia dolor sit amet consectetur.
-                    </p>
-                    <div class="uk-grid uk-child-width-1-2@s" data-uk-grid>
-                      <div>
-                        <img
-                          class="uk-width-1-1"
-                          src="assets/img/news-thumd-1.jpg"
-                          alt="news-thumd"
-                        />
-                      </div>
-                      <div>
-                        <img
-                          class="uk-width-1-1"
-                          src="assets/img/news-thumd-2.jpg"
-                          alt="news-thumd"
-                        />
-                      </div>
-                    </div>
                     <p>
                       Accusantium doloremque laudantium, totam rem aperiam eaque
                       ipsa quae ab illo inventore veritatis quasi architecto
@@ -233,14 +210,6 @@
                     </p>
                   </div>
                   <div class="article__bottom">
-                    <div class="article__tags">
-                      <b>Tags:</b>
-                      <ul>
-                        <li><a href="#!">Dealership</a></li>
-                        <li><a href="#!">Adventure</a></li>
-                        <li><a href="#!">Racing</a></li>
-                      </ul>
-                    </div>
                     <div class="article__share">
                       <b>Share:</b>
                       <ul class="social-list">
@@ -270,36 +239,6 @@
                           ></a>
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                  <div class="article__nav">
-                    <div class="article-nav article-nav--prev">
-                      <a class="article-nav__link" href="#!">
-                        <div
-                          class="article-nav__bg"
-                          style="
-                            background-image: url(assets/img/news-thumd-1.jpg);
-                          "
-                        ></div>
-                        <div class="article-nav__title">
-                          <div class="uk-h5">How To Buy The Right Motorc</div>
-                          <span>read the previous post</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="article-nav article-nav--next">
-                      <a class="article-nav__link" href="#!">
-                        <div
-                          class="article-nav__bg"
-                          style="
-                            background-image: url(assets/img/news-thumd-2.jpg);
-                          "
-                        ></div>
-                        <div class="article-nav__title">
-                          <div class="uk-h5">Equipped With Latest 3 Modes</div>
-                          <span>read the next post</span>
-                        </div>
-                      </a>
                     </div>
                   </div>
                 </article>
@@ -386,6 +325,7 @@
                               class="uk-input uk-form-large"
                               type="text"
                               placeholder="Name"
+                              disabled
                             />
                           </div>
                           <div>
@@ -393,6 +333,7 @@
                               class="uk-input uk-form-large"
                               type="text"
                               placeholder="Email"
+                              disabled
                             />
                           </div>
                           <div class="uk-width-1-1">
@@ -400,18 +341,21 @@
                               class="uk-input uk-form-large"
                               type="text"
                               placeholder="Write a Subject"
+                              disabled
                             />
                           </div>
                           <div class="uk-width-1-1">
                             <textarea
                               class="uk-textarea uk-form-large"
                               placeholder="Message"
+                              disabled
                             ></textarea>
                           </div>
                           <div>
                             <button
                               class="uk-button uk-button-danger uk-button-large"
                               type="submit"
+                              disabled
                             >
                               Post comment
                             </button>
@@ -424,77 +368,6 @@
               </div>
               <div class="uk-width-1-3@m">
                 <aside class="sidebar">
-                  <div class="widjet widjet--search">
-                    <div class="widjet__title">
-                      <div class="uk-h4">Search blog</div>
-                      <span>find any post</span>
-                    </div>
-                    <div class="widjet__content">
-                      <form class="uk-search uk-search-default uk-width-1-1">
-                        <span
-                          class="uk-search-icon-flip"
-                          data-uk-search-icon
-                        ></span
-                        ><input
-                          class="uk-search-input uk-form-large"
-                          type="search"
-                          placeholder="Type keyword..."
-                        />
-                      </form>
-                    </div>
-                  </div>
-                  <div class="widjet widjet--categories">
-                    <div class="widjet__title">
-                      <div class="uk-h4">Categories</div>
-                      <span>the blog categories</span>
-                    </div>
-                    <div class="widjet__content">
-                      <ul class="categories-list">
-                        <li class="categories-item">
-                          <a class="categories-item__link" href="#!"
-                            ><span class="categories-item__title"
-                              ><span data-uk-icon="triangle-right"></span
-                              >Motorcycles</span
-                            ><span class="categories-item__count">(34)</span></a
-                          >
-                        </li>
-                        <li class="categories-item">
-                          <a class="categories-item__link" href="#!"
-                            ><span class="categories-item__title"
-                              ><span data-uk-icon="triangle-right"></span
-                              >Adventures</span
-                            ><span class="categories-item__count">(9)</span></a
-                          >
-                        </li>
-                        <li class="categories-item">
-                          <a class="categories-item__link" href="#!"
-                            ><span class="categories-item__title"
-                              ><span data-uk-icon="triangle-right"></span
-                              >Travelling</span
-                            ><span class="categories-item__count">(80)</span></a
-                          >
-                        </li>
-                        <li class="categories-item">
-                          <a class="categories-item__link" href="#!"
-                            ><span class="categories-item__title"
-                              ><span data-uk-icon="triangle-right"></span>Buying
-                              Guides</span
-                            ><span class="categories-item__count">(12)</span></a
-                          >
-                        </li>
-                        <li class="categories-item">
-                          <a class="categories-item__link" href="#!"
-                            ><span class="categories-item__title"
-                              ><span data-uk-icon="triangle-right"></span
-                              >Motorcycle Brands</span
-                            ><span class="categories-item__count"
-                              >(104)</span
-                            ></a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
                   <div class="widjet widjet--recent-posts">
                     <div class="widjet__title">
                       <div class="uk-h4">Recent posts</div>
@@ -571,93 +444,6 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="widjet widjet--recent-posts">
-                    <div class="widjet__title">
-                      <div class="uk-h4">Popular Tags</div>
-                      <span>The tags cloud</span>
-                    </div>
-                    <div class="widjet__content">
-                      <ul class="tags-cloud">
-                        <li><a href="#!">Motorcycles</a></li>
-                        <li><a href="#!">Dealership</a></li>
-                        <li><a href="#!">KTM</a></li>
-                        <li><a href="#!">Suzuki</a></li>
-                        <li><a href="#!">Racing</a></li>
-                        <li><a href="#!">Adventure</a></li>
-                        <li><a href="#!">BMW</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="widjet widjet--latest-motorcycles">
-                    <div class="widjet__title">
-                      <div class="uk-h4">Latest motorcycles</div>
-                      <span>popular models reviews</span>
-                    </div>
-                    <div class="widjet__content">
-                      <div class="latest-motorcycles">
-                        <div class="latest-motorcycles__media">
-                          <div
-                            class="uk-position-relative uk-light"
-                            tabindex="-1"
-                            data-uk-slider
-                          >
-                            <ul class="uk-slider-items uk-child-width-1-1">
-                              <li>
-                                <img
-                                  class="uk-width-1-1"
-                                  src="assets/img/news-thumd-3.jpg"
-                                  alt="news-thumb"
-                                />
-                              </li>
-                              <li>
-                                <img
-                                  class="uk-width-1-1"
-                                  src="assets/img/news-thumd-2.jpg"
-                                  alt="news-thumb"
-                                />
-                              </li>
-                              <li>
-                                <img
-                                  class="uk-width-1-1"
-                                  src="assets/img/news-thumd-1.jpg"
-                                  alt="news-thumb"
-                                />
-                              </li>
-                            </ul>
-                            <a
-                              class="uk-position-center-left"
-                              href="#"
-                              data-uk-slidenav-previous
-                              data-uk-slider-item="previous"
-                            ></a
-                            ><a
-                              class="uk-position-center-right"
-                              href="#"
-                              data-uk-slidenav-next
-                              data-uk-slider-item="next"
-                            >
-                            </a>
-                          </div>
-                        </div>
-                        <div class="latest-motorcycles__body">
-                          <div class="latest-motorcycles__title">
-                            <a href="#!">Harley Davidson S90</a>
-                          </div>
-                          <div class="latest-motorcycles__price">
-                            <span>$6,200</span>
-                          </div>
-                          <div class="latest-motorcycles__info">
-                            <div class="latest-motorcycles__model">
-                              <span>Model: 2021</span>
-                            </div>
-                            <div class="latest-motorcycles__type">
-                              <span>Type: Cruiser</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </aside>
               </div>
             </div>
@@ -673,25 +459,39 @@
             >
               <div>
                 <div class="section-title">
-                  <span>Latest news and deals directly to your inbox</span>
-                  <div class="uk-h2">Subscribe for updated</div>
+                  <span class="uk-h2" style="color: #e63619"
+                    >Sənin motosiklet yolun burada başlayır!</span
+                  >
                 </div>
               </div>
               <div>
                 <div class="subscribe-box__form">
                   <form action="#!">
                     <div class="uk-flex uk-flex-middle">
+                      <style>
+                        .phone-placeholder {
+                          text-align: center;
+                          font-size: 32px;
+                        }
+
+                        /* Placeholder text styling */
+                        .phone-placeholder::placeholder {
+                          font-size: 32px;
+                          text-align: center;
+                          color: #333; /* optional */
+                        }
+                      </style>
                       <input
-                        class="uk-input"
-                        type="email"
-                        name="email"
-                        placeholder="Email Address ...."
-                      /><button
+                        class="uk-input phone-placeholder"
+                        placeholder="+994 51 473 59 59"
+                        disabled
+                      />
+                      <a
                         class="uk-button uk-button-danger"
-                        type="submit"
+                        href="./contact.html"
+                        style="text-wrap: nowrap"
+                        >Bizə qoşul !</a
                       >
-                        Subscribe
-                      </button>
                     </div>
                   </form>
                 </div>
@@ -848,6 +648,16 @@
                       </div>
                     </li>
                   </ul>
+                  <br />
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.4245618756636!2d49.83578477598596!3d40.3332465976413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307f0068522305%3A0x9ededf0c1c83c71b!2sMoto%20Baku%20Academy%20Bay%C4%B1l%20filial%C4%B1!5e1!3m2!1sen!2saz!4v1757786950560!5m2!1sen!2saz"
+                    width="160"
+                    height="160"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
             </div>
