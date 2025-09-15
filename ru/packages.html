@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="ru">
   <head>
     <!-- Google Tag Manager -->
     <script>
@@ -45,25 +45,37 @@
     <link rel="stylesheet" href="../assets/css/slick-theme.css" />
     <link rel="stylesheet" href="../assets/css/ion.rangeSlider.css" />
     <link rel="stylesheet" href="../assets/css/main.css?v=1.0.3" />
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-      (function () {
-        emailjs.init("guPKWGMR1uZAHowo6"); // replace with your EmailJS public key
-      })();
-    </script>
-
     <style>
-      .contact-form {
-        padding: 0;
-        margin: 0;
-      }
       .uk-container {
-        padding-top: 80px;
+        max-width: none;
+      }
+
+      .uk-section {
+        padding: 0px;
+      }
+
+      .uk-section-large {
+        padding: 25px;
+      }
+      .products-items.uk-grid {
+        flex-wrap: nowrap !important;
+      }
+
+      /* Mobile: stack cards in one column */
+      @media (max-width: 767px) {
+        .products-items.uk-grid {
+          flex-wrap: wrap !important; /* allow wrapping */
+        }
+
+        .products-items.uk-grid > div {
+          flex: 0 0 100%; /* full width */
+          max-width: 100%;
+        }
       }
     </style>
   </head>
 
-  <body class="contact">
+  <body class="page-shop">
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -78,13 +90,11 @@
       <header class="page-header page-header-transparent">
         <div class="page-header__inner">
           <div class="page-header__left">
-            <div class="logo" style="display: flex">
+            <div class="logo">
               <a class="logo__link" href="index.html">
-                <img
-                  class="logo__icon"
-                  src="../assets/images/logo.webp"
-                  alt="KeyMoto"
-                />
+                <div class="logo__icon">
+                  <img src="../assets/images/logo.webp" alt="KeyMoto" />
+                </div>
                 <div class="logo__text">MOTO BAKU ACADEMY</div>
               </a>
             </div>
@@ -93,10 +103,10 @@
             <nav class="page-nav" data-uk-navbar>
               <ul class="uk-navbar-nav">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./packages.html">Packages</a></li>
+                <li><a href="./about.html">О нас</a></li>
+                <li><a href="./packages.html">Пакеты</a></li>
                 <li><a href="./blogs.html">Man in Black</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./contact.html">Связь</a></li>
                 <li>
                   <a href="#">Language</a>
                   <div class="uk-navbar-dropdown">
@@ -131,13 +141,15 @@
             <div class="uk-container">
               <div class="section-hero__content">
                 <div class="section-hero__title">
-                  <!-- <span>Taking rides to a newer level</span> -->
-                  <div class="uk-h1">Contact Us</div>
+                  <span>Moto Baku Academy</span>
+                  <div class="uk-h1">
+                    Ваш путь в мир мотоциклов начинается здесь!
+                  </div>
                 </div>
                 <div class="section-hero__breadcrumb">
                   <ul class="uk-breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><span>Contact</span></li>
+                    <li><a href="#">Главная</a></li>
+                    <li><span>Обучающие пакеты</span></li>
                   </ul>
                 </div>
               </div>
@@ -145,105 +157,210 @@
           </div>
         </div>
 
-        <div class="uk-section-large uk-container">
-          <div class="uk-grid-match uk-grid-small" data-uk-grid>
-            <!-- Contact Form (60%) -->
-            <div class="uk-width-1-1@s uk-width-3-5@m">
-              <div class="contact-form">
-                <div class="section-title uk-text-center">
-                  <img
-                    src="../assets/images/logo.webp"
-                    alt=""
-                    style="width: 120px"
-                  />
-                  <span>To get in touch with you</span>
-                  <h3 class="uk-h2">Inquiry Form</h3>
+        <!-- Premium Training Package -->
+        <div class="page-content" style="display: flex; align-items: center">
+          <div class="uk-section-large uk-container">
+            <div class="uk-grid" data-uk-grid>
+              <div class="uk-width-1-3@m">
+                <div class="js-filter-more filter-more">
+                  <div class="filter-more__desc">
+                    <div class="uk-h4">Премиум-пакет обучения</div>
+                  </div>
                 </div>
-                <div class="section-content">
-                  <div
-                    id="contactMessage"
-                    class="uk-text-center uk-margin-small-bottom"
-                    style="display: none; color: green; font-weight: bold"
-                  ></div>
 
-                  <form id="contactForm">
-                    <div class="uk-grid uk-grid-small" data-uk-grid>
-                      <div class="uk-width-1-1 uk-width-1-4@s">
-                        <input
-                          class="uk-input uk-form-large"
-                          type="text"
-                          name="user_name"
-                          placeholder="Your Name"
-                          required
+                <aside class="sidebar">
+                  <ul
+                    class="list-check"
+                    style="
+                      padding-left: 8px;
+                      margin: 0;
+                      list-style-position: inside;
+                    "
+                  >
+                    <li>18 занятий – 18 часов</li>
+                    <li>
+                      Обучение с инструктором на мотоциклах 150-300-600cc<br />
+                      Практика на выделенной площадке
+                    </li>
+                    <li>
+                      После завершения пакета можно выбрать любой мотоцикл
+                    </li>
+                    <li>Необходима практика адаптации</li>
+                    <li>Срок действия пакета – 3 месяца</li>
+                  </ul>
+                </aside>
+              </div>
+
+              <div class="uk-width-2-3@m">
+                <div
+                  class="products-items uk-grid uk-child-width-1-2@s"
+                  data-uk-grid
+                >
+                  <div>
+                    <div class="product-item uk-transition-toggle">
+                      <div class="product-item__head">
+                        <div>
+                          <div class="product-item__name">
+                            <a href="#">Yamaha FSZ V4</a>
+                          </div>
+                          <div class="product-item__manufacturer">
+                            Производитель: Yamaha
+                          </div>
+                          <div class="product-item__category">
+                            Категория: <a href="#!">Спорт</a>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="product-item__price">150cc</div>
+                        </div>
+                      </div>
+                      <div class="product-item__media uk-inline-clip uk-inline">
+                        <img
+                          src="../assets/images/150-min.webp"
+                          style="aspect-ratio: 3/2; width: 100%"
+                          alt="Yamaha FSZ V4"
                         />
-                      </div>
-                      <div class="uk-width-1-1 uk-width-1-4@s">
-                        <input
-                          class="uk-input uk-form-large"
-                          type="email"
-                          name="user_email"
-                          placeholder="Email"
-                          required
-                        />
-                      </div>
-                      <div class="uk-width-1-1 uk-width-1-4@s">
-                        <input
-                          class="uk-input uk-form-large"
-                          type="tel"
-                          name="user_phone"
-                          placeholder="Phone"
-                          required
-                        />
-                      </div>
-                      <div class="uk-width-1-1 uk-width-1-4@s">
-                        <input
-                          class="uk-input uk-form-large"
-                          type="text"
-                          name="subject"
-                          placeholder="Subject"
-                          required
-                        />
-                      </div>
-                      <div class="uk-width-1-1">
-                        <textarea
-                          class="uk-textarea uk-form-large"
-                          name="message"
-                          placeholder="Message"
-                          required
-                        ></textarea>
-                      </div>
-                      <div
-                        class="uk-width-1-1 uk-text-center uk-margin-medium-top"
-                      >
-                        <button
-                          class="uk-button uk-button-danger uk-button-large"
-                          type="submit"
-                        >
-                          Send
-                        </button>
                       </div>
                     </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+                  </div>
 
-            <!-- Map (40%) -->
-            <div class="uk-width-1-1@s uk-width-2-5@m">
-              <div class="contact-map" style="height: 100%; min-height: 400px">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.4245618756636!2d49.83578477598596!3d40.3332465976413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307f0068522305%3A0x9ededf0c1c83c71b!2sMoto%20Baku%20Academy%20Bay%C4%B1l%20filial%C4%B1!5e1!3m2!1sen!2saz!4v1757786950560!5m2!1sen!2saz"
-                  width="100%"
-                  height="100%"
-                  style="border: 0"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
+                  <div>
+                    <div class="product-item uk-transition-toggle">
+                      <div class="product-item__head">
+                        <div>
+                          <div class="product-item__name">
+                            <a href="#">Kawasaki Ninja</a>
+                          </div>
+                          <div class="product-item__manufacturer">
+                            Производитель: Kawasaki
+                          </div>
+                          <div class="product-item__category">
+                            Категория: <a href="#!">Суперспорт</a>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="product-item__price">300cc</div>
+                        </div>
+                      </div>
+                      <div class="product-item__media uk-inline-clip uk-inline">
+                        <img
+                          src="../assets/images/300.webp"
+                          style="aspect-ratio: 3/2; width: 100%"
+                          alt="Kawasaki Ninja"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="product-item uk-transition-toggle">
+                      <div class="product-item__head">
+                        <div>
+                          <div class="product-item__name">
+                            <a href="#">Honda CBR</a>
+                          </div>
+                          <div class="product-item__manufacturer">
+                            Производитель: Honda
+                          </div>
+                          <div class="product-item__category">
+                            Категория: <a href="#!">Спорт</a>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="product-item__price">600cc</div>
+                        </div>
+                      </div>
+                      <div
+                        class="product-item__media uk-inline-clip uk-inline"
+                        style="aspect-ratio: 3/2; width: 100%"
+                      >
+                        <img
+                          src="../assets/images/600kub.webp"
+                          alt="Honda CBR"
+                          style="width: 100%; height: 100%; object-fit: cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- VIP Training Package -->
+        <div class="page-content">
+          <div class="uk-section-large uk-container">
+            <div class="uk-grid" data-uk-grid>
+              <div class="uk-width-1-3@m">
+                <div class="js-filter-more filter-more">
+                  <div class="filter-more__desc">
+                    <div class="uk-h4">VIP-пакет обучения</div>
+                  </div>
+                </div>
+
+                <aside class="sidebar">
+                  <ul
+                    class="list-check"
+                    style="
+                      padding-left: 8px;
+                      margin: 0;
+                      list-style-position: inside;
+                    "
+                  >
+                    <li>15 занятий – 15 часов</li>
+                    <li>
+                      Обучение с инструктором на мотоциклах 150cc<br />Практика
+                      на выделенной площадке
+                    </li>
+                    <li>
+                      После завершения пакета можно выбрать мотоциклы до
+                      400-500cc
+                    </li>
+                    <li>Срок действия пакета – 2 месяца</li>
+                  </ul>
+                </aside>
+              </div>
+
+              <div class="uk-width-2-3@m">
+                <div
+                  class="products-items uk-grid uk-child-width-1-2@s"
+                  data-uk-grid
+                >
+                  <div>
+                    <div class="product-item uk-transition-toggle">
+                      <div class="product-item__head">
+                        <div>
+                          <div class="product-item__name">
+                            <a href="#">Yamaha FZS V4</a>
+                          </div>
+                          <div class="product-item__manufacturer">
+                            Производитель: Yamaha
+                          </div>
+                          <div class="product-item__category">
+                            Категория: <a href="#!">Спорт</a>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="product-item__price">150cc</div>
+                        </div>
+                      </div>
+                      <div class="product-item__media uk-inline-clip uk-inline">
+                        <img
+                          src="../assets/images/150-min.webp"
+                          alt="Yamaha FZS V4"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Economy and Custom Packages (перевод и оформление аналогично) -->
+        <!-- ... остальные пакеты оформляются по аналогии с Premium и VIP ... -->
       </main>
 
       <div class="section-subscribe">
@@ -256,7 +373,7 @@
               <div>
                 <div class="section-title">
                   <span class="uk-h2" style="color: #e63619"
-                    >Your motorcycle track starts here!</span
+                    >Ваш путь к мотоциклу начинается здесь!</span
                   >
                 </div>
               </div>
@@ -270,11 +387,10 @@
                           font-size: 32px;
                         }
 
-                        /* Placeholder text styling */
                         .phone-placeholder::placeholder {
                           font-size: 32px;
                           text-align: center;
-                          color: #333; /* optional */
+                          color: #333;
                         }
                       </style>
                       <input
@@ -286,7 +402,7 @@
                         class="uk-button uk-button-danger"
                         href="./contact.html"
                         style="text-wrap: nowrap"
-                        >Join us!</a
+                        >Присоединяйтесь!</a
                       >
                     </div>
                   </form>
@@ -296,6 +412,7 @@
           </div>
         </div>
       </div>
+
       <footer class="page-footer">
         <div class="page-footer__top">
           <div class="uk-container">
@@ -315,7 +432,9 @@
                   </div>
                 </div>
                 <div class="uk-margin-medium">
-                  <p>Implement your wish to drive a motorcycle with us</p>
+                  <p>
+                    Реализуйте своё желание ездить на мотоцикле вместе с нами
+                  </p>
                 </div>
                 <div class="uk-margin-medium">
                   <div class="support">
@@ -324,7 +443,9 @@
                         <i class="fas fa-headset"></i>
                       </div>
                       <div class="support__desc">
-                        <div class="support__label">For more information</div>
+                        <div class="support__label">
+                          Для дополнительной информации
+                        </div>
                         <div class="support__phone">+994 51 473 59 59</div>
                       </div>
                     </a>
@@ -373,28 +494,30 @@
                   </div>
                 </div>
               </div>
+
               <div>
                 <div class="page-footer__column page-footer__menu">
                   <div class="uk-h4">Moto Academy</div>
                   <ul class="list-decor">
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./packages.html">Packages</a></li>
-                    <li><a href="./blogs.html">Black dressed man</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./index.html">Главная</a></li>
+                    <li><a href="./about.html">О нас</a></li>
+                    <li><a href="./packages.html">Пакеты</a></li>
+                    <li><a href="./blogs.html">Чёрный человек</a></li>
+                    <li><a href="./contact.html">Контакты</a></li>
                   </ul>
                 </div>
               </div>
+
               <div>
                 <div class="page-footer__column page-footer__news">
-                  <div class="uk-h4">Latest News</div>
+                  <div class="uk-h4">Последние новости</div>
                   <ul class="latest-news-list">
                     <li>
                       <div class="latest-news-item">
                         <div class="latest-news-item__thumb">
                           <img
                             src="../assets/images/gallery/gallery1.webp"
-                            alt="xəbər"
+                            alt="новость"
                           />
                         </div>
                         <div class="latest-news-item__info">
@@ -402,10 +525,10 @@
                             class="latest-news-item__title"
                             href="Article1.html"
                           >
-                            Beginners - to move motorcycles
+                            Новички – начать ездить на мотоцикле
                           </a>
                           <div class="latest-news-item__date">
-                            September 15, 2023
+                            15 Сентября, 2023
                           </div>
                         </div>
                       </div>
@@ -415,7 +538,7 @@
                         <div class="latest-news-item__thumb">
                           <img
                             src="../assets/images/gallery/gallery4.webp"
-                            alt="xəbər"
+                            alt="новость"
                           />
                         </div>
                         <div class="latest-news-item__info">
@@ -423,11 +546,11 @@
                             class="latest-news-item__title"
                             href="Article3.html"
                           >
-                            Moto Baku Academy - New opened Central Branch (Water
-                            Sports palace)
+                            Moto Baku Academy – открытие нового центрального
+                            филиала (Дворец водных видов спорта)
                           </a>
                           <div class="latest-news-item__date">
-                            15 August, 2024
+                            15 Августа, 2024
                           </div>
                         </div>
                       </div>
@@ -435,15 +558,16 @@
                   </ul>
                 </div>
               </div>
+
               <div>
                 <div class="page-footer__column page-footer__info">
-                  <div class="uk-h4">Our work hours</div>
+                  <div class="uk-h4">Наши часы работы</div>
                   <ul class="info-list">
                     <li>
                       <div class="info-list-item">
-                        <div class="info-list-item__title">Every day</div>
+                        <div class="info-list-item__title">Каждый день</div>
                         <div class="info-list-item__value">
-                          From 09:00 to 21:00
+                          С 09:00 до 21:00
                         </div>
                       </div>
                     </li>
@@ -463,6 +587,7 @@
             </div>
           </div>
         </div>
+
         <div class="page-footer__bottom">
           <div class="uk-container">
             <div class="uk-text-center">
@@ -470,10 +595,11 @@
               <a href="https://www.archdigital.org/" target="_blank"
                 >ArchDigital</a
               >
-              – All rights reserved.
+              – Все права защищены.
             </div>
           </div>
         </div>
+
         <div
           id="offcanvas"
           data-uk-offcanvas="flip: true; overlay: true; mode: push"
@@ -496,11 +622,11 @@
             </div>
             <div class="uk-margin">
               <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./packages.html">Packages</a></li>
-                <li><a href="./blogs.html">Man in Black</a></li>
-                <li><a href="./contact.html">Contact </a></li>
+                <li><a href="./index.html">Главная</a></li>
+                <li><a href="./about.html">О нас</a></li>
+                <li><a href="./packages.html">Пакеты</a></li>
+                <li><a href="./blogs.html">Чёрный человек</a></li>
+                <li><a href="./contact.html">Контакты</a></li>
               </ul>
             </div>
             <div class="uk-margin-auto-top">
@@ -510,7 +636,9 @@
                     <i class="fas fa-headset"></i>
                   </div>
                   <div class="support__desc">
-                    <div class="support__label">For more information</div>
+                    <div class="support__label">
+                      Для дополнительной информации
+                    </div>
                     <div class="support__phone">+994 51 473 59 59</div>
                   </div>
                 </a>

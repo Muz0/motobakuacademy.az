@@ -40,11 +40,11 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../assets/css/uikit.min.css" />
-    <link rel="stylesheet" href="../assets/css/slick.css" />
-    <link rel="stylesheet" href="../assets/css/slick-theme.css" />
-    <link rel="stylesheet" href="../assets/css/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="../assets/css/main.css?v=1.0.3" />
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/css/slick.css" />
+    <link rel="stylesheet" href="assets/css/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=1.0.3" />
     <style>
       .uk-container {
         max-width: none;
@@ -93,7 +93,7 @@
             <div class="logo">
               <a class="logo__link" href="index.html">
                 <div class="logo__icon">
-                  <img src="../assets/images/logo.webp" alt="KeyMoto" />
+                  <img src="assets/images/logo.webp" alt="KeyMoto" />
                 </div>
                 <div class="logo__text">MOTO BAKU ACADEMY</div>
               </a>
@@ -103,21 +103,14 @@
             <nav class="page-nav" data-uk-navbar>
               <ul class="uk-navbar-nav">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./packages.html">Packages</a></li>
-                <li><a href="./blogs.html">Man in Black</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li>
-                  <a href="#">Language</a>
-                  <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                      <li><a href="../..">AZ</a></li>
-                      <li><a href="../en/">EN</a></li>
-                      <li>
-                        <a href="../ru/">RU</a>
-                      </li>
-                    </ul>
-                  </div>
+                <li><a href="./about.html">Haqqımızda</a></li>
+                <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                <li><a href="./contact.html">Əlaqə</a></li>
+
+                <!-- Visible Google Translate widget -->
+                <li class="uk-navbar-item">
+                  <div id="google_translate_element"></div>
                 </li>
               </ul>
             </nav>
@@ -127,7 +120,7 @@
               class="uk-navbar-toggle menu-btn"
               href="#offcanvas"
               data-uk-toggle
-              ><img src="../assets/img/icons/menu.svg" alt="menu"
+              ><img src="assets/img/icons/menu.svg" alt="menu"
             /></a>
           </div>
         </div>
@@ -136,13 +129,15 @@
         <div class="section-hero">
           <div
             class="section-hero__bg"
-            style="background-image: url(../assets/images/grid.webp)"
+            style="background-image: url(assets/images/grid.webp)"
           >
             <div class="uk-container">
               <div class="section-hero__content">
                 <div class="section-hero__title">
                   <span>Moto Baku Academy</span>
-                  <div class="uk-h1">Your motorcycle journey starts here!</div>
+                  <div class="uk-h1">
+                    Sənin motosiklet yolun burada başlayır!
+                  </div>
                 </div>
                 <div class="section-hero__breadcrumb">
                   <ul class="uk-breadcrumb">
@@ -154,15 +149,13 @@
             </div>
           </div>
         </div>
-
-        <!-- Premium Training Package -->
         <div class="page-content" style="display: flex; align-items: center">
           <div class="uk-section-large uk-container">
             <div class="uk-grid" data-uk-grid>
               <div class="uk-width-1-3@m">
                 <div class="js-filter-more filter-more">
                   <div class="filter-more__desc">
-                    <div class="uk-h4">Premium Training Package</div>
+                    <div class="uk-h4">Premium təlim paketi</div>
                   </div>
                 </div>
 
@@ -175,19 +168,19 @@
                       list-style-position: inside;
                     "
                   >
-                    <li>18 lessons – 18-hour program</li>
+                    <li>18 dərs - 18 saatlıq proqram</li>
                     <li>
-                      Training with an instructor on 150-300-600cc motorcycles
+                      150-300-600cc motosiklərdə təlimçi ilə
                       <br />
-                      Practice within a designated area
+                      ərazi daxilində məşqlər
                     </li>
                     <li>
-                      After completing the training package,
+                      Təlim paketini bitirdikdən sonra
                       <br />
-                      you can choose any motorcycle you want
+                      istədiyiniz motosikleti ala bilərsiniz
                     </li>
-                    <li>Adaptation practice is required</li>
-                    <li>The package is valid for 3 months</li>
+                    <li>Adaptasiya məşqi tələb olunur</li>
+                    <li>Paketin istifadə müddəti 3 aydır</li>
                   </ul>
                 </aside>
               </div>
@@ -212,12 +205,12 @@
                           </div>
                         </div>
                         <div>
-                          <div class="product-item__price">150cc</div>
+                          <div class="product-item__price">150KUB</div>
                         </div>
                       </div>
                       <div class="product-item__media uk-inline-clip uk-inline">
                         <img
-                          src="../assets/images/150-min.webp"
+                          src="assets/images/150-min.webp"
                           style="aspect-ratio: 3/2; width: 100%"
                           alt="BMW S1000 RX"
                         />
@@ -236,16 +229,16 @@
                             Powered by KAWASAKI
                           </div>
                           <div class="product-item__category">
-                            category: <a href="#!">Supersport</a>
+                            category: <a href="#!">supersport</a>
                           </div>
                         </div>
                         <div>
-                          <div class="product-item__price">300cc</div>
+                          <div class="product-item__price">300KUB</div>
                         </div>
                       </div>
                       <div class="product-item__media uk-inline-clip uk-inline">
                         <img
-                          src="../assets/images/300.webp"
+                          src="assets/images/300.webp"
                           style="aspect-ratio: 3/2; width: 100%"
                           alt="YAMAHA MT09 BASE"
                         />
@@ -258,7 +251,7 @@
                       <div class="product-item__head">
                         <div>
                           <div class="product-item__name">
-                            <a href="#">Honda CBR</a>
+                            <a href="#">Honda cbr</a>
                           </div>
                           <div class="product-item__manufacturer">
                             Powered by HONDA
@@ -268,7 +261,7 @@
                           </div>
                         </div>
                         <div>
-                          <div class="product-item__price">600cc</div>
+                          <div class="product-item__price">600KUB</div>
                         </div>
                       </div>
                       <div
@@ -276,7 +269,7 @@
                         style="aspect-ratio: 3/2; width: 100%"
                       >
                         <img
-                          src="../assets/images/600kub.webp"
+                          src="assets/images/600kub.webp"
                           alt="BMW S1000 RX"
                           style="width: 100%; height: 100%; object-fit: cover"
                         />
@@ -288,15 +281,13 @@
             </div>
           </div>
         </div>
-
-        <!-- VIP Training Package -->
         <div class="page-content">
           <div class="uk-section-large uk-container">
             <div class="uk-grid" data-uk-grid>
               <div class="uk-width-1-3@m">
                 <div class="js-filter-more filter-more">
                   <div class="filter-more__desc">
-                    <div class="uk-h4">VIP Training Package</div>
+                    <div class="uk-h4">VİP təlim paketi</div>
                   </div>
                 </div>
 
@@ -309,18 +300,18 @@
                       list-style-position: inside;
                     "
                   >
-                    <li>15 lessons – 15 hours</li>
+                    <li>15 dərs - 15 saat</li>
                     <li>
-                      Training with an instructor on 150cc motorcycles
+                      150 cc motosikletdə təlimçi ilə
                       <br />
-                      Practice within a designated area
+                      ərazi daxilində məşqlər
                     </li>
                     <li>
-                      After completing the training package,
+                      Təlim paketini bitirdikdən sonra
                       <br />
-                      you can choose motorcycles up to 400-500cc
+                      400-500 cc-yə qədər motosiklet ala bilərsiniz
                     </li>
-                    <li>The package is valid for 2 months</li>
+                    <li>Paketin istifadə müddəti 2 aydır</li>
                   </ul>
                 </aside>
               </div>
@@ -345,12 +336,12 @@
                           </div>
                         </div>
                         <div>
-                          <div class="product-item__price">150cc</div>
+                          <div class="product-item__price">150KUB</div>
                         </div>
                       </div>
                       <div class="product-item__media uk-inline-clip uk-inline">
                         <img
-                          src="../assets/images/150-min.webp"
+                          src="assets/images/150-min.webp"
                           alt="BMW S1000 RX"
                         />
                       </div>
@@ -361,15 +352,13 @@
             </div>
           </div>
         </div>
-
-        <!-- Economy Packages -->
         <div class="page-content">
           <div class="uk-section-large uk-container">
             <div class="uk-grid" data-uk-grid>
               <div class="uk-width-1-3@m">
                 <div class="js-filter-more filter-more">
                   <div class="filter-more__desc">
-                    <div class="uk-h4">Economy 1</div>
+                    <div class="uk-h4">Ekonom 1</div>
                   </div>
                 </div>
 
@@ -382,18 +371,18 @@
                       list-style-position: inside;
                     "
                   >
-                    <li>5 lessons – 5 hours</li>
+                    <li>5 dərs - 5 saat</li>
                     <li>
-                      Training with an instructor on 125cc motorcycles
+                      125 cc motosikletdə təlimçi ilə
                       <br />
-                      Practice within a designated area
+                      ərazi daxilində məşqlər
                     </li>
                     <li>
-                      After completing the training package,
+                      Təlim paketini bitirdikdən sonra
                       <br />
-                      you can choose motorcycles up to 150-300cc
+                      150-300 cc-yə qədər motosiklet ala bilərsiniz
                     </li>
-                    <li>The package is valid for 2 months</li>
+                    <li>Paketin istifadə müddəti 2 aydır</li>
                   </ul>
                 </aside>
               </div>
@@ -418,12 +407,12 @@
                           </div>
                         </div>
                         <div>
-                          <div class="product-item__price">125cc</div>
+                          <div class="product-item__price">125KUB</div>
                         </div>
                       </div>
                       <div class="product-item__media uk-inline-clip uk-inline">
                         <img
-                          src="../assets/images/125kub.jpeg"
+                          src="assets/images/125kub.jpeg"
                           alt="BMW S1000 RX"
                         />
                       </div>
@@ -434,15 +423,13 @@
             </div>
           </div>
         </div>
-
-        <!-- Economy 2 -->
         <div class="page-content">
           <div class="uk-section-large uk-container">
             <div class="uk-grid" data-uk-grid>
               <div class="uk-width-1-3@m">
                 <div class="js-filter-more filter-more">
                   <div class="filter-more__desc">
-                    <div class="uk-h4">Economy 2</div>
+                    <div class="uk-h4">Ekonom 2</div>
                   </div>
                 </div>
 
@@ -455,18 +442,18 @@
                       list-style-position: inside;
                     "
                   >
-                    <li>8 lessons – 8 hours</li>
+                    <li>8 dərs - 8 saat</li>
                     <li>
-                      Training with an instructor on 125cc motorcycles
+                      125 cc motosikletdə təlimçi ilə
                       <br />
-                      Practice within a designated area
+                      ərazi daxilində məşqlər
                     </li>
                     <li>
-                      After completing the training package,
+                      Təlim paketini bitirdikdən sonra
                       <br />
-                      you can choose motorcycles up to 150-300cc
+                      150-300 cc-yə qədər motosiklet ala bilərsiniz
                     </li>
-                    <li>The package is valid for 2 months</li>
+                    <li>Paketin istifadə müddəti 2 aydır</li>
                   </ul>
                 </aside>
               </div>
@@ -491,12 +478,12 @@
                           </div>
                         </div>
                         <div>
-                          <div class="product-item__price">125cc</div>
+                          <div class="product-item__price">125KUB</div>
                         </div>
                       </div>
                       <div class="product-item__media uk-inline-clip uk-inline">
                         <img
-                          src="../assets/images/125kub.jpeg"
+                          src="assets/images/125kub.jpeg"
                           alt="BMW S1000 RX"
                         />
                       </div>
@@ -507,15 +494,13 @@
             </div>
           </div>
         </div>
-
-        <!-- Economy 3 -->
         <div class="page-content">
           <div class="uk-section-large uk-container">
             <div class="uk-grid" data-uk-grid>
               <div class="uk-width-1-3@m">
                 <div class="js-filter-more filter-more">
                   <div class="filter-more__desc">
-                    <div class="uk-h4">Economy 3</div>
+                    <div class="uk-h4">Ekonom 3</div>
                   </div>
                 </div>
 
@@ -528,18 +513,18 @@
                       list-style-position: inside;
                     "
                   >
-                    <li>10 lessons – 10 hours</li>
+                    <li>10 dərs - 10 saat</li>
                     <li>
-                      Training with an instructor on 125cc motorcycles
+                      125 cc motosikletdə təlimçi ilə
                       <br />
-                      Practice within a designated area
+                      ərazi daxilində məşqlər
                     </li>
                     <li>
-                      After completing the training package,
+                      Təlim paketini bitirdikdən sonra
                       <br />
-                      you can choose motorcycles up to 150-300cc
+                      150-300 cc-yə qədər motosiklet ala bilərsiniz
                     </li>
-                    <li>The package is valid for 2 months</li>
+                    <li>Paketin istifadə müddəti 2 aydır</li>
                   </ul>
                 </aside>
               </div>
@@ -564,12 +549,12 @@
                           </div>
                         </div>
                         <div>
-                          <div class="product-item__price">125cc</div>
+                          <div class="product-item__price">125KUB</div>
                         </div>
                       </div>
                       <div class="product-item__media uk-inline-clip uk-inline">
                         <img
-                          src="../assets/images/125kub.jpeg"
+                          src="assets/images/125kub.jpeg"
                           alt="BMW S1000 RX"
                         />
                       </div>
@@ -580,15 +565,13 @@
             </div>
           </div>
         </div>
-
-        <!-- Custom Package -->
         <div class="page-content">
           <div class="uk-section-large uk-container">
             <div class="uk-grid" data-uk-grid>
               <div class="uk-width-1-3@m">
                 <div class="js-filter-more filter-more">
                   <div class="filter-more__desc">
-                    <div class="uk-h4">Custom Package</div>
+                    <div class="uk-h4">Fərdi Paket</div>
                   </div>
                 </div>
 
@@ -601,13 +584,13 @@
                       list-style-position: inside;
                     "
                   >
-                    <li>Individual training with a personal cc motorcycle</li>
-                    <li>Practical lessons within a designated area</li>
+                    <li>Fərdi cc motosikletdə təlimçi ilə məşq</li>
+                    <li>Ərazi daxilində praktiki dərslər</li>
                     <li>
-                      After completing the training package, you can choose
-                      motorcycles up to your preferred cc
+                      Təlim paketini bitirdikdən sonra fərdi cc-yə qədər
+                      motosiklet ala bilərsiniz
                     </li>
-                    <li>Package duration – individual</li>
+                    <li>Paketdən istifadə müddəti – fərdi ay</li>
                   </ul>
                 </aside>
               </div>
@@ -632,7 +615,7 @@
                           </div>
                         </div>
                         <div>
-                          <div class="product-item__price">125cc</div>
+                          <div class="product-item__price">125KUB</div>
                         </div>
                       </div>
                       <div
@@ -644,7 +627,7 @@
                         "
                       >
                         <img
-                          src="../assets/images/logo.webp"
+                          src="assets/images/logo.webp"
                           style="height: 250px; width: 250px"
                           alt="BMW S1000 RX"
                         />
@@ -657,7 +640,6 @@
           </div>
         </div>
       </main>
-
       <div class="section-subscribe">
         <div class="uk-container">
           <div class="subscribe-box">
@@ -668,7 +650,7 @@
               <div>
                 <div class="section-title">
                   <span class="uk-h2" style="color: #e63619"
-                    >Your motorcycle track starts here!</span
+                    >Sənin motosiklet yolun burada başlayır!</span
                   >
                 </div>
               </div>
@@ -698,7 +680,7 @@
                         class="uk-button uk-button-danger"
                         href="./contact.html"
                         style="text-wrap: nowrap"
-                        >Join us!</a
+                        >Bizə qoşul !</a
                       >
                     </div>
                   </form>
@@ -709,7 +691,7 @@
         </div>
       </div>
       <footer class="page-footer">
-        <div class="page-footer__top">
+        <div class="page-footer__top" style="padding: 25px 0">
           <div class="uk-container">
             <div
               class="uk-grid uk-grid-small uk-child-width-1-4@l uk-child-width-1-2@s"
@@ -720,14 +702,14 @@
                   <div class="logo">
                     <a class="logo__link" href="index.html">
                       <div class="logo__icon">
-                        <img src="../assets/images/logo.webp" alt="KeyMoto" />
+                        <img src="assets/images/logo.webp" alt="KeyMoto" />
                       </div>
                       <div class="logo__text">Moto Baku Academy</div>
                     </a>
                   </div>
                 </div>
                 <div class="uk-margin-medium">
-                  <p>Implement your wish to drive a motorcycle with us</p>
+                  <p>Motosiklet sürmək arzunuzu bizimlə həyata keçirin</p>
                 </div>
                 <div class="uk-margin-medium">
                   <div class="support">
@@ -736,7 +718,9 @@
                         <i class="fas fa-headset"></i>
                       </div>
                       <div class="support__desc">
-                        <div class="support__label">For more information</div>
+                        <div class="support__label">
+                          Daha ətraflı məlumat üçün
+                        </div>
                         <div class="support__phone">+994 51 473 59 59</div>
                       </div>
                     </a>
@@ -790,22 +774,27 @@
                   <div class="uk-h4">Moto Academy</div>
                   <ul class="list-decor">
                     <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./packages.html">Packages</a></li>
-                    <li><a href="./blogs.html">Black dressed man</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./about.html">Haqqımızda</a></li>
+                    <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                    <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                    <li><a href="./contact.html">Əlaqə</a></li>
+
+                    <!-- Visible Google Translate widget -->
+                    <li class="uk-navbar-item">
+                      <div id="google_translate_element"></div>
+                    </li>
                   </ul>
                 </div>
               </div>
               <div>
                 <div class="page-footer__column page-footer__news">
-                  <div class="uk-h4">Latest News</div>
+                  <div class="uk-h4">Son Xəbərlər</div>
                   <ul class="latest-news-list">
                     <li>
                       <div class="latest-news-item">
                         <div class="latest-news-item__thumb">
                           <img
-                            src="../assets/images/gallery/gallery1.webp"
+                            src="assets/images/gallery/gallery1.webp"
                             alt="xəbər"
                           />
                         </div>
@@ -814,10 +803,10 @@
                             class="latest-news-item__title"
                             href="Article1.html"
                           >
-                            Beginners - to move motorcycles
+                            Yeni Başlayanlar – Motosikleti Hərəkətə Gətirmək
                           </a>
                           <div class="latest-news-item__date">
-                            September 15, 2023
+                            15 Sentyabr, 2023
                           </div>
                         </div>
                       </div>
@@ -826,7 +815,7 @@
                       <div class="latest-news-item">
                         <div class="latest-news-item__thumb">
                           <img
-                            src="../assets/images/gallery/gallery4.webp"
+                            src="assets/images/gallery/gallery4.webp"
                             alt="xəbər"
                           />
                         </div>
@@ -835,8 +824,8 @@
                             class="latest-news-item__title"
                             href="Article3.html"
                           >
-                            Moto Baku Academy - New opened Central Branch (Water
-                            Sports palace)
+                            Moto Baku Academy – Yeni Açılmış Mərkəzi Filial (Su
+                            İdman Sarayı)
                           </a>
                           <div class="latest-news-item__date">
                             15 August, 2024
@@ -849,27 +838,17 @@
               </div>
               <div>
                 <div class="page-footer__column page-footer__info">
-                  <div class="uk-h4">Our work hours</div>
+                  <div class="uk-h4">İş saatlarımız</div>
                   <ul class="info-list">
                     <li>
                       <div class="info-list-item">
-                        <div class="info-list-item__title">Every day</div>
+                        <div class="info-list-item__title">Hər gün</div>
                         <div class="info-list-item__value">
-                          From 09:00 to 21:00
+                          09:00 dan 21:00 kimi
                         </div>
                       </div>
                     </li>
                   </ul>
-                  <br />
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.4245618756636!2d49.83578477598596!3d40.3332465976413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307f0068522305%3A0x9ededf0c1c83c71b!2sMoto%20Baku%20Academy%20Bay%C4%B1l%20filial%C4%B1!5e1!3m2!1sen!2saz!4v1757786950560!5m2!1sen!2saz"
-                    width="160"
-                    height="160"
-                    style="border: 0"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
                 </div>
               </div>
             </div>
@@ -882,7 +861,7 @@
               <a href="https://www.archdigital.org/" target="_blank"
                 >ArchDigital</a
               >
-              – All rights reserved.
+              – Bütün hüquqlar qorunur.
             </div>
           </div>
         </div>
@@ -900,7 +879,7 @@
               <div class="logo">
                 <a class="logo__link" href="index.html">
                   <div class="logo__icon">
-                    <img src="../assets/images/logo.webp" alt="KeyMoto" />
+                    <img src="assets/images/logo.webp" alt="KeyMoto" />
                   </div>
                   <div class="logo__text">Moto Baku Academy</div>
                 </a>
@@ -909,10 +888,10 @@
             <div class="uk-margin">
               <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./packages.html">Packages</a></li>
-                <li><a href="./blogs.html">Man in Black</a></li>
-                <li><a href="./contact.html">Contact </a></li>
+                <li><a href="./about.html">Haqqımızda</a></li>
+                <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                <li><a href="./contact.html">Əlaqə </a></li>
               </ul>
             </div>
             <div class="uk-margin-auto-top">
@@ -922,7 +901,7 @@
                     <i class="fas fa-headset"></i>
                   </div>
                   <div class="support__desc">
-                    <div class="support__label">For more information</div>
+                    <div class="support__label">Daha ətraflı məlumat üçün</div>
                     <div class="support__phone">+994 51 473 59 59</div>
                   </div>
                 </a>
@@ -932,12 +911,68 @@
         </div>
       </footer>
     </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/uikit.min.js"></script>
-    <script src="../assets/js/uikit-icons.min.js"></script>
-    <script src="../assets/js/fontawesome.all.min.js"></script>
-    <script src="../assets/js/slick.min.js"></script>
-    <script src="../assets/js/ion.rangeSlider.min.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/uikit.min.js"></script>
+    <script src="assets/js/uikit-icons.min.js"></script>
+    <script src="assets/js/fontawesome.all.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/ion.rangeSlider.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "az",
+            includedLanguages: "en,ru",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+
+      // Move the widget into mobile nav when menu opens
+      document.addEventListener("DOMContentLoaded", function () {
+        var mobileTarget = document.getElementById(
+          "google_translate_element_mobile"
+        );
+        var desktopContainer = document.getElementById(
+          "google_translate_element"
+        );
+
+        // UIkit offcanvas event
+        document.addEventListener(
+          "show",
+          function (e) {
+            if (e.target.classList.contains("uk-offcanvas")) {
+              if (
+                desktopContainer.firstChild &&
+                !mobileTarget.hasChildNodes()
+              ) {
+                mobileTarget.appendChild(desktopContainer.firstChild);
+              }
+            }
+          },
+          true
+        );
+
+        // Return it back when mobile menu hides (optional)
+        document.addEventListener(
+          "hide",
+          function (e) {
+            if (e.target.classList.contains("uk-offcanvas")) {
+              if (
+                mobileTarget.firstChild &&
+                !desktopContainer.hasChildNodes()
+              ) {
+                desktopContainer.appendChild(mobileTarget.firstChild);
+              }
+            }
+          },
+          true
+        );
+      });
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

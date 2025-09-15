@@ -40,11 +40,11 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../assets/css/uikit.min.css" />
-    <link rel="stylesheet" href="../assets/css/slick.css" />
-    <link rel="stylesheet" href="../assets/css/slick-theme.css" />
-    <link rel="stylesheet" href="../assets/css/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="../assets/css/main.css?v=1.0.3" />
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/css/slick.css" />
+    <link rel="stylesheet" href="assets/css/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=1.0.3" />
     <style>
       .uk-container {
         padding: 25px;
@@ -93,7 +93,7 @@
             <div class="logo">
               <a class="logo__link" href="index.html">
                 <div class="logo__icon">
-                  <img src="../assets/images/logo.webp" alt="KeyMoto" />
+                  <img src="assets/images/logo.webp" alt="KeyMoto" />
                 </div>
                 <div class="logo__text">MOTO BAKU ACADEMY</div>
               </a>
@@ -103,21 +103,14 @@
             <nav class="page-nav" data-uk-navbar>
               <ul class="uk-navbar-nav">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./packages.html">Packages</a></li>
-                <li><a href="./blogs.html">Man in Black</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li>
-                  <a href="#">Language</a>
-                  <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                      <li><a href="../..">AZ</a></li>
-                      <li><a href="../en/">EN</a></li>
-                      <li>
-                        <a href="../ru/">RU</a>
-                      </li>
-                    </ul>
-                  </div>
+                <li><a href="./about.html">Haqqımızda</a></li>
+                <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                <li><a href="./contact.html">Əlaqə</a></li>
+
+                <!-- Visible Google Translate widget -->
+                <li class="uk-navbar-item">
+                  <div id="google_translate_element"></div>
                 </li>
               </ul>
             </nav>
@@ -127,7 +120,7 @@
               class="uk-navbar-toggle menu-btn"
               href="#offcanvas"
               data-uk-toggle
-              ><img src="../assets/img/icons/menu.svg" alt="menu"
+              ><img src="assets/img/icons/menu.svg" alt="menu"
             /></a>
           </div>
         </div>
@@ -136,22 +129,22 @@
         <div class="section-hero">
           <div
             class="section-hero__bg"
-            style="background-image: url(../assets/images/bigman.webp)"
+            style="background-image: url(assets/images/bigman.webp)"
           >
             <div class="uk-container">
               <div class="section-hero__content">
                 <div class="section-hero__title">
                   <span>Moto Baku Academy</span>
                   <div class="uk-h1">
-                    Your wish to drive a motorcycle
-                    <br />
-                    Exercise with us
+                    Motosiklet sürmək arzunuzu
+                    <!-- <br /> -->
+                    bizimlə həyata keçirin
                   </div>
                 </div>
                 <div class="section-hero__breadcrumb">
                   <ul class="uk-breadcrumb">
                     <li><a href="./index.html">Home</a></li>
-                    <li><span>About</span></li>
+                    <li><span>Haqqımızda</span></li>
                   </ul>
                 </div>
               </div>
@@ -244,15 +237,14 @@
               </style>
               <!-- Centered team intro -->
               <div class="uk-text-center uk-margin-bottom">
-                <p class="uk-h4 uk-margin-remove">Our team:</p>
+                <p class="uk-h4 uk-margin-remove">Komandamız:</p>
                 <p class="uk-margin-remove">
-                  Maximum safety and professionalism of your driving experience
-                  We are always with you to develop.
+                  Sürüş təcrübənizi maksimum təhlükəsizlik və peşəkarlıqla
+                  inkişaf etdirmək üçün hər zaman yanınızdayıq.
                 </p>
                 <p class="uk-margin-remove">
-                  Every student is invaluable for us and with an individual
-                  approach We are committed to bring their skills to the highest
-                  level.
+                  Hər bir tələbəmiz bizim üçün əvəzsizdir və fərdi yanaşma ilə
+                  onların bacarıqlarını ən yüksək səviyyəyə çıxarmağa sadiqik.
                 </p>
               </div>
               <!-- Team gallery grid -->
@@ -264,7 +256,7 @@
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
                     <img
-                      src="../assets/images/team/mirfariz.png"
+                      src="./assets/images/team/mirfariz.png"
                       alt="Person 1"
                       style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
                     />
@@ -273,7 +265,7 @@
                     >
                       <strong
                         >Mirfariz <br />
-                        Founder and Director (QGA)</strong
+                        Təsisçi və Direktor (QGA)</strong
                       >
                     </div>
                   </div>
@@ -283,7 +275,7 @@
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
                     <img
-                      src="../assets/images/team/mardan.webp"
+                      src="assets/images/team/mardan.webp"
                       alt="Person 2"
                       style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
                     />
@@ -291,8 +283,8 @@
                       class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
                     >
                       <strong
-                        >Mardan <br />
-                        Chief trainer</strong
+                        >Mərdan <br />
+                        Baş Təlimçi</strong
                       >
                     </div>
                   </div>
@@ -302,7 +294,7 @@
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
                     <img
-                      src="../assets/images/team/mirruzi.png"
+                      src="./assets/images/team/mirruzi.png"
                       alt="Person 3"
                       style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
                     />
@@ -310,8 +302,8 @@
                       class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
                     >
                       <strong
-                        >mirruzi <br />
-                        Trainer</strong
+                        >Mirruzi <br />
+                        Təlimçi</strong
                       >
                     </div>
                   </div>
@@ -321,7 +313,7 @@
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
                     <img
-                      src="../assets/images/team/mirsahib.png"
+                      src="./assets/images/team/mirsahib.png"
                       alt="Person 4"
                       style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
                     />
@@ -330,7 +322,7 @@
                     >
                       <strong
                         >Mirsahib <br />
-                        Trainer</strong
+                        Təlimçi</strong
                       >
                     </div>
                   </div>
@@ -340,7 +332,7 @@
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
                     <img
-                      src="../assets/images/team/mirmehdi.png"
+                      src="./assets/images/team/mirmehdi.png"
                       alt="Person 5"
                       style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
                     />
@@ -349,7 +341,7 @@
                     >
                       <strong
                         >Mirmehdi <br />
-                        Trainer</strong
+                        Təlimçi</strong
                       >
                     </div>
                   </div>
@@ -359,7 +351,7 @@
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
                     <img
-                      src="../assets/images/team/ali.webp"
+                      src="assets/images/team/ali.webp"
                       alt="Person 2"
                       style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
                     />
@@ -368,7 +360,7 @@
                     >
                       <strong
                         >Əli <br />
-                        Trainer</strong
+                        Təlimçi</strong
                       >
                     </div>
                   </div>
@@ -436,58 +428,59 @@
                   </p>
 
                   <p>
-                    📅 Our academy since 2013 is present Up to 10,000 students
-                    successfully trained their to a professional and safe step
-                    to the world of motorcycles created conditions.Our
-                    experienced staff to each participant applies an individual
-                    approach and effectively knowledge provides appropriations.
+                    📅 2013-cü ildən fəaliyyət göstərən akademiyamız bu günə
+                    qədər 10,000-dən çox tələbəyə uğurla təlim keçərək onların
+                    motosiklet dünyasına peşəkar və təhlükəsiz addım atmasına
+                    şərait yaradıb. Təcrübəli heyətimiz hər bir iştirakçıya
+                    fərdi yanaşma tətbiq edir və biliklərin effektiv şəkildə
+                    mənimsənilməsini təmin edir.
                   </p>
 
                   <p>
-                    👥 Currently, more than 200 active students are different
-                    Continues their training on levels.Our academy is both Moto
-                    BAKU Academy and in accordance with experienced drivers
-                    Provides programs.
+                    👥 Hal-hazırda 200-dən artıq aktiv tələbəmiz müxtəlif
+                    səviyyələr üzrə təlimlərini davam etdirir. Akademiyamız həm
+                    Moto Baku Academya, həm də təcrübəli sürücülərə uyğun
+                    proqramlar təqdim edir.
                   </p>
 
                   <p>
-                    🎓 Our trainers specialize in Turkey are experts.Their in
-                    accordance with international standards Thanks to methods,
-                    our students are the safest and practical they have the
-                    ability to study.
+                    🎓 Təlimçilərimiz Türkiyədə ixtisaslaşmış peşəkar
+                    mütəxəssislərdir. Onların beynəlxalq standartlara uyğun
+                    metodları sayəsində tələbələrimiz ən təhlükəsiz və praktik
+                    tədris imkanına sahib olurlar.
                   </p>
 
                   <p>
-                    ✅ Security is the main priority of Moto Baku Academy.
-                    During each lesson, students are paid to the individual and
-                    Practical skills are formed in real circumstances.
+                    ✅ Təhlükəsizlik Moto Baku Academy-nin əsas prioritetidir.
+                    Hər bir dərs zamanı tələbələrə fərdi diqqət göstərilir və
+                    praktiki bacarıqlar real şəraitdə formalaşdırılır.
                   </p>
 
-                  <p>📍 There are two branches of our academy:</p>
+                  <p>📍 Akademiyamızın iki filialı mövcuddur:</p>
                   <ul class="list list-mark-1">
-                    <li>WATER IMMAN PALACE</li>
-                    <li>Elite shopping center</li>
+                    <li>Su İdman Sarayı</li>
+                    <li>Elit Ticarət Mərkəzi</li>
                   </ul>
 
                   <p>
-                    🔹 Moto Baku Academy is not limited to training only.Here
-                    You can also take advantage of the following services:
+                    🔹 Moto Baku Academy yalnız təlimlərlə məhdudlaşmır. Burada
+                    siz həmçinin aşağıdakı xidmətlərdən də yararlana bilərsiniz:
                   </p>
                   <ul class="list list-mark-1">
                     <li>
-                      Motorcycle sales - New and second hand models, as well as
-                      All necessary equipment and accessories
+                      Motosiklet satışı – yeni və ikinci əl modellər, eləcə də
+                      bütün lazımi avadanlıqlar və aksessuarlar
                     </li>
-                    <li>Professional advice on motorcycle selection</li>
+                    <li>Motosiklet seçimi üzrə peşəkar məsləhətlər</li>
                     <li>
-                      Moto evacuator service - Operational support in any case
+                      Moto evakuator xidməti – istənilən halda operativ dəstək
                     </li>
-                    <li>Technical service and support</li>
+                    <li>Texniki servis və dəstək</li>
                   </ul>
 
                   <p>
-                    👉 Moto Baku Academy - learn, drive and get full support
-                    Reliable address for!
+                    👉 Moto Baku Academy – öyrənmək, sürmək və tam dəstək almaq
+                    üçün etibarlı ünvan!
                   </p>
                 </article>
               </div>
@@ -505,7 +498,7 @@
               <div>
                 <div class="section-title">
                   <span class="uk-h2" style="color: #e63619"
-                    >Your motorcycle track starts here!</span
+                    >Sənin motosiklet yolun burada başlayır!</span
                   >
                 </div>
               </div>
@@ -535,7 +528,7 @@
                         class="uk-button uk-button-danger"
                         href="./contact.html"
                         style="text-wrap: nowrap"
-                        >Join us!</a
+                        >Bizə qoşul !</a
                       >
                     </div>
                   </form>
@@ -557,14 +550,14 @@
                   <div class="logo">
                     <a class="logo__link" href="index.html">
                       <div class="logo__icon">
-                        <img src="../assets/images/logo.webp" alt="KeyMoto" />
+                        <img src="assets/images/logo.webp" alt="KeyMoto" />
                       </div>
                       <div class="logo__text">Moto Baku Academy</div>
                     </a>
                   </div>
                 </div>
                 <div class="uk-margin-medium">
-                  <p>Implement your wish to drive a motorcycle with us</p>
+                  <p>Motosiklet sürmək arzunuzu bizimlə həyata keçirin</p>
                 </div>
                 <div class="uk-margin-medium">
                   <div class="support">
@@ -573,7 +566,9 @@
                         <i class="fas fa-headset"></i>
                       </div>
                       <div class="support__desc">
-                        <div class="support__label">For more information</div>
+                        <div class="support__label">
+                          Daha ətraflı məlumat üçün
+                        </div>
                         <div class="support__phone">+994 51 473 59 59</div>
                       </div>
                     </a>
@@ -627,22 +622,27 @@
                   <div class="uk-h4">Moto Academy</div>
                   <ul class="list-decor">
                     <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./packages.html">Packages</a></li>
-                    <li><a href="./blogs.html">Black dressed man</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./about.html">Haqqımızda</a></li>
+                    <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                    <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                    <li><a href="./contact.html">Əlaqə</a></li>
+
+                    <!-- Visible Google Translate widget -->
+                    <li class="uk-navbar-item">
+                      <div id="google_translate_element_mobile"></div>
+                    </li>
                   </ul>
                 </div>
               </div>
               <div>
                 <div class="page-footer__column page-footer__news">
-                  <div class="uk-h4">Latest News</div>
+                  <div class="uk-h4">Son Xəbərlər</div>
                   <ul class="latest-news-list">
                     <li>
                       <div class="latest-news-item">
                         <div class="latest-news-item__thumb">
                           <img
-                            src="../assets/images/gallery/gallery1.webp"
+                            src="assets/images/gallery/gallery1.webp"
                             alt="xəbər"
                           />
                         </div>
@@ -651,10 +651,10 @@
                             class="latest-news-item__title"
                             href="Article1.html"
                           >
-                            Beginners - to move motorcycles
+                            Yeni Başlayanlar – Motosikleti Hərəkətə Gətirmək
                           </a>
                           <div class="latest-news-item__date">
-                            September 15, 2023
+                            15 Sentyabr, 2023
                           </div>
                         </div>
                       </div>
@@ -663,7 +663,7 @@
                       <div class="latest-news-item">
                         <div class="latest-news-item__thumb">
                           <img
-                            src="../assets/images/gallery/gallery4.webp"
+                            src="assets/images/gallery/gallery4.webp"
                             alt="xəbər"
                           />
                         </div>
@@ -672,8 +672,8 @@
                             class="latest-news-item__title"
                             href="Article3.html"
                           >
-                            Moto Baku Academy - New opened Central Branch (Water
-                            Sports palace)
+                            Moto Baku Academy – Yeni Açılmış Mərkəzi Filial (Su
+                            İdman Sarayı)
                           </a>
                           <div class="latest-news-item__date">
                             15 August, 2024
@@ -686,13 +686,13 @@
               </div>
               <div>
                 <div class="page-footer__column page-footer__info">
-                  <div class="uk-h4">Our work hours</div>
+                  <div class="uk-h4">İş saatlarımız</div>
                   <ul class="info-list">
                     <li>
                       <div class="info-list-item">
-                        <div class="info-list-item__title">Every day</div>
+                        <div class="info-list-item__title">Hər gün</div>
                         <div class="info-list-item__value">
-                          From 09:00 to 21:00
+                          09:00 dan 21:00 kimi
                         </div>
                       </div>
                     </li>
@@ -719,7 +719,7 @@
               <a href="https://www.archdigital.org/" target="_blank"
                 >ArchDigital</a
               >
-              – All rights reserved.
+              – Bütün hüquqlar qorunur.
             </div>
           </div>
         </div>
@@ -737,7 +737,7 @@
               <div class="logo">
                 <a class="logo__link" href="index.html">
                   <div class="logo__icon">
-                    <img src="../assets/images/logo.webp" alt="KeyMoto" />
+                    <img src="assets/images/logo.webp" alt="KeyMoto" />
                   </div>
                   <div class="logo__text">Moto Baku Academy</div>
                 </a>
@@ -746,10 +746,13 @@
             <div class="uk-margin">
               <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./packages.html">Packages</a></li>
-                <li><a href="./blogs.html">Man in Black</a></li>
-                <li><a href="./contact.html">Contact </a></li>
+                <li><a href="./about.html">Haqqımızda</a></li>
+                <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                <li><a href="./contact.html">Əlaqə </a></li>
+                <li>
+                  <div id="google_translate_element_mobile"></div>
+                </li>
               </ul>
             </div>
             <div class="uk-margin-auto-top">
@@ -759,7 +762,7 @@
                     <i class="fas fa-headset"></i>
                   </div>
                   <div class="support__desc">
-                    <div class="support__label">For more information</div>
+                    <div class="support__label">Daha ətraflı məlumat üçün</div>
                     <div class="support__phone">+994 51 473 59 59</div>
                   </div>
                 </a>
@@ -769,12 +772,68 @@
         </div>
       </footer>
     </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/uikit.min.js"></script>
-    <script src="../assets/js/uikit-icons.min.js"></script>
-    <script src="../assets/js/fontawesome.all.min.js"></script>
-    <script src="../assets/js/slick.min.js"></script>
-    <script src="../assets/js/ion.rangeSlider.min.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/uikit.min.js"></script>
+    <script src="assets/js/uikit-icons.min.js"></script>
+    <script src="assets/js/fontawesome.all.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/ion.rangeSlider.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "az",
+            includedLanguages: "en,ru",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+
+      // Move the widget into mobile nav when menu opens
+      document.addEventListener("DOMContentLoaded", function () {
+        var mobileTarget = document.getElementById(
+          "google_translate_element_mobile"
+        );
+        var desktopContainer = document.getElementById(
+          "google_translate_element"
+        );
+
+        // UIkit offcanvas event
+        document.addEventListener(
+          "show",
+          function (e) {
+            if (e.target.classList.contains("uk-offcanvas")) {
+              if (
+                desktopContainer.firstChild &&
+                !mobileTarget.hasChildNodes()
+              ) {
+                mobileTarget.appendChild(desktopContainer.firstChild);
+              }
+            }
+          },
+          true
+        );
+
+        // Return it back when mobile menu hides (optional)
+        document.addEventListener(
+          "hide",
+          function (e) {
+            if (e.target.classList.contains("uk-offcanvas")) {
+              if (
+                mobileTarget.firstChild &&
+                !desktopContainer.hasChildNodes()
+              ) {
+                desktopContainer.appendChild(mobileTarget.firstChild);
+              }
+            }
+          },
+          true
+        );
+      });
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

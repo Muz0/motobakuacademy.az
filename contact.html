@@ -40,11 +40,11 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../assets/css/uikit.min.css" />
-    <link rel="stylesheet" href="../assets/css/slick.css" />
-    <link rel="stylesheet" href="../assets/css/slick-theme.css" />
-    <link rel="stylesheet" href="../assets/css/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="../assets/css/main.css?v=1.0.3" />
+    <link rel="stylesheet" href="assets/css/uikit.min.css" />
+    <link rel="stylesheet" href="assets/css/slick.css" />
+    <link rel="stylesheet" href="assets/css/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=1.0.3" />
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
       (function () {
@@ -82,7 +82,7 @@
               <a class="logo__link" href="index.html">
                 <img
                   class="logo__icon"
-                  src="../assets/images/logo.webp"
+                  src="assets/images/logo.webp"
                   alt="KeyMoto"
                 />
                 <div class="logo__text">MOTO BAKU ACADEMY</div>
@@ -93,21 +93,14 @@
             <nav class="page-nav" data-uk-navbar>
               <ul class="uk-navbar-nav">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./packages.html">Packages</a></li>
-                <li><a href="./blogs.html">Man in Black</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li>
-                  <a href="#">Language</a>
-                  <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                      <li><a href="../..">AZ</a></li>
-                      <li><a href="../en/">EN</a></li>
-                      <li>
-                        <a href="../ru/">RU</a>
-                      </li>
-                    </ul>
-                  </div>
+                <li><a href="./about.html">Haqqımızda</a></li>
+                <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                <li><a href="./contact.html">Əlaqə</a></li>
+
+                <!-- Visible Google Translate widget -->
+                <li class="uk-navbar-item">
+                  <div id="google_translate_element"></div>
                 </li>
               </ul>
             </nav>
@@ -117,7 +110,7 @@
               class="uk-navbar-toggle menu-btn"
               href="#offcanvas"
               data-uk-toggle
-              ><img src="../assets/img/icons/menu.svg" alt="menu"
+              ><img src="assets/img/icons/menu.svg" alt="menu"
             /></a>
           </div>
         </div>
@@ -126,25 +119,24 @@
         <div class="section-hero">
           <div
             class="section-hero__bg"
-            style="background-image: url(../assets/images/grid.webp)"
+            style="background-image: url(assets/images/grid.webp)"
           >
             <div class="uk-container">
               <div class="section-hero__content">
                 <div class="section-hero__title">
                   <!-- <span>Taking rides to a newer level</span> -->
-                  <div class="uk-h1">Contact Us</div>
+                  <div class="uk-h1">Bizimlə Əlaqə saxla</div>
                 </div>
                 <div class="section-hero__breadcrumb">
                   <ul class="uk-breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li><span>Contact</span></li>
+                    <li><span>Əlaqə</span></li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="uk-section-large uk-container">
           <div class="uk-grid-match uk-grid-small" data-uk-grid>
             <!-- Contact Form (60%) -->
@@ -152,12 +144,12 @@
               <div class="contact-form">
                 <div class="section-title uk-text-center">
                   <img
-                    src="../assets/images/logo.webp"
+                    src="assets/images/logo.webp"
                     alt=""
                     style="width: 120px"
                   />
-                  <span>To get in touch with you</span>
-                  <h3 class="uk-h2">Inquiry Form</h3>
+                  <span>Sizin ilə əlaqə üçün</span>
+                  <h3 class="uk-h2">Müraciət formu</h3>
                 </div>
                 <div class="section-content">
                   <div
@@ -173,7 +165,7 @@
                           class="uk-input uk-form-large"
                           type="text"
                           name="user_name"
-                          placeholder="Your Name"
+                          placeholder="Adınız"
                           required
                         />
                       </div>
@@ -191,7 +183,7 @@
                           class="uk-input uk-form-large"
                           type="tel"
                           name="user_phone"
-                          placeholder="Phone"
+                          placeholder="Telefon"
                           required
                         />
                       </div>
@@ -200,7 +192,7 @@
                           class="uk-input uk-form-large"
                           type="text"
                           name="subject"
-                          placeholder="Subject"
+                          placeholder="Mövzu"
                           required
                         />
                       </div>
@@ -208,7 +200,7 @@
                         <textarea
                           class="uk-textarea uk-form-large"
                           name="message"
-                          placeholder="Message"
+                          placeholder="Mesaj"
                           required
                         ></textarea>
                       </div>
@@ -219,7 +211,7 @@
                           class="uk-button uk-button-danger uk-button-large"
                           type="submit"
                         >
-                          Send
+                          Göndər
                         </button>
                       </div>
                     </div>
@@ -245,7 +237,6 @@
           </div>
         </div>
       </main>
-
       <div class="section-subscribe">
         <div class="uk-container">
           <div class="subscribe-box">
@@ -255,39 +246,25 @@
             >
               <div>
                 <div class="section-title">
-                  <span class="uk-h2" style="color: #e63619"
-                    >Your motorcycle track starts here!</span
-                  >
+                  <span>Latest news and deals directly to your inbox</span>
+                  <div class="uk-h2">Subscribe for updated</div>
                 </div>
               </div>
               <div>
                 <div class="subscribe-box__form">
                   <form action="#!">
                     <div class="uk-flex uk-flex-middle">
-                      <style>
-                        .phone-placeholder {
-                          text-align: center;
-                          font-size: 32px;
-                        }
-
-                        /* Placeholder text styling */
-                        .phone-placeholder::placeholder {
-                          font-size: 32px;
-                          text-align: center;
-                          color: #333; /* optional */
-                        }
-                      </style>
                       <input
-                        class="uk-input phone-placeholder"
-                        placeholder="+994 51 473 59 59"
-                        disabled
-                      />
-                      <a
+                        class="uk-input"
+                        type="email"
+                        name="email"
+                        placeholder="Email Address ...."
+                      /><button
                         class="uk-button uk-button-danger"
-                        href="./contact.html"
-                        style="text-wrap: nowrap"
-                        >Join us!</a
+                        type="submit"
                       >
+                        Subscribe
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -308,14 +285,14 @@
                   <div class="logo">
                     <a class="logo__link" href="index.html">
                       <div class="logo__icon">
-                        <img src="../assets/images/logo.webp" alt="KeyMoto" />
+                        <img src="assets/images/logo.webp" alt="KeyMoto" />
                       </div>
                       <div class="logo__text">Moto Baku Academy</div>
                     </a>
                   </div>
                 </div>
                 <div class="uk-margin-medium">
-                  <p>Implement your wish to drive a motorcycle with us</p>
+                  <p>Motosiklet sürmək arzunuzu bizimlə həyata keçirin</p>
                 </div>
                 <div class="uk-margin-medium">
                   <div class="support">
@@ -324,7 +301,9 @@
                         <i class="fas fa-headset"></i>
                       </div>
                       <div class="support__desc">
-                        <div class="support__label">For more information</div>
+                        <div class="support__label">
+                          Daha ətraflı məlumat üçün
+                        </div>
                         <div class="support__phone">+994 51 473 59 59</div>
                       </div>
                     </a>
@@ -378,22 +357,26 @@
                   <div class="uk-h4">Moto Academy</div>
                   <ul class="list-decor">
                     <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./packages.html">Packages</a></li>
-                    <li><a href="./blogs.html">Black dressed man</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./about.html">Haqqımızda</a></li>
+                    <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                    <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                    <li><a href="./contact.html">Əlaqə</a></li>
+
+                    <li>
+                      <div id="google_translate_element_mobile"></div>
+                    </li>
                   </ul>
                 </div>
               </div>
               <div>
                 <div class="page-footer__column page-footer__news">
-                  <div class="uk-h4">Latest News</div>
+                  <div class="uk-h4">Son Xəbərlər</div>
                   <ul class="latest-news-list">
                     <li>
                       <div class="latest-news-item">
                         <div class="latest-news-item__thumb">
                           <img
-                            src="../assets/images/gallery/gallery1.webp"
+                            src="assets/images/gallery/gallery1.webp"
                             alt="xəbər"
                           />
                         </div>
@@ -402,10 +385,10 @@
                             class="latest-news-item__title"
                             href="Article1.html"
                           >
-                            Beginners - to move motorcycles
+                            Yeni Başlayanlar – Motosikleti Hərəkətə Gətirmək
                           </a>
                           <div class="latest-news-item__date">
-                            September 15, 2023
+                            15 Sentyabr, 2023
                           </div>
                         </div>
                       </div>
@@ -414,7 +397,7 @@
                       <div class="latest-news-item">
                         <div class="latest-news-item__thumb">
                           <img
-                            src="../assets/images/gallery/gallery4.webp"
+                            src="assets/images/gallery/gallery4.webp"
                             alt="xəbər"
                           />
                         </div>
@@ -423,8 +406,8 @@
                             class="latest-news-item__title"
                             href="Article3.html"
                           >
-                            Moto Baku Academy - New opened Central Branch (Water
-                            Sports palace)
+                            Moto Baku Academy – Yeni Açılmış Mərkəzi Filial (Su
+                            İdman Sarayı)
                           </a>
                           <div class="latest-news-item__date">
                             15 August, 2024
@@ -437,13 +420,13 @@
               </div>
               <div>
                 <div class="page-footer__column page-footer__info">
-                  <div class="uk-h4">Our work hours</div>
+                  <div class="uk-h4">İş saatlarımız</div>
                   <ul class="info-list">
                     <li>
                       <div class="info-list-item">
-                        <div class="info-list-item__title">Every day</div>
+                        <div class="info-list-item__title">Hər gün</div>
                         <div class="info-list-item__value">
-                          From 09:00 to 21:00
+                          09:00 dan 21:00 kimi
                         </div>
                       </div>
                     </li>
@@ -470,7 +453,7 @@
               <a href="https://www.archdigital.org/" target="_blank"
                 >ArchDigital</a
               >
-              – All rights reserved.
+              – Bütün hüquqlar qorunur.
             </div>
           </div>
         </div>
@@ -488,7 +471,7 @@
               <div class="logo">
                 <a class="logo__link" href="index.html">
                   <div class="logo__icon">
-                    <img src="../assets/images/logo.webp" alt="KeyMoto" />
+                    <img src="assets/images/logo.webp" alt="KeyMoto" />
                   </div>
                   <div class="logo__text">Moto Baku Academy</div>
                 </a>
@@ -497,10 +480,10 @@
             <div class="uk-margin">
               <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./packages.html">Packages</a></li>
-                <li><a href="./blogs.html">Man in Black</a></li>
-                <li><a href="./contact.html">Contact </a></li>
+                <li><a href="./about.html">Haqqımızda</a></li>
+                <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                <li><a href="./contact.html">Əlaqə </a></li>
               </ul>
             </div>
             <div class="uk-margin-auto-top">
@@ -510,7 +493,7 @@
                     <i class="fas fa-headset"></i>
                   </div>
                   <div class="support__desc">
-                    <div class="support__label">For more information</div>
+                    <div class="support__label">Daha ətraflı məlumat üçün</div>
                     <div class="support__phone">+994 51 473 59 59</div>
                   </div>
                 </a>
@@ -520,12 +503,104 @@
         </div>
       </footer>
     </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/uikit.min.js"></script>
-    <script src="../assets/js/uikit-icons.min.js"></script>
-    <script src="../assets/js/fontawesome.all.min.js"></script>
-    <script src="../assets/js/slick.min.js"></script>
-    <script src="../assets/js/ion.rangeSlider.min.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/uikit.min.js"></script>
+    <script src="assets/js/uikit-icons.min.js"></script>
+    <script src="assets/js/fontawesome.all.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/ion.rangeSlider.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // prevent page reload
+
+          emailjs.sendForm("service_dq44sss", "template_qi6jp6d", this).then(
+            function () {
+              // show success message inside the page
+              const msg = document.getElementById("contactMessage");
+              msg.style.display = "block";
+              msg.style.color = "green";
+              msg.innerText = "Mesajınız uğurla göndərildi!";
+
+              // reset form
+              document.getElementById("contactForm").reset();
+
+              // optionally hide message after 5 seconds
+              setTimeout(() => {
+                msg.style.display = "none";
+              }, 5000);
+            },
+            function (error) {
+              const msg = document.getElementById("contactMessage");
+              msg.style.display = "block";
+              msg.style.color = "red";
+              msg.innerText = "Xəta baş verdi. Zəhmət olmasa təkrar cəhd edin.";
+              console.log("FAILED...", error);
+
+              setTimeout(() => {
+                msg.style.display = "none";
+              }, 5000);
+            }
+          );
+        });
+    </script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "az",
+            includedLanguages: "en,ru",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+
+      // Move the widget into mobile nav when menu opens
+      document.addEventListener("DOMContentLoaded", function () {
+        var mobileTarget = document.getElementById(
+          "google_translate_element_mobile"
+        );
+        var desktopContainer = document.getElementById(
+          "google_translate_element"
+        );
+
+        // UIkit offcanvas event
+        document.addEventListener(
+          "show",
+          function (e) {
+            if (e.target.classList.contains("uk-offcanvas")) {
+              if (
+                desktopContainer.firstChild &&
+                !mobileTarget.hasChildNodes()
+              ) {
+                mobileTarget.appendChild(desktopContainer.firstChild);
+              }
+            }
+          },
+          true
+        );
+
+        // Return it back when mobile menu hides (optional)
+        document.addEventListener(
+          "hide",
+          function (e) {
+            if (e.target.classList.contains("uk-offcanvas")) {
+              if (
+                mobileTarget.firstChild &&
+                !desktopContainer.hasChildNodes()
+              ) {
+                desktopContainer.appendChild(mobileTarget.firstChild);
+              }
+            }
+          },
+          true
+        );
+      });
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>
