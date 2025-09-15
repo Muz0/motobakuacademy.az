@@ -46,37 +46,34 @@
     <link rel="stylesheet" href="assets/css/slick.css" />
     <link rel="stylesheet" href="assets/css/slick-theme.css" />
     <link rel="stylesheet" href="assets/css/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="assets/css/main.css?v=1.0.2" />
-
+    <link rel="stylesheet" href="assets/css/main.css?v=1.0.3" />
     <style>
+      /* ===== Variables ===== */
+      :root {
+        --spacing-small: 15px;
+        --spacing-medium: 25px;
+        --border-radius: 8px;
+        --caption-font-size: 32px;
+        --caption-font-size-sm: 24px;
+        --overlay-bg: rgba(0, 0, 0, 0.6);
+        --transition-speed: 0.3s;
+      }
+
+      /* ===== General Containers ===== */
+      .uk-container,
+      .uk-section {
+        padding: var(--spacing-medium);
+      }
+
+      /* ===== Video Info ===== */
       .video-info__subtitle {
         margin: 0;
         font-family: "Poppins", sans-serif;
         font-weight: 600;
         font-style: normal;
       }
-      .uk-container {
-        padding: 25px;
-      }
-      .uk-section {
-        padding: 25px;
-      }
-      .block-icon__icon i {
-        font-size: 60px;
-        width: 60px;
-        height: 60px;
-        line-height: 60px;
-        text-align: center;
-      }
 
-      .slideshow-item__desc {
-        font-family: "Poppins", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
-    </style>
-    <style>
-      /* Block icon general */
+      /* ===== Block Icon Cards ===== */
       .block-icon__icon {
         width: 60px;
         height: 60px;
@@ -87,30 +84,163 @@
         margin-bottom: 10px;
       }
 
-      /* Scale small cards */
+      .block-icon__icon img,
+      .block-icon__icon i {
+        max-width: 100%;
+        max-height: 100%;
+        font-size: 60px;
+        line-height: 60px;
+        text-align: center;
+      }
+
       .block-icon--small {
         transform: scale(0.8);
         transform-origin: top center;
         opacity: 0.9;
+        transition: transform var(--transition-speed),
+          opacity var(--transition-speed);
       }
 
-      /* Optional icon font-size override */
-      .block-icon__icon img {
-        max-width: 100%;
-        max-height: 100%;
+      .small-cards-wrapper {
+        display: flex;
+        justify-content: space-between;
       }
 
-      /* Small card wrappers for alignment on mobile */
       @media (max-width: 767px) {
         .small-cards-wrapper {
-          display: flex;
-          justify-content: flex-start; /* align left */
+          justify-content: flex-start; /* left align small cards */
           width: 100%;
         }
 
         .small-cards-wrapper .block-icon--small {
           transform-origin: top left; /* scale from left */
         }
+      }
+
+      /* ===== Team Section / Images ===== */
+      .uk-inline-clip img {
+        width: 100% !important;
+        height: auto;
+        object-fit: cover !important;
+        aspect-ratio: 3 / 4;
+        border-radius: var(--border-radius);
+        transition: transform var(--transition-speed),
+          box-shadow var(--transition-speed);
+        display: block !important;
+      }
+
+      .uk-inline-clip:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .uk-inline-clip .uk-position-bottom {
+        background: var(--overlay-bg);
+        padding: 6px 0;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        text-align: center;
+      }
+
+      .uk-inline-clip .uk-position-bottom strong {
+        color: #fff;
+        font-size: 16px;
+        display: block;
+      }
+
+      @media (max-width: 640px) {
+        .uk-inline-clip .uk-position-bottom strong {
+          font-size: 14px;
+        }
+      }
+
+      /* ===== Section About Gallery ===== */
+      .section-about__gallery img {
+        width: 100% !important;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* ===== Video Thumbnail Grid ===== */
+      .video-thumb-grid ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-small);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .video-thumb-grid li {
+        flex: 1 1 calc(25% - var(--spacing-small));
+      }
+
+      .video-thumb-grid__item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 6px;
+        aspect-ratio: 1 / 1; /* square */
+        transition: transform var(--transition-speed);
+      }
+
+      .video-thumb-grid__item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .video-thumb-grid__item:hover {
+        transform: scale(1.03);
+      }
+
+      .video-thumb-grid__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        color: #fff;
+        font-weight: bold;
+        font-size: var(--caption-font-size);
+        line-height: 1;
+        text-align: center;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+      }
+
+      @media (max-width: 768px) {
+        .video-thumb-grid li {
+          flex: 1 1 calc(50% - var(--spacing-small));
+        }
+
+        .video-thumb-grid__caption {
+          font-size: var(--caption-font-size-sm);
+        }
+      }
+
+      /* ===== Slideshow Text ===== */
+      .slideshow-item__desc {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      /* ===== Phone Placeholder ===== */
+      .phone-placeholder {
+        text-align: center;
+        font-size: 32px;
+      }
+
+      .phone-placeholder::placeholder {
+        font-size: 32px;
+        text-align: center;
+        color: #333;
+      }
+
+      /* ===== Grid Spacing ===== */
+      .uk-grid-small > * {
+        margin-bottom: 15px;
       }
     </style>
   </head>
@@ -229,7 +359,7 @@
               <div class="uk-width-1-3@m">
                 <img
                   class="section-about__img"
-                  src="assets/images/img-about.png"
+                  src="assets/img/img-about.jpg"
                   alt="img-about"
                 />
               </div>
@@ -365,14 +495,14 @@
                         <div>
                           <img
                             class="uk-width-1-1"
-                            src="assets/img/about-gallery-1.jpg"
+                            src="assets/images/fast-driver.png"
                             alt="about-gallery"
                           />
                         </div>
                         <div>
                           <img
                             class="uk-width-1-1"
-                            src="assets/img/about-gallery-2.jpg"
+                            src="assets/images/fast-bikes.png"
                             alt="about-gallery"
                           />
                         </div>
@@ -436,7 +566,7 @@
                     >
                       <strong
                         >Mərdan <br />
-                        Təsisçi və Direktor</strong
+                        Baş Təlimçi</strong
                       >
                     </div>
                   </div>
@@ -455,7 +585,7 @@
                     >
                       <strong
                         >Mirruzi <br />
-                        Baş təlimçi</strong
+                        Təlimçi</strong
                       >
                     </div>
                   </div>
@@ -519,44 +649,6 @@
                 </div>
               </div>
             </div>
-
-            <style>
-              .uk-inline-clip img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-                aspect-ratio: 3/4;
-                border-radius: 8px;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-              }
-
-              .uk-inline-clip:hover img {
-                transform: scale(1.05);
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-              }
-
-              .uk-inline-clip .uk-position-bottom {
-                background: rgba(0, 0, 0, 0.6);
-                padding: 6px 0;
-                border-radius: 0 0 8px 8px;
-              }
-
-              .uk-inline-clip .uk-position-bottom strong {
-                color: #fff;
-                font-size: 16px;
-                display: block;
-              }
-
-              .uk-grid-small > * {
-                margin-bottom: 15px;
-              }
-
-              @media (max-width: 640px) {
-                .uk-inline-clip .uk-position-bottom strong {
-                  font-size: 14px;
-                }
-              }
-            </style>
           </div>
         </div>
         <div class="section-video">
@@ -573,7 +665,7 @@
                   <li>
                     <div class="video-thumb-grid__item">
                       <img
-                        src="assets/img/img-video-thumb-1.jpg"
+                        src="assets/images/125kub.jpeg"
                         alt="img-video-thumb"
                       />
                       <p class="video-thumb-grid__caption">125 kub</p>
@@ -598,7 +690,7 @@
                   <li>
                     <div class="video-thumb-grid__item">
                       <img
-                        src="assets/img/img-video-thumb-3.jpg"
+                        src="assets/images/600kub.webp"
                         alt="img-video-thumb"
                       />
                       <p class="video-thumb-grid__caption">600 kub</p>
@@ -606,65 +698,24 @@
                   </li>
                 </ul>
               </div>
-
-              <style>
-                .video-thumb-grid ul {
-                  display: flex;
-                  flex-wrap: wrap;
-                  gap: 15px;
-                  list-style: none;
-                  padding: 0;
-                  margin: 0;
-                }
-
-                .video-thumb-grid li {
-                  flex: 1 1 calc(25% - 15px);
-                }
-
-                .video-thumb-grid__item {
-                  position: relative;
-                  overflow: hidden;
-                  border-radius: 6px;
-                }
-
-                .video-thumb-grid__item img {
-                  display: block;
-                  width: 100%;
-                  height: auto;
-                }
-
-                .video-thumb-grid__caption {
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  margin: 0;
-                  color: #fff;
-                  font-weight: bold;
-                  font-size: 32px;
-                  line-height: 1;
-                  text-align: center;
-                  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-                }
-
-                @media (max-width: 768px) {
-                  .video-thumb-grid li {
-                    flex: 1 1 calc(50% - 15px);
-                  }
-                }
-              </style>
             </div>
-            <div class="video-box" data-uk-lightbox="video-autoplay: true">
+            <div class="video-box" data-uk-lightbox>
               <a
-                href="https://www.youtube.com/watch?v=sjdDR9dlbJM"
-                data-caption="YouTube"
-                data-attrs="width: 1280; height: 720;"
+                href="https://www.instagram.com/p/C7cC3j2NC6d/embed"
+                data-caption="Instagram Post"
               >
-                <div class="btn-play">
-                  <img src="assets/img/icons/play.png" alt="play" /><span
-                    >Video</span
-                  >
-                </div>
+                <!-- <div class="btn-play">
+                  <img src="assets/img/icons/play.png" alt="play" />
+                  <span>Video</span>
+                </div> -->
+                <!-- <div class="btn-play">
+                  <img
+                    style="width: 250px; height: 250px"
+                    src="assets/images/logo.webp"
+                    alt=""
+                  />
+                  <span></span>
+                </div> -->
               </a>
             </div>
           </div>
@@ -694,17 +745,6 @@
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery2.webp"
                       alt="gallery2"
-                    />
-                  </a>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <a href="assets/images/gallery/gallery15.webp">
-                    <img
-                      class="uk-width-1-1"
-                      src="assets/images/gallery/gallery15.webp"
-                      alt="gallery15"
                     />
                   </a>
                 </div>
@@ -836,6 +876,28 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery14.webp"
+                      alt="gallery14"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="assets/images/fast-driver.png">
+                    <img
+                      class="uk-width-1-1"
+                      src="assets/images/fast-driver.png"
+                      alt="gallery14"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="assets/images/fast-bikes.png">
+                    <img
+                      class="uk-width-1-1"
+                      src="assets/images/fast-bikes.png"
                       alt="gallery14"
                     />
                   </a>
@@ -974,18 +1036,6 @@
                 <div class="subscribe-box__form">
                   <form action="#!">
                     <div class="uk-flex uk-flex-middle">
-                      <style>
-                        .phone-placeholder {
-                          text-align: center;
-                          font-size: 32px;
-                        }
-
-                        .phone-placeholder::placeholder {
-                          font-size: 32px;
-                          text-align: center;
-                          color: #333;
-                        }
-                      </style>
                       <input
                         class="uk-input phone-placeholder"
                         placeholder="+994 51 473 59 59"

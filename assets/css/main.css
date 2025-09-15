@@ -601,6 +601,10 @@ a:hover {
   /* padding-bottom: 15px; */
 }
 
+.padding-25 {
+  padding: 25px;
+}
+
 .logo. .logo__text {
   font: normal 700 24px/1 Oswald;
   margin-top: 5px;
