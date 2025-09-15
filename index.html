@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="az">
   <head>
-    <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -14,7 +13,6 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-W963KVTX");
     </script>
-    <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <title>Moto Baku Academy</title>
     <meta content="ArchDigital" name="author" />
@@ -78,6 +76,7 @@
       }
     </style>
     <style>
+      /* Block icon general */
       .block-icon__icon {
         width: 60px;
         height: 60px;
@@ -88,29 +87,35 @@
         margin-bottom: 10px;
       }
 
-      .block-icon__icon {
-        font-size: 320px;
-        line-height: 1;
-      }
+      /* Scale small cards */
       .block-icon--small {
         transform: scale(0.8);
         transform-origin: top center;
         opacity: 0.9;
-        /* padding-left: 10px !important; */
       }
 
-      .uk-grid-margin {
-        /* padding-left: 0; */
+      /* Optional icon font-size override */
+      .block-icon__icon img {
+        max-width: 100%;
+        max-height: 100%;
       }
-      .uk-inline-clip.uk-transition-toggle {
-        display: block; /* ensures it behaves like a block container */
-        width: 100%; /* stretch to full width of parent */
+
+      /* Small card wrappers for alignment on mobile */
+      @media (max-width: 767px) {
+        .small-cards-wrapper {
+          display: flex;
+          justify-content: flex-start; /* align left */
+          width: 100%;
+        }
+
+        .small-cards-wrapper .block-icon--small {
+          transform-origin: top left; /* scale from left */
+        }
       }
     </style>
   </head>
 
   <body class="page-home">
-    <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-W963KVTX"
@@ -119,7 +124,6 @@
         style="display: none; visibility: hidden"
       ></iframe
     ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div class="page-wrapper">
       <header class="page-header page-header-transparent">
         <div class="page-header__inner">
@@ -225,7 +229,7 @@
               <div class="uk-width-1-3@m">
                 <img
                   class="section-about__img"
-                  src="assets/img/img-about.jpg"
+                  src="assets/images/img-about.png"
                   alt="img-about"
                 />
               </div>
@@ -256,7 +260,7 @@
                     </p>
 
                     <div class="uk-grid uk-grid-match" data-uk-grid>
-                      <!-- Row 1 (2 items) -->
+                      <!-- First 2 big cards -->
                       <div class="uk-width-1-2@s">
                         <div class="block-icon">
                           <div class="block-icon__icon">
@@ -294,8 +298,8 @@
                         </div>
                       </div>
 
-                      <!-- Row 2 (3 items) -->
-                      <div class="uk-width-1-3@s">
+                      <!-- Last 3 small cards wrapped for alignment -->
+                      <div class="uk-width-1-3@s small-cards-wrapper">
                         <div class="block-icon block-icon--small">
                           <div class="block-icon__icon">
                             <img
@@ -314,7 +318,7 @@
                         </div>
                       </div>
 
-                      <div class="uk-width-1-3@s">
+                      <div class="uk-width-1-3@s small-cards-wrapper">
                         <div class="block-icon block-icon--small">
                           <div class="block-icon__icon">
                             <img
@@ -334,7 +338,7 @@
                         </div>
                       </div>
 
-                      <div class="uk-width-1-3@s">
+                      <div class="uk-width-1-3@s small-cards-wrapper">
                         <div class="block-icon block-icon--small">
                           <div class="block-icon__icon">
                             <img
@@ -382,263 +386,171 @@
         </div>
         <div class="page-content">
           <div class="uk-section uk-container">
+            <div class="uk-section uk-container">
+              <!-- Centered team intro -->
+              <div class="uk-text-center uk-margin-bottom">
+                <p class="uk-h4 uk-margin-remove">Komandamız:</p>
+                <p class="uk-margin-remove">
+                  Sürüş təcrübənizi maksimum təhlükəsizlik və peşəkarlıqla
+                  inkişaf etdirmək üçün hər zaman yanınızdayıq.
+                </p>
+                <p class="uk-margin-remove">
+                  Hər bir tələbəmiz bizim üçün əvəzsizdir və fərdi yanaşma ilə
+                  onların bacarıqlarını ən yüksək səviyyəyə çıxarmağa sadiqik.
+                </p>
+              </div>
+              <!-- Team gallery grid -->
+              <div
+                class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-6@m"
+                uk-grid
+              >
+                <!-- Person 1 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="./assets/images/team/mirfariz.png"
+                      alt="Person 1"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mirfariz <br />
+                        Təsisçi və Direktor (QGA)</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 2 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="assets/images/team/mardan.webp"
+                      alt="Person 2"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mərdan <br />
+                        Təsisçi və Direktor</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 3 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="./assets/images/team/mirruzi.png"
+                      alt="Person 3"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mirruzi <br />
+                        Baş təlimçi</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 4 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="./assets/images/team/mirsahib.png"
+                      alt="Person 4"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mirsahib <br />
+                        Təlimçi</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 5 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="./assets/images/team/mirmehdi.png"
+                      alt="Person 5"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Mirmehdi <br />
+                        Təlimçi</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Person 5 -->
+                <div>
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                    <img
+                      src="assets/images/team/ali.webp"
+                      alt="Person 2"
+                      style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
+                    />
+                    <div
+                      class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
+                    >
+                      <strong
+                        >Əli <br />
+                        Təlimçi</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <style>
-              /* --- Team Intro --- */
-              .uk-text-center p {
-                margin: 6px 0;
-                line-height: 1.5;
-                color: #222; /* darker text for more emphasis */
-                font-weight: 500;
-                font-size: 22px;
-              }
-
-              .uk-text-center .uk-h4 {
-                font-size: 32px;
-                font-weight: 800; /* heavier heading */
-                margin-bottom: 12px;
-                text-transform: uppercase;
-              }
-
-              /* Optional underline / accent line */
-              .uk-text-center .uk-h4::after {
-                content: "";
-                display: block;
-                width: 80px;
-                height: 4px;
-                background-color: #e63946; /* stronger accent */
-                margin: 12px auto 0 auto;
-                border-radius: 2px;
-              }
-
-              /* --- Team Images --- */
               .uk-inline-clip img {
                 width: 100%;
                 height: auto;
                 object-fit: cover;
                 aspect-ratio: 3/4;
-                border-radius: 12px; /* more pronounced rounded corners */
-                transition: transform 0.4s ease, box-shadow 0.4s ease;
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* base shadow for weight */
-              }
-
-              /* Hover effect: stronger zoom + deeper shadow */
-              .uk-inline-clip:hover img {
-                transform: scale(1.08);
-                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-              }
-
-              /* Name tags overlay */
-              .uk-inline-clip .uk-position-bottom {
-                background: rgba(
-                  0,
-                  0,
-                  0,
-                  0.75
-                ); /* darker overlay for stronger contrast */
-                padding: 8px 0;
-                border-radius: 0 0 12px 12px;
-              }
-
-              /* Name tag text */
-              .uk-inline-clip .uk-position-bottom strong {
-                color: #fff;
-                font-size: 18px; /* bigger font */
-                font-weight: 700; /* heavier text */
-                display: block;
-                letter-spacing: 0.5px;
-              }
-
-              /* Spacing between grid items */
-              .uk-grid-small > * {
-                margin-bottom: 20px; /* more vertical space */
-              }
-
-              /* Responsive adjustments */
-              @media (max-width: 640px) {
-                .uk-inline-clip .uk-position-bottom strong {
-                  font-size: 16px;
-                }
-                .uk-text-center .uk-h4 {
-                  font-size: 26px;
-                }
-              }
-            </style>
-
-            <!-- Centered team intro -->
-            <div class="uk-text-center uk-margin-bottom">
-              <p class="uk-h4 uk-margin-remove">Komandamız:</p>
-              <p class="uk-margin-remove">
-                Sürüş təcrübənizi maksimum təhlükəsizlik və peşəkarlıqla inkişaf
-                etdirmək üçün hər zaman yanınızdayıq.
-              </p>
-              <p class="uk-margin-remove">
-                Hər bir tələbəmiz bizim üçün əvəzsizdir və fərdi yanaşma ilə
-                onların bacarıqlarını ən yüksək səviyyəyə çıxarmağa sadiqik.
-              </p>
-            </div>
-            <!-- Team gallery grid -->
-            <div
-              class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-6@m"
-              uk-grid
-            >
-              <!-- Person 1 -->
-              <div>
-                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                  <img
-                    src="./assets/images/team/mirfariz.png"
-                    alt="Person 1"
-                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
-                  />
-                  <div
-                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
-                  >
-                    <strong
-                      >Mirfariz <br />
-                      Təsisçi və Direktor (QGA)</strong
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <!-- Person 2 -->
-              <div>
-                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                  <img
-                    src="https://picsum.photos/300/400?random=2"
-                    alt="Person 2"
-                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
-                  />
-                  <div
-                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
-                  >
-                    <strong
-                      >Mərdan <br />
-                      Təsisçi və Direktor</strong
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <!-- Person 3 -->
-              <div>
-                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                  <img
-                    src="./assets/images/team/mirruzi.png"
-                    alt="Person 3"
-                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
-                  />
-                  <div
-                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
-                  >
-                    <strong
-                      >Mirruzi <br />
-                      Baş təlimçi</strong
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <!-- Person 4 -->
-              <div>
-                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                  <img
-                    src="./assets/images/team/mirsahib.png"
-                    alt="Person 4"
-                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
-                  />
-                  <div
-                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
-                  >
-                    <strong
-                      >Mirsahib <br />
-                      Təlimçi</strong
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <!-- Person 5 -->
-              <div>
-                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                  <img
-                    src="./assets/images/team/mirmehdi.png"
-                    alt="Person 5"
-                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
-                  />
-                  <div
-                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
-                  >
-                    <strong
-                      >Mirmehdi <br />
-                      Təlimçi</strong
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <!-- Person 5 -->
-              <div>
-                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                  <img
-                    src="https://picsum.photos/300/400?random=2"
-                    alt="Person 2"
-                    style="aspect-ratio: 3/4; width: 100%; object-fit: cover"
-                  />
-                  <div
-                    class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
-                  >
-                    <strong
-                      >Əli <br />
-                      Təlimçi</strong
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- </div> -->
-
-            <style>
-              /* Make gallery images responsive and keep 3:4 ratio */
-              .uk-inline-clip img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-                aspect-ratio: 3/4;
-                border-radius: 8px; /* optional: rounded corners */
+                border-radius: 8px;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
               }
 
-              /* Hover effect: slightly zoom the image */
               .uk-inline-clip:hover img {
                 transform: scale(1.05);
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
               }
 
-              /* Name tag overlay at bottom */
               .uk-inline-clip .uk-position-bottom {
-                background: rgba(
-                  0,
-                  0,
-                  0,
-                  0.6
-                ); /* semi-transparent dark overlay */
+                background: rgba(0, 0, 0, 0.6);
                 padding: 6px 0;
                 border-radius: 0 0 8px 8px;
               }
 
-              /* Name tag text */
               .uk-inline-clip .uk-position-bottom strong {
                 color: #fff;
                 font-size: 16px;
                 display: block;
               }
 
-              /* Optional: spacing between grid items */
               .uk-grid-small > * {
                 margin-bottom: 15px;
               }
 
-              /* Responsive text size for mobile */
               @media (max-width: 640px) {
                 .uk-inline-clip .uk-position-bottom strong {
                   font-size: 14px;
@@ -706,7 +618,7 @@
                 }
 
                 .video-thumb-grid li {
-                  flex: 1 1 calc(25% - 15px); /* 4 per row desktop */
+                  flex: 1 1 calc(25% - 15px);
                 }
 
                 .video-thumb-grid__item {
@@ -729,14 +641,12 @@
                   margin: 0;
                   color: #fff;
                   font-weight: bold;
-                  /* font-size: 1.2rem; */
                   font-size: 32px;
                   line-height: 1;
                   text-align: center;
                   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
                 }
 
-                /* Mobile: 2 by 2 grid */
                 @media (max-width: 768px) {
                   .video-thumb-grid li {
                     flex: 1 1 calc(50% - 15px);
@@ -766,7 +676,6 @@
               data-uk-grid
               data-uk-lightbox
             >
-              <!-- New images assets/images/gallery/gallery1.webp to gallery15.webp -->
               <div>
                 <div>
                   <a href="assets/images/gallery/gallery1.webp">
@@ -1071,11 +980,10 @@
                           font-size: 32px;
                         }
 
-                        /* Placeholder text styling */
                         .phone-placeholder::placeholder {
                           font-size: 32px;
                           text-align: center;
-                          color: #333; /* optional */
+                          color: #333;
                         }
                       </style>
                       <input
