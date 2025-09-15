@@ -80,16 +80,23 @@
           </div>
           <div class="page-header__center">
             <nav class="page-nav" data-uk-navbar>
-              <ul class="uk-navbar-nav">
+              <ul class="uk-navbar-nav" id="desktop-nav">
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about.html">Haqqımızda</a></li>
                 <li><a href="./packages.html">Təlim paketlərimiz</a></li>
                 <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
                 <li><a href="./contact.html">Əlaqə</a></li>
-
-                <!-- Visible Google Translate widget -->
-                <li class="uk-navbar-item">
-                  <div id="google_translate_element"></div>
+                <li>
+                  <a href="#">AZ</a>
+                  <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      <li><a href="#">AZ</a></li>
+                      <li><a href="../en/">EN</a></li>
+                      <li>
+                        <a href="../ru/">RU</a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -670,14 +677,21 @@
               data-uk-close=""
             ></button>
             <div class="uk-margin">
-              <div class="logo">
-                <a class="logo__link" href="index.html">
-                  <div class="logo__icon">
-                    <img src="assets/images/logo.webp" alt="KeyMoto" />
-                  </div>
-                  <div class="logo__text">Moto Baku Academy</div>
-                </a>
-              </div>
+              <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">Haqqımızda</a></li>
+                <li><a href="./packages.html">Təlim paketlərimiz</a></li>
+                <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
+                <li><a href="./contact.html">Əlaqə </a></li>
+                <li class="uk-parent">
+                  <a href="#">AZ</a>
+                  <ul class="uk-nav-sub">
+                    <li><a href="../..">AZ</a></li>
+                    <li><a href="../en/">EN</a></li>
+                    <li><a href="../ru/">RU</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
             <div class="uk-margin">
               <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
@@ -712,61 +726,5 @@
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/ion.rangeSlider.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "az",
-            includedLanguages: "en,ru",
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          },
-          "google_translate_element"
-        );
-      }
-
-      // Move the widget into mobile nav when menu opens
-      document.addEventListener("DOMContentLoaded", function () {
-        var mobileTarget = document.getElementById(
-          "google_translate_element_mobile"
-        );
-        var desktopContainer = document.getElementById(
-          "google_translate_element"
-        );
-
-        // UIkit offcanvas event
-        document.addEventListener(
-          "show",
-          function (e) {
-            if (e.target.classList.contains("uk-offcanvas")) {
-              if (
-                desktopContainer.firstChild &&
-                !mobileTarget.hasChildNodes()
-              ) {
-                mobileTarget.appendChild(desktopContainer.firstChild);
-              }
-            }
-          },
-          true
-        );
-
-        // Return it back when mobile menu hides (optional)
-        document.addEventListener(
-          "hide",
-          function (e) {
-            if (e.target.classList.contains("uk-offcanvas")) {
-              if (
-                mobileTarget.firstChild &&
-                !desktopContainer.hasChildNodes()
-              ) {
-                desktopContainer.appendChild(mobileTarget.firstChild);
-              }
-            }
-          },
-          true
-        );
-      });
-    </script>
-
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

@@ -277,10 +277,17 @@
                 <li><a href="./packages.html">Təlim paketlərimiz</a></li>
                 <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
                 <li><a href="./contact.html">Əlaqə</a></li>
-
-                <!-- Visible Google Translate widget -->
-                <li class="uk-navbar-item">
-                  <div id="google_translate_element"></div>
+                <li>
+                  <a href="#">AZ</a>
+                  <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      <li><a href="#">AZ</a></li>
+                      <li><a href="../en/">EN</a></li>
+                      <li>
+                        <a href="../ru/">RU</a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -1325,62 +1332,23 @@
               </div>
             </div>
             <div class="uk-margin">
-              <ul
-                class="uk-nav uk-nav-default uk-nav-parent-icon"
-                data-uk-nav
-                id="mobile-nav"
-              >
+              <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about.html">Haqqımızda</a></li>
                 <li><a href="./packages.html">Təlim paketlərimiz</a></li>
                 <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
-                <li><a href="./contact.html">Əlaqə</a></li>
-                <!-- Mobile EN/RU links trigger the visible desktop widget -->
-                <li>
-                  <div id="google_translate_element_mobile"></div>
+                <li><a href="./contact.html">Əlaqə </a></li>
+                <li class="uk-parent">
+                  <a href="#">AZ</a>
+                  <ul class="uk-nav-sub">
+                    <li><a href="../..">AZ</a></li>
+                    <li><a href="../en/">EN</a></li>
+                    <li><a href="../ru/">RU</a></li>
+                  </ul>
                 </li>
               </ul>
             </div>
-            <style>
-              /* Force Google Translate containers to be visible */
-              #google_translate_element,
-              #google_translate_element_mobile {
-                display: inline-block !important;
-                min-width: 140px !important;
-                min-height: 34px !important;
-                position: relative !important;
-                z-index: 9999 !important;
-              }
 
-              /* Wrapper */
-              .goog-te-gadget {
-                display: inline-block !important;
-                width: auto !important;
-                height: auto !important;
-                font-size: 0 !important; /* hide "Powered by Google" text */
-              }
-
-              /* Dropdown select styled red */
-              .goog-te-gadget select {
-                display: inline-block !important;
-                visibility: visible !important;
-                min-width: 140px !important;
-                height: 34px !important;
-                font-size: 14px !important;
-                line-height: 1.4 !important;
-                padding: 4px 8px !important;
-                border: 1px solid #b30000 !important;
-                border-radius: 4px !important;
-                background: #ff4d4d !important; /* 🔴 red background */
-                color: #fff !important; /* white text */
-                cursor: pointer !important;
-              }
-
-              /* Prevent mobile nav from collapsing */
-              .uk-nav li #google_translate_element_mobile {
-                flex: none !important;
-              }
-            </style>
             <div class="uk-margin-auto-top">
               <div class="support">
                 <a class="support__link" href="tel:+994514735959">
@@ -1405,61 +1373,5 @@
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/ion.rangeSlider.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "az",
-            includedLanguages: "en,ru",
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          },
-          "google_translate_element"
-        );
-      }
-
-      // Move the widget into mobile nav when menu opens
-      document.addEventListener("DOMContentLoaded", function () {
-        var mobileTarget = document.getElementById(
-          "google_translate_element_mobile"
-        );
-        var desktopContainer = document.getElementById(
-          "google_translate_element"
-        );
-
-        // UIkit offcanvas event
-        document.addEventListener(
-          "show",
-          function (e) {
-            if (e.target.classList.contains("uk-offcanvas")) {
-              if (
-                desktopContainer.firstChild &&
-                !mobileTarget.hasChildNodes()
-              ) {
-                mobileTarget.appendChild(desktopContainer.firstChild);
-              }
-            }
-          },
-          true
-        );
-
-        // Return it back when mobile menu hides (optional)
-        document.addEventListener(
-          "hide",
-          function (e) {
-            if (e.target.classList.contains("uk-offcanvas")) {
-              if (
-                mobileTarget.firstChild &&
-                !desktopContainer.hasChildNodes()
-              ) {
-                desktopContainer.appendChild(mobileTarget.firstChild);
-              }
-            }
-          },
-          true
-        );
-      });
-    </script>
-
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

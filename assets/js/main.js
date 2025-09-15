@@ -1,6 +1,8 @@
 jQuery(document).ready(function ($) {
   "use strict";
 
+  
+
   $(".gallery-slider").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -229,6 +231,8 @@ function handleTabletChange(e) {
     //console.log('Media Query 768!');
   }
 }
+
+
 
 /////////////////////////////////////////////////////////////////
 // Preloader
