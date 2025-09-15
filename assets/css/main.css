@@ -593,10 +593,12 @@ a:hover {
 .logo__icon {
   /* display: block; */
   /* position: relative; */
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
 
   margin-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 15px;
 }
 
 .logo. .logo__text {
@@ -1220,6 +1222,7 @@ blockquote span::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: none;
 }
 
 .page-header__left {
@@ -1793,6 +1796,7 @@ blockquote span::before {
   width: 100%;
   height: 100%;
   content: "";
+  padding-top: 250px;
 }
 
 .section-hero__content {

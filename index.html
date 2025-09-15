@@ -102,6 +102,10 @@
       .uk-grid-margin {
         /* padding-left: 0; */
       }
+      .uk-inline-clip.uk-transition-toggle {
+        display: block; /* ensures it behaves like a block container */
+        width: 100%; /* stretch to full width of parent */
+      }
     </style>
   </head>
 
@@ -137,7 +141,7 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about.html">Haqqımızda</a></li>
                 <li><a href="./packages.html">Təlim paketlərimiz</a></li>
-                <li><a href="./about.html">Qara Geyimli Adam</a></li>
+                <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
                 <li><a href="./contact.html">Əlaqə</a></li>
               </ul>
             </nav>
@@ -160,11 +164,7 @@
             <div class="uk-position-relative" tabindex="-1">
               <ul class="uk-slideshow-items">
                 <li class="slideshow-item">
-                  <img
-                    src="assets/img/img-home-slideshow-3.jpg"
-                    alt
-                    data-uk-cover
-                  />
+                  <img src="assets/images/bg.webp" alt data-uk-cover />
                   <div class="uk-position-center uk-position-small">
                     <div class="uk-container">
                       <div class="uk-grid" data-uk-grid>
@@ -251,7 +251,7 @@
                       və konsaltinq xidmətləri də təqdim edirik. <br />
                       🔹Təhlükəsiz və professional yanaşma <br />
                       🔹 Müasir metodika və təcrübəli mütəxəssislər <br />
-                      🔹 Həm yeni başlayanlar, həm də təcrübəsini artırmaq
+                      🔹 Həm Moto Baku Academy, həm də təcrübəsini artırmaq
                       istəyənlər üçün fərdi proqramlar
                     </p>
 
@@ -766,89 +766,176 @@
               data-uk-grid
               data-uk-lightbox
             >
+              <!-- New images assets/images/gallery/gallery1.webp to gallery15.webp -->
               <div>
                 <div>
-                  <a href="assets/images/150-min.webp"
-                    ><img
+                  <a href="assets/images/gallery/gallery1.webp">
+                    <img
                       class="uk-width-1-1"
-                      src="assets/images/150-min.webp"
-                      alt="img-gallery"
-                  /></a>
+                      src="assets/images/gallery/gallery1.webp"
+                      alt="gallery1"
+                    />
+                  </a>
                 </div>
               </div>
               <div>
                 <div>
-                  <a href="assets/images/sekil.webp"
-                    ><img
+                  <a href="assets/images/gallery/gallery2.webp">
+                    <img
                       class="uk-width-1-1"
-                      src="assets/images/sekil.webp"
-                      alt="img-gallery"
-                  /></a>
+                      src="assets/images/gallery/gallery2.webp"
+                      alt="gallery2"
+                    />
+                  </a>
                 </div>
               </div>
               <div>
                 <div>
-                  <a href="assets/images/300.webp"
-                    ><img
+                  <a href="assets/images/gallery/gallery15.webp">
+                    <img
                       class="uk-width-1-1"
-                      src="assets/images/300.webp"
-                      alt="img-gallery"
-                  /></a>
+                      src="assets/images/gallery/gallery15.webp"
+                      alt="gallery15"
+                    />
+                  </a>
                 </div>
               </div>
               <div>
                 <div>
-                  <a href="assets/img/img-gallery-4-big.jpg"
-                    ><img
+                  <a href="assets/images/gallery/gallery3.webp">
+                    <img
                       class="uk-width-1-1"
-                      src="assets/img/img-gallery-4.jpg"
-                      alt="img-gallery"
-                  /></a>
+                      src="assets/images/gallery/gallery3.webp"
+                      alt="gallery3"
+                    />
+                  </a>
                 </div>
               </div>
               <div>
                 <div>
-                  <a href="assets/img/img-gallery-5-big.jpg"
-                    ><img
+                  <a href="assets/images/gallery/gallery4.webp">
+                    <img
                       class="uk-width-1-1"
-                      src="assets/img/img-gallery-5.jpg"
-                      alt="img-gallery"
-                  /></a>
+                      src="assets/images/gallery/gallery4.webp"
+                      alt="gallery4"
+                    />
+                  </a>
                 </div>
               </div>
               <div>
                 <div>
-                  <a href="assets/img/img-gallery-6-big.jpg"
-                    ><img
+                  <a href="assets/images/gallery/gallery5.webp">
+                    <img
                       class="uk-width-1-1"
-                      src="assets/img/img-gallery-6.jpg"
-                      alt="img-gallery"
-                  /></a>
+                      src="assets/images/gallery/gallery5.webp"
+                      alt="gallery5"
+                    />
+                  </a>
                 </div>
               </div>
               <div>
                 <div>
-                  <a href="assets/img/img-gallery-7-big.jpg"
-                    ><img
+                  <a href="assets/images/gallery/gallery6.webp">
+                    <img
                       class="uk-width-1-1"
-                      src="assets/img/img-gallery-7.jpg"
-                      alt="img-gallery"
-                  /></a>
+                      src="assets/images/gallery/gallery6.webp"
+                      alt="gallery6"
+                    />
+                  </a>
                 </div>
               </div>
               <div>
                 <div>
-                  <a href="assets/img/img-gallery-8-big.jpg"
-                    ><img
+                  <a href="assets/images/gallery/gallery7.webp">
+                    <img
                       class="uk-width-1-1"
-                      src="assets/img/img-gallery-8.jpg"
-                      alt="img-gallery"
-                  /></a>
+                      src="assets/images/gallery/gallery7.webp"
+                      alt="gallery7"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="assets/images/gallery/gallery8.webp">
+                    <img
+                      class="uk-width-1-1"
+                      src="assets/images/gallery/gallery8.webp"
+                      alt="gallery8"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="assets/images/gallery/gallery9.webp">
+                    <img
+                      class="uk-width-1-1"
+                      src="assets/images/gallery/gallery9.webp"
+                      alt="gallery9"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="assets/images/gallery/gallery10.webp">
+                    <img
+                      class="uk-width-1-1"
+                      src="assets/images/gallery/gallery10.webp"
+                      alt="gallery10"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="assets/images/gallery/gallery11.webp">
+                    <img
+                      class="uk-width-1-1"
+                      src="assets/images/gallery/gallery11.webp"
+                      alt="gallery11"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="assets/images/gallery/gallery12.webp">
+                    <img
+                      class="uk-width-1-1"
+                      src="assets/images/gallery/gallery12.webp"
+                      alt="gallery12"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="assets/images/gallery/gallery13.webp">
+                    <img
+                      class="uk-width-1-1"
+                      src="assets/images/gallery/gallery13.webp"
+                      alt="gallery13"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <a href="assets/images/gallery/gallery14.webp">
+                    <img
+                      class="uk-width-1-1"
+                      src="assets/images/gallery/gallery14.webp"
+                      alt="gallery14"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <div class="section-reviews">
           <div class="uk-section uk-container uk-container-large">
             <div
@@ -1096,7 +1183,7 @@
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./about.html">Haqqımızda</a></li>
                     <li><a href="./packages.html">Təlim paketlərimiz</a></li>
-                    <li><a href="./about.html">Qara Geyimli Adam</a></li>
+                    <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
                     <li><a href="./contact.html">Əlaqə</a></li>
                   </ul>
                 </div>
@@ -1108,18 +1195,20 @@
                     <li>
                       <div class="latest-news-item">
                         <div class="latest-news-item__thumb">
-                          <img src="assets/img/news-thumb-1.jpg" alt="xəbər" />
+                          <img
+                            src="assets/images/gallery/gallery1.webp"
+                            alt="xəbər"
+                          />
                         </div>
                         <div class="latest-news-item__info">
                           <a
                             class="latest-news-item__title"
-                            href="page-blog-article.html"
+                            href="Article1.html"
                           >
-                            Hər sürücüyə motosikletini öz zövqünə uyğunlaşdırmaq
-                            imkanı veririk.
+                            Yeni Başlayanlar – Motosikleti Hərəkətə Gətirmək
                           </a>
                           <div class="latest-news-item__date">
-                            12 Sentyabr, 2025
+                            15 Sentyabr, 2023
                           </div>
                         </div>
                       </div>
@@ -1127,17 +1216,21 @@
                     <li>
                       <div class="latest-news-item">
                         <div class="latest-news-item__thumb">
-                          <img src="assets/img/news-thumb-2.jpg" alt="xəbər" />
+                          <img
+                            src="assets/images/gallery/gallery4.webp"
+                            alt="xəbər"
+                          />
                         </div>
                         <div class="latest-news-item__info">
                           <a
                             class="latest-news-item__title"
-                            href="page-blog-article.html"
+                            href="Article3.html"
                           >
-                            Özünüzə tam uyğun motosikletlə rahatlığı hiss edin.
+                            Moto Baku Academy – Yeni Açılmış Mərkəzi Filial (Su
+                            İdman Sarayı)
                           </a>
                           <div class="latest-news-item__date">
-                            12 Sentyabr, 2025
+                            15 August, 2024
                           </div>
                         </div>
                       </div>
@@ -1209,7 +1302,7 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./about.html">Haqqımızda</a></li>
                 <li><a href="./packages.html">Təlim paketlərimiz</a></li>
-                <li><a href="./page-blog-grid.html">Qara Geyimli Adam</a></li>
+                <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
                 <li><a href="./contact.html">Əlaqə </a></li>
               </ul>
             </div>
