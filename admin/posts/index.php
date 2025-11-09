@@ -119,6 +119,7 @@ include __DIR__ . '/../views/layout/header.php';
                     <th>Title</th>
                     <th>Status</th>
                     <th>Categories</th>
+                    <th>Comments</th>
                     <th>Updated</th>
                     <th style="width:160px;">Actions</th>
                 </tr>
@@ -142,6 +143,13 @@ include __DIR__ . '/../views/layout/header.php';
                             <?php else: ?>
                                 <span style="color:#9ca3af;">—</span>
                             <?php endif; ?>
+                        </td>
+                        <td>
+                            <?php $accepts = (int)($post['accepts_comments'] ?? 1) === 1; ?>
+                            <span style="display:inline-flex; align-items:center; gap:0.35rem; font-weight:600; color:<?= $accepts ? '#059669' : '#b45309' ?>;">
+                                <span style="width:0.5rem; height:0.5rem; border-radius:999px; background:<?= $accepts ? '#34d399' : '#fb923c' ?>;"></span>
+                                <?= $accepts ? 'Open' : 'Closed' ?>
+                            </span>
                         </td>
                         <td><?= htmlspecialchars($post['updated_at'] ?? $post['created_at']) ?></td>
                         <td>

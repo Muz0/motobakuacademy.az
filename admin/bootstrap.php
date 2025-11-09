@@ -25,6 +25,7 @@ foreach (glob($basePath . '/lib/*.php') as $libFile) {
 use MotoBaku\Admin\Auth;
 use MotoBaku\Admin\CategoryRepository;
 use MotoBaku\Admin\Database;
+use MotoBaku\Admin\CommentRepository;
 use MotoBaku\Admin\PostRepository;
 
 $connection = Database::make(config('db'));
@@ -33,3 +34,4 @@ set_service('db', $connection);
 set_service('auth', new Auth($connection));
 set_service('posts', new PostRepository($connection));
 set_service('categories', new CategoryRepository($connection));
+set_service('comments', new CommentRepository($connection));

@@ -120,8 +120,8 @@ class PostRepository
         }
 
         $stmt = $this->db->prepare(
-            'INSERT INTO posts (title, slug, excerpt, content, cover_image, graphic_content, status, published_at)
-             VALUES (:title, :slug, :excerpt, :content, :cover_image, :graphic_content, :status, :published_at)'
+            'INSERT INTO posts (title, slug, excerpt, content, cover_image, graphic_content, accepts_comments, status, published_at)
+             VALUES (:title, :slug, :excerpt, :content, :cover_image, :graphic_content, :accepts_comments, :status, :published_at)'
         );
 
         try {
@@ -132,6 +132,7 @@ class PostRepository
                 ':content' => $data['content'],
                 ':cover_image' => $data['cover_image'] ?? null,
                 ':graphic_content' => $data['graphic_content'] ?? null,
+                ':accepts_comments' => !empty($data['accepts_comments']) ? 1 : 0,
                 ':status' => $data['status'] ?? 'draft',
                 ':published_at' => $publishedAt,
             ]);
@@ -168,6 +169,7 @@ class PostRepository
                  content = :content,
                  cover_image = :cover_image,
                  graphic_content = :graphic_content,
+                 accepts_comments = :accepts_comments,
                  status = :status,
                  published_at = :published_at,
                  updated_at = NOW()
@@ -182,6 +184,7 @@ class PostRepository
                 ':content' => $data['content'],
                 ':cover_image' => $data['cover_image'] ?? null,
                 ':graphic_content' => $data['graphic_content'] ?? null,
+                ':accepts_comments' => !empty($data['accepts_comments']) ? 1 : 0,
                 ':status' => $data['status'] ?? 'draft',
                 ':published_at' => $publishedAt,
                 ':id' => $id,

@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS posts (
     content LONGTEXT NOT NULL,
     cover_image VARCHAR(255) NULL,
     graphic_content VARCHAR(255) NULL,
+    accepts_comments TINYINT(1) NOT NULL DEFAULT 1,
     status ENUM('draft', 'published') NOT NULL DEFAULT 'draft',
     published_at DATETIME NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -56,6 +57,27 @@ CREATE TABLE IF NOT EXISTS post_category (
     PRIMARY KEY (post_id, category_id),
     CONSTRAINT fk_post FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
     CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+SQL,
+    <<<SQL
+CREATE TABLE IF NOT EXISTS comments (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    post_id INT UNSIGNED NOT NULL,
+    user_id INT UNSIGNED DEFAULT NULL,
+    parent_comment_id INT UNSIGNED DEFAULT NULL,
+    author_name VARCHAR(191) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_deleted TINYINT(1) NOT NULL DEFAULT 0,
+    INDEX idx_post_created_at (post_id, created_at),
+    INDEX idx_user_id (user_id),
+    INDEX idx_parent_comment (parent_comment_id),
+    CONSTRAINT fk_comments_post
+        FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
+    CONSTRAINT fk_comments_user
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL,
+    CONSTRAINT fk_comments_parent
+        FOREIGN KEY (parent_comment_id) REFERENCES comments(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SQL,
 ];

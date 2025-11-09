@@ -33,6 +33,7 @@ $formData = [
     'cover_image' => '',
     'graphic_content' => '',
     'categories' => [],
+    'accepts_comments' => true,
 ];
 
 if (is_post()) {
@@ -54,6 +55,7 @@ if (is_post()) {
         'cover_image' => 'nullable|string|max:255',
         'graphic_content' => 'nullable|string|max:255',
         'categories' => 'nullable|array',
+        'accepts_comments' => 'nullable|string|in:on',
     ]);
     $data = $validation['data'] ?? [];
     $errors = $validation['errors'] ?? [];
@@ -73,6 +75,7 @@ if (is_post()) {
     $data['categories'] = array_values(array_unique(
         array_map(static fn($value) => (int)$value, (array)($data['categories'] ?? []))
     ));
+    $data['accepts_comments'] = isset($input['accepts_comments']) && $input['accepts_comments'] === 'on';
 
     $slug = $data['slug'] ?: slugify((string)$data['title']);
     if ($slug === '') {
@@ -108,6 +111,7 @@ if (is_post()) {
                 'cover_image' => $data['cover_image'],
                 'graphic_content' => $data['graphic_content'],
                 'categories' => $data['categories'],
+                'accepts_comments' => $data['accepts_comments'],
             ]);
 
             flash('success', 'Post created successfully.');
@@ -129,6 +133,7 @@ if (is_post()) {
         'cover_image' => $data['cover_image'] ?? '',
         'graphic_content' => $data['graphic_content'] ?? '',
         'categories' => $data['categories'] ?? [],
+        'accepts_comments' => (bool)($data['accepts_comments'] ?? false),
     ]);
 }
 
@@ -203,6 +208,18 @@ include __DIR__ . '/../views/layout/header.php';
             <input class="form__control" id="published_at" name="published_at" type="datetime-local"
                    value="<?= htmlspecialchars($formData['published_at']) ?>">
             <?php if ($error = field_error($errors, 'published_at')): ?>
+                <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
+            <?php endif; ?>
+        </div>
+
+        <div class="form__group">
+            <label class="form__label" for="accepts_comments" style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+                <input type="checkbox" id="accepts_comments" name="accepts_comments" value="on"
+                       <?= !empty($formData['accepts_comments']) ? 'checked' : '' ?>>
+                Accept new comments
+            </label>
+            <small style="color:#64748b;">Uncheck to disable future comments for this post.</small>
+            <?php if ($error = field_error($errors, 'accepts_comments')): ?>
                 <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
             <?php endif; ?>
         </div>
