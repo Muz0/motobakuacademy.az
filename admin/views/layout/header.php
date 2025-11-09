@@ -44,6 +44,7 @@ $currentUser = $auth?->user();
                 <a href="<?= htmlspecialchars(base_url('posts/create.php')) ?>">New Post</a>
                 <a href="<?= htmlspecialchars(base_url('categories/index.php')) ?>">Categories</a>
                 <a href="<?= htmlspecialchars(base_url('media/index.php')) ?>">Media Library</a>
+                <a href="<?= htmlspecialchars(base_url('password.php')) ?>">Change Password</a>
             </nav>
         </aside>
         <main class="content">
