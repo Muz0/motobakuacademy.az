@@ -38,7 +38,9 @@ try {
     exit;
 }
 
-$data = array_map(static function (array $item): array {
+$languages = ['az', 'ru', 'en'];
+
+$data = array_map(static function (array $item) use ($languages): array {
     $publishedAt = $item['published_at'] ?? $item['created_at'] ?? null;
     if ($publishedAt) {
         try {
@@ -48,13 +50,19 @@ $data = array_map(static function (array $item): array {
         }
     }
 
-    return [
+    $result = [
         'slug' => $item['slug'],
-        'title' => $item['title'],
-        'excerpt' => $item['excerpt'] ?? '',
-        'cover_image' => $item['cover_image'] ?? null,
         'published_at' => $publishedAt,
     ];
+
+    foreach ($languages as $lang) {
+        $result["title_{$lang}"] = $item["title_{$lang}"] ?? '';
+        $result["summary_{$lang}"] = $item["summary_{$lang}"] ?? '';
+        $result["cover_image_{$lang}"] = $item["cover_image_{$lang}"] ?? null;
+        $result["graphic_content_{$lang}"] = $item["graphic_content_{$lang}"] ?? null;
+    }
+
+    return $result;
 }, $paginated['data']);
 
 $response = [

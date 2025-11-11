@@ -57,14 +57,20 @@ if ($publishedAt) {
     }
 }
 
+$languages = ['az', 'ru', 'en'];
+
 $response = [
     'slug' => $post['slug'],
-    'title' => $post['title'],
-    'excerpt' => $post['excerpt'] ?? '',
-    'cover_image' => $post['cover_image'] ?? null,
-    'graphic_content' => $post['graphic_content'] ?? null,
-    'content' => $post['content'],
     'published_at' => $publishedAt,
+    'accepts_comments' => (int)($post['accepts_comments'] ?? 1) === 1,
 ];
+
+foreach ($languages as $lang) {
+    $response["title_{$lang}"] = $post["title_{$lang}"] ?? '';
+    $response["summary_{$lang}"] = $post["summary_{$lang}"] ?? '';
+    $response["content_{$lang}"] = $post["content_{$lang}"] ?? '';
+    $response["cover_image_{$lang}"] = $post["cover_image_{$lang}"] ?? null;
+    $response["graphic_content_{$lang}"] = $post["graphic_content_{$lang}"] ?? null;
+}
 
 echo json_encode($response, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);

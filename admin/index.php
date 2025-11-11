@@ -81,7 +81,7 @@ include __DIR__ . '/views/layout/header.php';
                 <?php foreach ($recentPosts as $post): ?>
                     <tr>
                         <td>
-                            <strong><?= htmlspecialchars($post['title']) ?></strong><br>
+                            <strong><?= htmlspecialchars($post['title_az'] ?? '') ?></strong><br>
                             <small style="color:#8896a5;"><?= htmlspecialchars($post['slug']) ?></small>
                         </td>
                         <td>

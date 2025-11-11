@@ -8,6 +8,8 @@ use PDO;
 
 class PostRepository
 {
+    private const LANGUAGES = ['az', 'ru', 'en'];
+
     public function __construct(private PDO $db)
     {
     }
@@ -120,22 +122,42 @@ class PostRepository
         }
 
         $stmt = $this->db->prepare(
-            'INSERT INTO posts (title, slug, excerpt, content, cover_image, graphic_content, accepts_comments, status, published_at)
-             VALUES (:title, :slug, :excerpt, :content, :cover_image, :graphic_content, :accepts_comments, :status, :published_at)'
+            'INSERT INTO posts (
+                title_az, title_ru, title_en,
+                slug,
+                summary_az, summary_ru, summary_en,
+                content_az, content_ru, content_en,
+                cover_image_az, cover_image_ru, cover_image_en,
+                graphic_content_az, graphic_content_ru, graphic_content_en,
+                accepts_comments, status, published_at
+            ) VALUES (
+                :title_az, :title_ru, :title_en,
+                :slug,
+                :summary_az, :summary_ru, :summary_en,
+                :content_az, :content_ru, :content_en,
+                :cover_image_az, :cover_image_ru, :cover_image_en,
+                :graphic_content_az, :graphic_content_ru, :graphic_content_en,
+                :accepts_comments, :status, :published_at
+            )'
         );
 
         try {
-            $stmt->execute([
-                ':title' => $data['title'],
+            $params = [
                 ':slug' => $data['slug'],
-                ':excerpt' => $data['excerpt'] ?? null,
-                ':content' => $data['content'],
-                ':cover_image' => $data['cover_image'] ?? null,
-                ':graphic_content' => $data['graphic_content'] ?? null,
                 ':accepts_comments' => !empty($data['accepts_comments']) ? 1 : 0,
                 ':status' => $data['status'] ?? 'draft',
                 ':published_at' => $publishedAt,
-            ]);
+            ];
+
+            foreach (self::LANGUAGES as $language) {
+                $params[":title_{$language}"] = $data["title_{$language}"];
+                $params[":summary_{$language}"] = $data["summary_{$language}"] ?? null;
+                $params[":content_{$language}"] = $data["content_{$language}"] ?? null;
+                $params[":cover_image_{$language}"] = $data["cover_image_{$language}"] ?? null;
+                $params[":graphic_content_{$language}"] = $data["graphic_content_{$language}"] ?? null;
+            }
+
+            $stmt->execute($params);
 
             $postId = (int)$this->db->lastInsertId();
 
@@ -163,12 +185,22 @@ class PostRepository
 
         $stmt = $this->db->prepare(
             'UPDATE posts
-             SET title = :title,
+             SET title_az = :title_az,
+                 title_ru = :title_ru,
+                 title_en = :title_en,
                  slug = :slug,
-                 excerpt = :excerpt,
-                 content = :content,
-                 cover_image = :cover_image,
-                 graphic_content = :graphic_content,
+                 summary_az = :summary_az,
+                 summary_ru = :summary_ru,
+                 summary_en = :summary_en,
+                 content_az = :content_az,
+                 content_ru = :content_ru,
+                 content_en = :content_en,
+                 cover_image_az = :cover_image_az,
+                 cover_image_ru = :cover_image_ru,
+                 cover_image_en = :cover_image_en,
+                 graphic_content_az = :graphic_content_az,
+                 graphic_content_ru = :graphic_content_ru,
+                 graphic_content_en = :graphic_content_en,
                  accepts_comments = :accepts_comments,
                  status = :status,
                  published_at = :published_at,
@@ -177,18 +209,23 @@ class PostRepository
         );
 
         try {
-            $updated = $stmt->execute([
-                ':title' => $data['title'],
+            $params = [
                 ':slug' => $data['slug'],
-                ':excerpt' => $data['excerpt'] ?? null,
-                ':content' => $data['content'],
-                ':cover_image' => $data['cover_image'] ?? null,
-                ':graphic_content' => $data['graphic_content'] ?? null,
                 ':accepts_comments' => !empty($data['accepts_comments']) ? 1 : 0,
                 ':status' => $data['status'] ?? 'draft',
                 ':published_at' => $publishedAt,
                 ':id' => $id,
-            ]);
+            ];
+
+            foreach (self::LANGUAGES as $language) {
+                $params[":title_{$language}"] = $data["title_{$language}"];
+                $params[":summary_{$language}"] = $data["summary_{$language}"] ?? null;
+                $params[":content_{$language}"] = $data["content_{$language}"] ?? null;
+                $params[":cover_image_{$language}"] = $data["cover_image_{$language}"] ?? null;
+                $params[":graphic_content_{$language}"] = $data["graphic_content_{$language}"] ?? null;
+            }
+
+            $updated = $stmt->execute($params);
 
             if ($updated && array_key_exists('categories', $data)) {
                 $this->syncCategories($id, $data['categories'] ?? []);
@@ -245,7 +282,12 @@ class PostRepository
         }
 
         if (!empty($filters['search'])) {
-            $clauses[] = '(title LIKE :search OR slug LIKE :search)';
+            $clauses[] = '(' .
+                'title_az LIKE :search OR ' .
+                'title_ru LIKE :search OR ' .
+                'title_en LIKE :search OR ' .
+                'slug LIKE :search' .
+            ')';
             $params[':search'] = '%' . $filters['search'] . '%';
         }
 

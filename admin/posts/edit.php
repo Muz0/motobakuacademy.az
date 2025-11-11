@@ -38,18 +38,27 @@ $categories = $categoriesRepo ? $categoriesRepo->all() : [];
 $title = 'Edit Post';
 $errors = [];
 
+$languages = [
+    'az' => 'Azerbaijani',
+    'ru' => 'Russian',
+    'en' => 'English',
+];
+
 $formData = [
-    'title' => $post['title'],
     'slug' => $post['slug'],
-    'excerpt' => $post['excerpt'] ?? '',
-    'content' => $post['content'],
     'status' => $post['status'],
     'published_at' => $post['published_at'] ? (new \DateTime($post['published_at']))->format('Y-m-d\TH:i') : '',
-    'cover_image' => $post['cover_image'] ?? '',
-    'graphic_content' => $post['graphic_content'] ?? '',
     'categories' => array_map(static fn($category) => (int)$category['id'], $post['categories'] ?? []),
     'accepts_comments' => (int)($post['accepts_comments'] ?? 1) === 1,
 ];
+
+foreach ($languages as $code => $label) {
+    $formData["title_{$code}"] = $post["title_{$code}"] ?? '';
+    $formData["summary_{$code}"] = $post["summary_{$code}"] ?? '';
+    $formData["content_{$code}"] = $post["content_{$code}"] ?? '';
+    $formData["cover_image_{$code}"] = $post["cover_image_{$code}"] ?? '';
+    $formData["graphic_content_{$code}"] = $post["graphic_content_{$code}"] ?? '';
+}
 
 if (is_post()) {
     if (!CSRF::validate($_POST['_token'] ?? null)) {
@@ -60,39 +69,86 @@ if (is_post()) {
     $input = $_POST;
     $input['categories'] = $input['categories'] ?? [];
 
-    $validation = Validation::make($input, [
-        'title' => 'required|string|min:3|max:255',
+    $rules = [
         'slug' => 'required|string|slug|max:255',
-        'excerpt' => 'nullable|string|max:500',
-        'content' => 'required|string|min:10',
         'status' => 'required|string|in:draft,published',
         'published_at' => 'nullable|string',
-        'cover_image' => 'nullable|string|max:255',
-        'graphic_content' => 'nullable|string|max:255',
         'categories' => 'nullable|array',
         'accepts_comments' => 'nullable|string|in:on',
-    ]);
+    ];
+
+    foreach ($languages as $code => $label) {
+        $rules["title_{$code}"] = $code === 'az'
+            ? 'required|string|min:3|max:255'
+            : 'nullable|string|max:255';
+        $rules["summary_{$code}"] = 'nullable|string|max:500';
+        $rules["content_{$code}"] = $code === 'az'
+            ? 'required|string|min:10'
+            : 'nullable|string|min:10';
+        $rules["cover_image_{$code}"] = 'nullable|string|max:255';
+        $rules["graphic_content_{$code}"] = 'nullable|string|max:255';
+    }
+
+    $validation = Validation::make($input, $rules);
     $data = $validation['data'] ?? [];
     $errors = $validation['errors'] ?? [];
 
-    $data['title'] = trim((string)($data['title'] ?? ''));
     $data['slug'] = trim((string)($data['slug'] ?? ''));
-    $data['excerpt'] = isset($data['excerpt']) ? trim((string)$data['excerpt']) : null;
-    $data['content'] = (string)($data['content'] ?? '');
     $data['status'] = (string)($data['status'] ?? 'draft');
-    $data['cover_image'] = isset($data['cover_image']) && $data['cover_image'] !== ''
-        ? trim((string)$data['cover_image'])
-        : null;
-    $data['graphic_content'] = isset($data['graphic_content']) && $data['graphic_content'] !== ''
-        ? trim((string)$data['graphic_content'])
-        : null;
+
+    foreach ($languages as $code => $label) {
+        $titleKey = "title_{$code}";
+        $summaryKey = "summary_{$code}";
+        $contentKey = "content_{$code}";
+        $coverKey = "cover_image_{$code}";
+        $graphicKey = "graphic_content_{$code}";
+
+        $data[$titleKey] = trim((string)($data[$titleKey] ?? ''));
+
+        $summaryValue = $data[$summaryKey] ?? null;
+        if (is_string($summaryValue)) {
+            $summaryValue = trim($summaryValue);
+        }
+        $data[$summaryKey] = $summaryValue === '' ? null : $summaryValue;
+
+        $data[$contentKey] = (string)($data[$contentKey] ?? '');
+
+        $coverValue = $data[$coverKey] ?? null;
+        if (is_string($coverValue)) {
+            $coverValue = trim($coverValue);
+        }
+        $data[$coverKey] = $coverValue === '' ? null : $coverValue;
+
+        $graphicValue = $data[$graphicKey] ?? null;
+        if (is_string($graphicValue)) {
+            $graphicValue = trim($graphicValue);
+        }
+        $data[$graphicKey] = $graphicValue === '' ? null : $graphicValue;
+    }
+
+    foreach (['title', 'summary', 'content', 'cover_image', 'graphic_content'] as $field) {
+        $sourceKey = "{$field}_az";
+        foreach ($languages as $code => $label) {
+            if ($code === 'az') {
+                continue;
+            }
+            $targetKey = "{$field}_{$code}";
+            $value = $data[$targetKey];
+            $isEmpty = $field === 'content'
+                ? ($value === '' || $value === null)
+                : ($value === null || $value === '');
+            if ($isEmpty) {
+                $data[$targetKey] = $data[$sourceKey];
+            }
+        }
+    }
 
     $data['categories'] = array_values(array_unique(
         array_map(static fn($value) => (int)$value, (array)($data['categories'] ?? []))
     ));
     $data['accepts_comments'] = isset($input['accepts_comments']) && $input['accepts_comments'] === 'on';
 
-    $slug = $data['slug'] ?: slugify((string)$data['title']);
+    $slug = $data['slug'] ?: slugify((string)$data['title_az']);
     if ($slug === '') {
         $errors['slug'][] = 'Unable to generate slug. Please provide one manually.';
     } elseif ($postsRepo->existsBySlug($slug, $id)) {
@@ -116,18 +172,23 @@ if (is_post()) {
 
     if (empty($errors)) {
         try {
-            $postsRepo->update($id, [
-                'title' => $data['title'],
+            $payload = [
                 'slug' => $data['slug'],
-                'excerpt' => $data['excerpt'] !== '' ? $data['excerpt'] : null,
-                'content' => $data['content'],
                 'status' => $data['status'],
                 'published_at' => $data['published_at'],
-                'cover_image' => $data['cover_image'],
-                'graphic_content' => $data['graphic_content'],
                 'categories' => $data['categories'],
                 'accepts_comments' => $data['accepts_comments'],
-            ]);
+            ];
+
+            foreach ($languages as $code => $label) {
+                $payload["title_{$code}"] = $data["title_{$code}"];
+                $payload["summary_{$code}"] = $data["summary_{$code}"];
+                $payload["content_{$code}"] = $data["content_{$code}"];
+                $payload["cover_image_{$code}"] = $data["cover_image_{$code}"];
+                $payload["graphic_content_{$code}"] = $data["graphic_content_{$code}"];
+            }
+
+            $postsRepo->update($id, $payload);
 
             flash('success', 'Post updated successfully.');
             redirect(base_url('posts/index.php'));
@@ -140,7 +201,6 @@ if (is_post()) {
 
     $formData = array_merge($formData, $data);
     $formData['published_at'] = $publishedInput;
-    $formData['graphic_content'] = $data['graphic_content'] ?? '';
     $formData['accepts_comments'] = (bool)($data['accepts_comments'] ?? false);
 }
 
@@ -161,38 +221,71 @@ include __DIR__ . '/../views/layout/header.php';
     <form method="post" action="<?= htmlspecialchars(base_url('posts/edit.php?id=' . $id)) ?>">
         <input type="hidden" name="_token" value="<?= htmlspecialchars(CSRF::getToken()) ?>">
 
-        <div class="form__group">
-            <label class="form__label" for="title">Title</label>
-            <input class="form__control" id="title" name="title" type="text" required
-                   value="<?= htmlspecialchars($formData['title']) ?>" data-slug-source>
-            <?php if ($error = field_error($errors, 'title')): ?>
-                <small style="color:#dc2626;"><?= htmlspecialchars($error) ?></small>
-            <?php endif; ?>
-        </div>
+        <?php foreach ($languages as $code => $label): ?>
+            <div style="border:1px solid #e5e7eb; border-radius:0.5rem; padding:1rem; margin-bottom:1.5rem;">
+                <h2 style="margin-top:0; font-size:1.1rem; display:flex; justify-content:space-between; align-items:center;">
+                    <span><?= htmlspecialchars($label) ?> content</span>
+                    <span style="font-size:0.85rem; color:#6b7280;"><?= strtoupper($code) ?></span>
+                </h2>
+
+                <div class="form__group">
+                    <label class="form__label" for="title_<?= $code ?>">Title (<?= strtoupper($code) ?>)</label>
+                    <input class="form__control" id="title_<?= $code ?>" name="title_<?= $code ?>" type="text"
+                           <?= $code === 'az' ? 'required data-slug-source' : '' ?>
+                           value="<?= htmlspecialchars($formData["title_{$code}"]) ?>">
+                    <?php if ($error = field_error($errors, "title_{$code}")): ?>
+                        <small style="color:#dc2626;"><?= htmlspecialchars($error) ?></small>
+                    <?php endif; ?>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="summary_<?= $code ?>">Summary (<?= strtoupper($code) ?>)</label>
+                    <textarea class="form__control" id="summary_<?= $code ?>" name="summary_<?= $code ?>" rows="3"><?= htmlspecialchars((string)$formData["summary_{$code}"]) ?></textarea>
+                    <small style="color:#64748b;">Leave blank to reuse the Azerbaijani summary.</small>
+                    <?php if ($error = field_error($errors, "summary_{$code}")): ?>
+                        <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
+                    <?php endif; ?>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="content_<?= $code ?>">Content (<?= strtoupper($code) ?>)</label>
+                    <textarea class="form__control" id="content_<?= $code ?>" name="content_<?= $code ?>"
+                              data-editor="rich-text" rows="10"><?= htmlspecialchars($formData["content_{$code}"]) ?></textarea>
+                    <?php if ($error = field_error($errors, "content_{$code}")): ?>
+                        <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
+                    <?php endif; ?>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="cover_image_<?= $code ?>">Cover Image URL (<?= strtoupper($code) ?>)</label>
+                    <input class="form__control" id="cover_image_<?= $code ?>" name="cover_image_<?= $code ?>" type="text"
+                           value="<?= htmlspecialchars((string)$formData["cover_image_{$code}"]) ?>">
+                    <button type="button" class="button button--light" data-open-media-picker="#cover_image_<?= $code ?>" style="margin-top:0.5rem;">Upload</button>
+                    <small style="color:#64748b;">Leave blank to reuse the Azerbaijani cover.</small>
+                    <?php if ($error = field_error($errors, "cover_image_{$code}")): ?>
+                        <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
+                    <?php endif; ?>
+                </div>
+
+                <div class="form__group">
+                    <label class="form__label" for="graphic_content_<?= $code ?>">Graphic/Video URL (<?= strtoupper($code) ?>)</label>
+                    <input class="form__control" id="graphic_content_<?= $code ?>" name="graphic_content_<?= $code ?>" type="text"
+                           value="<?= htmlspecialchars((string)$formData["graphic_content_{$code}"]) ?>">
+                    <button type="button" class="button button--light" data-open-media-picker="#graphic_content_<?= $code ?>" style="margin-top:0.5rem;">Upload</button>
+                    <small style="color:#64748b;">Leave blank to reuse the Azerbaijani asset.</small>
+                    <?php if ($error = field_error($errors, "graphic_content_{$code}")): ?>
+                        <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
 
         <div class="form__group">
             <label class="form__label" for="slug">Slug</label>
             <input class="form__control" id="slug" name="slug" type="text"
                    value="<?= htmlspecialchars($formData['slug']) ?>"
-                   data-slug-target data-slug-source="#title">
+                   data-slug-target data-slug-source="#title_az">
             <?php if ($error = field_error($errors, 'slug')): ?>
-                <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
-            <?php endif; ?>
-        </div>
-
-        <div class="form__group">
-            <label class="form__label" for="excerpt">Excerpt</label>
-            <textarea class="form__control" id="excerpt" name="excerpt" rows="3"><?= htmlspecialchars((string)$formData['excerpt']) ?></textarea>
-            <?php if ($error = field_error($errors, 'excerpt')): ?>
-                <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
-            <?php endif; ?>
-        </div>
-
-        <div class="form__group">
-            <label class="form__label" for="content">Content</label>
-            <textarea class="form__control" id="content" name="content" data-editor="rich-text" rows="12"><?= htmlspecialchars($formData['content']) ?></textarea>
-            <small class="form__error" data-editor-error style="color:#dc2626; display:none;"></small>
-            <?php if ($error = field_error($errors, 'content')): ?>
                 <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
             <?php endif; ?>
         </div>
@@ -227,81 +320,6 @@ include __DIR__ . '/../views/layout/header.php';
             <?php if ($error = field_error($errors, 'accepts_comments')): ?>
                 <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
             <?php endif; ?>
-        </div>
-
-        <div class="form__group">
-            <label class="form__label" for="graphic_content">Graphic Content URL</label>
-            <input class="form__control" id="graphic_content" name="graphic_content" type="text"
-                   value="<?= htmlspecialchars((string)$formData['graphic_content']) ?>">
-            <button type="button" class="button button--light" data-open-media-picker="#graphic_content" style="margin-top:0.5rem;">Upload</button>
-            <small style="color:#64748b;">Use this for the main graphic or video file.</small>
-            <?php if ($error = field_error($errors, 'graphic_content')): ?>
-                <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
-            <?php endif; ?>
-            <?php
-            $graphicUrl = trim((string)$formData['graphic_content']);
-            $graphicType = 'none';
-            if ($graphicUrl !== '') {
-                if (preg_match('/\.(mp4|webm|ogg|mov)(?:$|\?)/i', $graphicUrl)) {
-                    $graphicType = 'video';
-                } elseif (preg_match('/\.(jpe?g|png|gif|webp|svg)(?:$|\?)/i', $graphicUrl)) {
-                    $graphicType = 'image';
-                } else {
-                    $graphicType = 'file';
-                }
-            }
-            ?>
-            <div class="media-preview <?= $graphicType === 'none' ? 'is-empty' : '' ?>" data-media-preview-for="graphic_content">
-                <?php if ($graphicType === 'none'): ?>
-                    <span class="media-preview__empty">No file selected.</span>
-                <?php elseif ($graphicType === 'image'): ?>
-                    <div class="media-preview__thumb"><img src="<?= htmlspecialchars($graphicUrl) ?>" alt=""></div>
-                    <div class="media-preview__meta"><a href="<?= htmlspecialchars($graphicUrl) ?>" target="_blank" rel="noopener">Open in new tab</a></div>
-                <?php elseif ($graphicType === 'video'): ?>
-                    <div class="media-preview__thumb"><video src="<?= htmlspecialchars($graphicUrl) ?>" controls></video></div>
-                    <div class="media-preview__meta"><a href="<?= htmlspecialchars($graphicUrl) ?>" target="_blank" rel="noopener">Open in new tab</a></div>
-                <?php else: ?>
-                    <div class="media-preview__thumb"><span class="media-preview__file-icon">File</span></div>
-                    <div class="media-preview__meta"><a href="<?= htmlspecialchars($graphicUrl) ?>" target="_blank" rel="noopener">Open in new tab</a></div>
-                <?php endif; ?>
-            </div>
-        </div>
-
-        <div class="form__group">
-            <label class="form__label" for="cover_image">Cover Image URL</label>
-            <input class="form__control" id="cover_image" name="cover_image" type="text"
-                   value="<?= htmlspecialchars((string)$formData['cover_image']) ?>">
-            <button type="button" class="button button--light" data-open-media-picker="#cover_image" style="margin-top:0.5rem;">Upload</button>
-            <?php if ($error = field_error($errors, 'cover_image')): ?>
-                <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
-            <?php endif; ?>
-            <?php
-            $coverUrl = trim((string)$formData['cover_image']);
-            $coverType = 'none';
-            if ($coverUrl !== '') {
-                if (preg_match('/\.(mp4|webm|ogg|mov)(?:$|\?)/i', $coverUrl)) {
-                    $coverType = 'video';
-                } elseif (preg_match('/\.(jpe?g|png|gif|webp|svg)(?:$|\?)/i', $coverUrl)) {
-                    $coverType = 'image';
-                } else {
-                    $coverType = 'file';
-                }
-            }
-            ?>
-            <div class="media-preview <?= $coverType === 'none' ? 'is-empty' : '' ?>" data-media-preview-for="cover_image">
-                <?php if ($coverType === 'none'): ?>
-                    <span class="media-preview__empty">No file selected.</span>
-                <?php elseif ($coverType === 'image'): ?>
-                    <div class="media-preview__thumb"><img src="<?= htmlspecialchars($coverUrl) ?>" alt=""></div>
-                    <div class="media-preview__meta"><a href="<?= htmlspecialchars($coverUrl) ?>" target="_blank" rel="noopener">Open in new tab</a></div>
-                <?php elseif ($coverType === 'video'): ?>
-                    <div class="media-preview__thumb"><video src="<?= htmlspecialchars($coverUrl) ?>" controls></video></div>
-                    <div class="media-preview__meta"><a href="<?= htmlspecialchars($coverUrl) ?>" target="_blank" rel="noopener">Open in new tab</a></div>
-                <?php else: ?>
-                    <div class="media-preview__thumb"><span class="media-preview__file-icon">File</span></div>
-                    <div class="media-preview__meta"><a href="<?= htmlspecialchars($coverUrl) ?>" target="_blank" rel="noopener">Open in new tab</a></div>
-                <?php endif; ?>
-            </div>
         </div>
 
         <div class="form__group">

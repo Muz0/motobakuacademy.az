@@ -26,22 +26,35 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SQL,
+
     <<<SQL
 CREATE TABLE IF NOT EXISTS posts (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
+    title_az VARCHAR(255) NOT NULL,
+    title_ru VARCHAR(255) NULL,
+    title_en VARCHAR(255) NULL,
     slug VARCHAR(255) NOT NULL UNIQUE,
-    excerpt TEXT NULL,
-    content LONGTEXT NOT NULL,
-    cover_image VARCHAR(255) NULL,
-    graphic_content VARCHAR(255) NULL,
+    summary_az TEXT NULL,
+    summary_ru TEXT NULL,
+    summary_en TEXT NULL,
+    content_az LONGTEXT NOT NULL,
+    content_ru LONGTEXT NULL,
+    content_en LONGTEXT NULL,
+    cover_image_az VARCHAR(255) NULL,
+    cover_image_ru VARCHAR(255) NULL,
+    cover_image_en VARCHAR(255) NULL,
+    graphic_content_az VARCHAR(255) NULL,
+    graphic_content_ru VARCHAR(255) NULL,
+    graphic_content_en VARCHAR(255) NULL,
     accepts_comments TINYINT(1) NOT NULL DEFAULT 1,
     status ENUM('draft', 'published') NOT NULL DEFAULT 'draft',
     published_at DATETIME NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+    updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_posts_slug (slug)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SQL,
+
     <<<SQL
 CREATE TABLE IF NOT EXISTS categories (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -50,15 +63,17 @@ CREATE TABLE IF NOT EXISTS categories (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SQL,
+
     <<<SQL
 CREATE TABLE IF NOT EXISTS post_category (
     post_id INT UNSIGNED NOT NULL,
     category_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (post_id, category_id),
-    CONSTRAINT fk_post FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
-    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+    CONSTRAINT fk_post_category_post FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
+    CONSTRAINT fk_post_category_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SQL,
+
     <<<SQL
 CREATE TABLE IF NOT EXISTS comments (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -81,6 +96,7 @@ CREATE TABLE IF NOT EXISTS comments (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SQL,
 ];
+
 
 try {
     foreach ($statements as $sql) {
