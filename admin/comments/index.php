@@ -68,6 +68,7 @@ include __DIR__ . '/../views/layout/header.php';
             <h1 class="card__title" style="margin:0;">Comments</h1>
             <p style="margin:0; color:#6b7280;">Review new feedback, edit content, or hide spam.</p>
         </div>
+        <a class="button" href="<?= htmlspecialchars(base_url('comments/create.php')) ?>">Add Comment</a>
     </div>
 
     <form method="get" class="form" style="margin-top:1.5rem; max-width:none;">

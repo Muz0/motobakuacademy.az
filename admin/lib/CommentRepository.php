@@ -29,7 +29,7 @@ class CommentRepository
         $total = (int)$countStmt->fetchColumn();
 
         $stmt = $this->db->prepare(
-            'SELECT c.*, p.title AS post_title, p.slug AS post_slug
+            'SELECT c.*, p.title_az AS post_title, p.slug AS post_slug
              FROM comments c
              LEFT JOIN posts p ON p.id = c.post_id ' .
             $whereSql .
@@ -53,7 +53,7 @@ class CommentRepository
     public function find(int $id): ?array
     {
         $stmt = $this->db->prepare(
-            'SELECT c.*, p.title AS post_title, p.slug AS post_slug
+            'SELECT c.*, p.title_az AS post_title, p.slug AS post_slug
              FROM comments c
              LEFT JOIN posts p ON p.id = c.post_id
              WHERE c.id = :id
@@ -106,6 +106,60 @@ class CommentRepository
         $stmt->execute();
 
         return $stmt->rowCount() > 0;
+    }
+
+    public function listByPost(int $postId, int $page = 1, int $perPage = 20, bool $includeHidden = false): array
+    {
+        $page = max(1, $page);
+        $perPage = max(1, min(50, $perPage));
+        $offset = ($page - 1) * $perPage;
+
+        $visibilityClause = $includeHidden ? '' : ' AND is_deleted = 0';
+
+        $countStmt = $this->db->prepare(
+            'SELECT COUNT(*) FROM comments WHERE post_id = :post_id' . $visibilityClause
+        );
+        $countStmt->execute([':post_id' => $postId]);
+        $total = (int)$countStmt->fetchColumn();
+
+        $stmt = $this->db->prepare(
+            'SELECT id, post_id, user_id, parent_comment_id, author_name, message, created_at, is_deleted
+             FROM comments
+             WHERE post_id = :post_id' . $visibilityClause . '
+             ORDER BY created_at ASC
+             LIMIT :limit OFFSET :offset'
+        );
+        $stmt->bindValue(':post_id', $postId, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return [
+            'data' => $stmt->fetchAll(),
+            'total' => $total,
+            'page' => $page,
+            'per_page' => $perPage,
+            'last_page' => (int)max(1, ceil($total / $perPage)),
+        ];
+    }
+
+    public function create(array $payload): int
+    {
+        $stmt = $this->db->prepare(
+            'INSERT INTO comments (post_id, user_id, parent_comment_id, author_name, message, is_deleted)
+             VALUES (:post_id, :user_id, :parent_comment_id, :author_name, :message, :is_deleted)'
+        );
+
+        $stmt->execute([
+            ':post_id' => $payload['post_id'],
+            ':user_id' => $payload['user_id'] ?? null,
+            ':parent_comment_id' => $payload['parent_comment_id'] ?? null,
+            ':author_name' => $payload['author_name'],
+            ':message' => $payload['message'],
+            ':is_deleted' => $payload['is_deleted'] ?? 0,
+        ]);
+
+        return (int)$this->db->lastInsertId();
     }
 
     private function buildWhereClause(array $filters): array
