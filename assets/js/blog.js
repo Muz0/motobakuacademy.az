@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!state.slug) {
     handleMissingSlug(elements, translations);
+    loadLatestPosts(state, elements, translations, API_BASE);
     return;
   }
 
@@ -34,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetchPostDetails(state, elements, translations, API_BASE)
-    .then(() => {
-      initComments(state, elements, translations, API_BASE);
-    })
     .catch(() => {
       // Post fetch already handled its own error feedback.
+    })
+    .finally(() => {
       initComments(state, elements, translations, API_BASE);
+      loadLatestPosts(state, elements, translations, API_BASE);
     });
 });
 
@@ -78,6 +79,7 @@ function buildTranslations(lang) {
       missingSlugTitle: "Məqalə tapılmadı",
       missingSlugBody:
         "Məqalə üçün tələb olunan parametr tapılmadı. Zəhmət olmasa bloq siyahısına qayıdın.",
+      latestEmpty: "Hazırda xəbər siyahısı mövcud deyil.",
     },
     ru: {
       commentsTitle: "Комментарии",
@@ -101,6 +103,7 @@ function buildTranslations(lang) {
       missingSlugTitle: "Запись не найдена",
       missingSlugBody:
         "Параметр записи отсутствует. Пожалуйста, вернитесь к списку блогов.",
+      latestEmpty: "Последние новости временно недоступны.",
     },
     en: {
       commentsTitle: "Comments",
@@ -124,6 +127,7 @@ function buildTranslations(lang) {
       missingSlugTitle: "Article not found",
       missingSlugBody:
         "The required slug parameter is missing. Please return to the blog listing.",
+      latestEmpty: "Latest news are unavailable right now.",
     },
   };
 
@@ -146,6 +150,8 @@ function collectElements() {
     commentsStatus: document.getElementById("comments-status"),
     loadMoreWrapper: document.getElementById("comments-load-more-wrapper"),
     loadMoreBtn: document.getElementById("comments-load-more"),
+    latestPostsList: document.getElementById("latest-posts-list"),
+    latestPostsEmpty: document.getElementById("latest-posts-empty"),
     commentFormBlock: document.getElementById("comment-form-block"),
     commentsClosed: document.getElementById("comments-closed"),
     commentForm: document.getElementById("comment-form"),
@@ -167,6 +173,9 @@ function applyStaticTranslations(elements, t) {
   }
   if (elements.commentsEmpty) {
     elements.commentsEmpty.textContent = t.noComments;
+  }
+  if (elements.latestPostsEmpty) {
+    elements.latestPostsEmpty.textContent = t.latestEmpty;
   }
   if (elements.loadMoreBtn) {
     elements.loadMoreBtn.textContent = t.loadMore;
@@ -371,6 +380,32 @@ function initComments(state, elements, t, apiBase) {
   loadComments(1, state, elements, t, apiBase, { append: false });
 }
 
+function loadLatestPosts(state, elements, t, apiBase) {
+  if (!elements.latestPostsList) {
+    return;
+  }
+
+  const url = buildApiUrl(apiBase, `blogs.php?page=1&per_page=4`);
+
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Latest posts request failed");
+      }
+      return response.json();
+    })
+    .then((json) => {
+      const posts = Array.isArray(json.data) ? json.data : [];
+      renderLatestPosts(posts, state, elements, t);
+    })
+    .catch((error) => {
+      console.error("Unable to load latest posts:", error);
+      if (elements.latestPostsEmpty) {
+        elements.latestPostsEmpty.style.display = "block";
+      }
+    });
+}
+
 function buildApiUrl(base, path) {
   const cleanPath = path.replace(/^\/+/, "");
   if (!base || base === ".") {
@@ -468,6 +503,80 @@ function renderComments(state, elements, t) {
   if (elements.commentsCount) {
     elements.commentsCount.textContent = `(${state.comments.length})`;
   }
+}
+
+function renderLatestPosts(posts, state, elements, t) {
+  const list = elements.latestPostsList;
+  if (!list) {
+    return;
+  }
+
+  list.innerHTML = "";
+
+  if (!posts.length) {
+    if (elements.latestPostsEmpty) {
+      elements.latestPostsEmpty.style.display = "block";
+    }
+    return;
+  }
+
+  if (elements.latestPostsEmpty) {
+    elements.latestPostsEmpty.style.display = "none";
+  }
+
+  const fragment = document.createDocumentFragment();
+  posts.slice(0, 4).forEach((post) => {
+    const lang = state.lang;
+    const title =
+      post[`title_${lang}`] ||
+      post.title ||
+      post.title_az ||
+      post.title_en ||
+      "";
+    const slug = post.slug;
+    const link = `blog.html?slug=${encodeURIComponent(slug)}`;
+    const cover =
+      resolveCoverImage(post[`cover_image_${lang}`]) ||
+      resolveCoverImage(post.cover_image_az) ||
+      resolveCoverImage(post.cover_image_en) ||
+      "assets/images/gallery/gallery1.webp";
+    const date = formatDate(post.published_at, state.lang);
+
+    const listItem = document.createElement("li");
+    const wrapper = document.createElement("div");
+    wrapper.className = "latest-news-item";
+
+    const thumb = document.createElement("div");
+    thumb.className = "latest-news-item__thumb";
+    const img = document.createElement("img");
+    img.src = cover;
+    img.alt = "latest-post";
+    thumb.appendChild(img);
+
+    const info = document.createElement("div");
+    info.className = "latest-news-item__info";
+    const titleLink = document.createElement("a");
+    titleLink.className = "latest-news-item__title";
+    titleLink.href = link;
+    titleLink.textContent = title;
+    const dateWrap = document.createElement("div");
+    dateWrap.className = "latest-news-item__date";
+    const calendarIcon = document.createElement("img");
+    calendarIcon.src = "assets/img/icons/calendar.svg";
+    calendarIcon.alt = "icon";
+    dateWrap.appendChild(calendarIcon);
+    dateWrap.appendChild(document.createTextNode(date));
+
+    info.appendChild(titleLink);
+    info.appendChild(dateWrap);
+
+    wrapper.appendChild(thumb);
+    wrapper.appendChild(info);
+    listItem.appendChild(wrapper);
+    fragment.appendChild(listItem);
+  });
+
+  list.appendChild(fragment);
 }
 
 function buildCommentTree(comments) {
