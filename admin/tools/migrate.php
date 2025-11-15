@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS posts (
     graphic_content_az VARCHAR(255) NULL,
     graphic_content_ru VARCHAR(255) NULL,
     graphic_content_en VARCHAR(255) NULL,
+    author_name VARCHAR(191) NULL,
     accepts_comments TINYINT(1) NOT NULL DEFAULT 1,
     status ENUM('draft', 'published') NOT NULL DEFAULT 'draft',
     published_at DATETIME NULL,

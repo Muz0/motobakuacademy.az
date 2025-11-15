@@ -17,6 +17,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
+/**
+ * TODO: consolidate sanitization helpers into a shared service so every API endpoint guarantees consistent encoding.
+ */
+function sanitizePlainText(?string $value): string
+{
+    return trim(strip_tags($value ?? ''));
+}
+
+function sanitizeOptionalUrl(?string $value): ?string
+{
+    if ($value === null || $value === '') {
+        return null;
+    }
+
+    $safe = filter_var($value, FILTER_SANITIZE_URL);
+
+    return $safe ?: null;
+}
+
 /** @var PostRepository|null $posts */
 $posts = app('posts');
 
@@ -53,13 +72,14 @@ $data = array_map(static function (array $item) use ($languages): array {
     $result = [
         'slug' => $item['slug'],
         'published_at' => $publishedAt,
+        'author_name' => sanitizePlainText($item['author_name'] ?? ''),
     ];
 
     foreach ($languages as $lang) {
-        $result["title_{$lang}"] = $item["title_{$lang}"] ?? '';
-        $result["summary_{$lang}"] = $item["summary_{$lang}"] ?? '';
-        $result["cover_image_{$lang}"] = $item["cover_image_{$lang}"] ?? null;
-        $result["graphic_content_{$lang}"] = $item["graphic_content_{$lang}"] ?? null;
+        $result["title_{$lang}"] = sanitizePlainText($item["title_{$lang}"] ?? '');
+        $result["summary_{$lang}"] = sanitizePlainText($item["summary_{$lang}"] ?? '');
+        $result["cover_image_{$lang}"] = sanitizeOptionalUrl($item["cover_image_{$lang}"] ?? null);
+        $result["graphic_content_{$lang}"] = sanitizeOptionalUrl($item["graphic_content_{$lang}"] ?? null);
     }
 
     return $result;

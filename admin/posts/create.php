@@ -9,6 +9,7 @@ use MotoBaku\Admin\PostRepository;
 use MotoBaku\Admin\Validation;
 
 $auth = app('auth');
+$currentUser = $auth?->user();
 
 if ($auth) {
     $auth->requireAuth();
@@ -35,6 +36,7 @@ $formData = [
     'published_at' => '',
     'categories' => [],
     'accepts_comments' => true,
+    'author_name' => $currentUser['username'] ?? 'Admin',
 ];
 
 foreach ($languages as $code => $label) {
@@ -60,6 +62,7 @@ if (is_post()) {
         'published_at' => 'nullable|string',
         'categories' => 'nullable|array',
         'accepts_comments' => 'nullable|string|in:on',
+        'author_name' => 'required|string|min:2|max:191',
     ];
 
     foreach ($languages as $code => $label) {
@@ -80,6 +83,7 @@ if (is_post()) {
 
     $data['slug'] = trim((string)($data['slug'] ?? ''));
     $data['status'] = (string)($data['status'] ?? 'draft');
+    $data['author_name'] = trim((string)($data['author_name'] ?? ''));
 
     foreach ($languages as $code => $label) {
         $titleKey = "title_{$code}";
@@ -163,6 +167,7 @@ if (is_post()) {
                 'published_at' => $data['published_at'],
                 'categories' => $data['categories'],
                 'accepts_comments' => $data['accepts_comments'],
+                'author_name' => $data['author_name'] ?: ($currentUser['username'] ?? 'Admin'),
             ];
 
             foreach ($languages as $code => $label) {
@@ -190,6 +195,7 @@ if (is_post()) {
         'published_at' => $publishedInput,
         'categories' => $data['categories'] ?? [],
         'accepts_comments' => (bool)($data['accepts_comments'] ?? false),
+        'author_name' => $data['author_name'] ?? ($currentUser['username'] ?? 'Admin'),
     ]);
 
     foreach ($languages as $code => $label) {
@@ -276,6 +282,16 @@ include __DIR__ . '/../views/layout/header.php';
                 </div>
             </div>
         <?php endforeach; ?>
+
+        <div class="form__group">
+            <label class="form__label" for="author_name">Author name</label>
+            <input class="form__control" id="author_name" name="author_name" type="text" required
+                   value="<?= htmlspecialchars((string)$formData['author_name']) ?>">
+            <small style="color:#64748b;">Defaults to your admin username. Override if you need to credit another author.</small>
+            <?php if ($error = field_error($errors, 'author_name')): ?>
+                <small style="color:#dc2626; display:block;"><?= htmlspecialchars($error) ?></small>
+            <?php endif; ?>
+        </div>
 
         <div class="form__group">
             <label class="form__label" for="slug">Slug</label>

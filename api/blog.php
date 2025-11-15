@@ -18,6 +18,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
+/**
+ * Basic HTML sanitization to ensure unsafe markup never leaves the API.
+ * TODO: replace with a dedicated sanitizer (HTML Purifier or similar) once dependencies are allowed.
+ */
+function sanitizeRichText(?string $value): string
+{
+    if ($value === null) {
+        return '';
+    }
+
+    // Remove script/style/content tags entirely.
+    $clean = preg_replace('#<(script|style)\b[^>]*>(.*?)</\1>#is', '', $value);
+    // Strip potentially dangerous attributes such as on* or javascript: URIs.
+    $clean = preg_replace('#on\w+\s*=\s*["\']?.*?["\']?#is', '', $clean);
+    $clean = preg_replace('#javascript:#i', '', $clean);
+
+    return trim($clean ?? '');
+}
+
+function sanitizePlainText(?string $value): string
+{
+    return trim(strip_tags($value ?? ''));
+}
+
+function sanitizeOptionalUrl(?string $value): ?string
+{
+    if ($value === null || $value === '') {
+        return null;
+    }
+
+    $safe = filter_var($value, FILTER_SANITIZE_URL);
+
+    return $safe ?: null;
+}
+
 $slug = trim((string)($_GET['slug'] ?? ''));
 if ($slug === '') {
     http_response_code(400);
@@ -63,14 +98,15 @@ $response = [
     'slug' => $post['slug'],
     'published_at' => $publishedAt,
     'accepts_comments' => (int)($post['accepts_comments'] ?? 1) === 1,
+    'author_name' => $post['author_name'] ?? null,
 ];
 
 foreach ($languages as $lang) {
-    $response["title_{$lang}"] = $post["title_{$lang}"] ?? '';
-    $response["summary_{$lang}"] = $post["summary_{$lang}"] ?? '';
-    $response["content_{$lang}"] = $post["content_{$lang}"] ?? '';
-    $response["cover_image_{$lang}"] = $post["cover_image_{$lang}"] ?? null;
-    $response["graphic_content_{$lang}"] = $post["graphic_content_{$lang}"] ?? null;
+    $response["title_{$lang}"] = sanitizePlainText($post["title_{$lang}"] ?? '');
+    $response["summary_{$lang}"] = sanitizePlainText($post["summary_{$lang}"] ?? '');
+    $response["content_{$lang}"] = sanitizeRichText($post["content_{$lang}"] ?? '');
+    $response["cover_image_{$lang}"] = sanitizeOptionalUrl($post["cover_image_{$lang}"] ?? null);
+    $response["graphic_content_{$lang}"] = sanitizeOptionalUrl($post["graphic_content_{$lang}"] ?? null);
 }
 
 echo json_encode($response, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);

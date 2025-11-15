@@ -129,7 +129,7 @@ class PostRepository
                 content_az, content_ru, content_en,
                 cover_image_az, cover_image_ru, cover_image_en,
                 graphic_content_az, graphic_content_ru, graphic_content_en,
-                accepts_comments, status, published_at
+                accepts_comments, status, published_at, author_name
             ) VALUES (
                 :title_az, :title_ru, :title_en,
                 :slug,
@@ -137,7 +137,7 @@ class PostRepository
                 :content_az, :content_ru, :content_en,
                 :cover_image_az, :cover_image_ru, :cover_image_en,
                 :graphic_content_az, :graphic_content_ru, :graphic_content_en,
-                :accepts_comments, :status, :published_at
+                :accepts_comments, :status, :published_at, :author_name
             )'
         );
 
@@ -147,6 +147,7 @@ class PostRepository
                 ':accepts_comments' => !empty($data['accepts_comments']) ? 1 : 0,
                 ':status' => $data['status'] ?? 'draft',
                 ':published_at' => $publishedAt,
+                ':author_name' => $data['author_name'] ?? null,
             ];
 
             foreach (self::LANGUAGES as $language) {
@@ -204,6 +205,7 @@ class PostRepository
                  accepts_comments = :accepts_comments,
                  status = :status,
                  published_at = :published_at,
+                 author_name = :author_name,
                  updated_at = NOW()
              WHERE id = :id'
         );
@@ -214,6 +216,7 @@ class PostRepository
                 ':accepts_comments' => !empty($data['accepts_comments']) ? 1 : 0,
                 ':status' => $data['status'] ?? 'draft',
                 ':published_at' => $publishedAt,
+                ':author_name' => $data['author_name'] ?? null,
                 ':id' => $id,
             ];
 
