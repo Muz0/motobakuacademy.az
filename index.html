@@ -13,7 +13,7 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-W963KVTX");
     </script>
-    <!-- Google tag (gtag.js) -->
+    
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-KVSPY1L1M1"
@@ -28,10 +28,10 @@
       gtag("config", "G-KVSPY1L1M1");
     </script>
     <meta charset="utf-8" />
-    <!-- Canonical URL текущей страницы -->
+    
     <link rel="canonical" href="https://www.motobakuacademy.az/index.html" />
 
-    <!-- Альтернативные языки -->
+    
     <link
       rel="alternate"
       hreflang="az"
@@ -79,6 +79,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/bg-1740w.webp"
+      imagesrcset="/assets/images/bg-980w.webp 980w, /assets/images/bg-1740w.webp 1740w"
+      imagesizes="100vw"
+    />
 
     <link rel="stylesheet" href="assets/css/uikit.min.css" />
     <link rel="stylesheet" href="assets/css/slick.css" />
@@ -103,11 +110,19 @@
           <div class="page-header__left">
             <div class="logo" style="display: flex">
               <a class="logo__link" href="index.html">
-                <img
-                  class="logo__icon"
-                  src="assets/images/logo.webp"
-                  alt="KeyMoto"
-                />
+                <picture class="responsive-media">
+                  <source
+                    type="image/webp"
+                    srcset="
+                      /assets/images/logo-256w.webp 256w,
+                      /assets/images/logo-512w.webp 512w
+                    "
+                    sizes="(min-width: 1280px) 50vw, 100vw"
+                  />
+                  <img class="logo__icon" alt="KeyMoto" /
+                  src="/assets/images/logo-512w.webp" loading="lazy"
+                  decoding="async">
+                </picture>
                 <div class="logo__text">MOTO BAKU ACADEMY</div>
               </a>
             </div>
@@ -153,7 +168,27 @@
             <div class="uk-position-relative" tabindex="-1">
               <ul class="uk-slideshow-items">
                 <li class="slideshow-item">
-                  <img src="assets/images/bg.webp" alt data-uk-cover />
+                  <picture class="responsive-media">
+                    <source
+                      type="image/webp"
+                      srcset="
+                        /assets/images/bg-980w.webp   980w,
+                        /assets/images/bg-1740w.webp 1740w
+                      "
+                      sizes="(min-width: 1280px) 50vw, 100vw"
+                    />
+                    <img
+                      src="/assets/images/bg-1740w.webp"
+                      alt=""
+                      data-uk-cover
+                      class="uk-cover"
+                      width="1740"
+                      height="980"
+                      fetchpriority="high"
+                      decoding="async"
+                    />
+                    loading="lazy" decoding="async">
+                  </picture>
                   <div class="uk-position-center uk-position-small">
                     <div class="uk-container">
                       <div class="uk-grid" data-uk-grid>
@@ -162,7 +197,6 @@
                             <div
                               class="slideshow-item__decor text-nowrap"
                               data-uk-slideshow-parallax="opacity: 0,1"
-                              
                             >
                               MOTO BAKU
                             </div>
@@ -212,11 +246,15 @@
           <div class="uk-section-large uk-container">
             <div class="uk-grid uk-grid-collapse" data-uk-grid>
               <div class="uk-width-1-3@m">
-                <img
-                  class="section-about__img"
-                  src="assets/img/img-about.jpg"
-                  alt="img-about"
-                />
+                <picture class="responsive-media">
+                  <source
+                    type="image/webp"
+                    srcset="/assets/img/img-about-orig.webp orig"
+                    sizes="(min-width: 1280px) 50vw, 100vw"
+                  />
+                  <img class="section-about__img" alt="img-about" src="/assets/img/img-about-orig.webp"
+                  loading="lazy" decoding="async" width="960" height="640">
+                </picture>
               </div>
               <div class="uk-width-2-3@m">
                 <div class="section-about__content">
@@ -283,10 +321,10 @@
 
                     👉 Moto Baku Academy – öyrənmək, sürmək və tam dəstək almaq
                     üçün etibarlı ünvan!
-                    <!-- </p> -->
+                    
 
                     <div class="uk-grid uk-grid-match" data-uk-grid>
-                      <!-- First 2 big cards -->
+                      
                       <div class="uk-width-1-2@s">
                         <div class="block-icon">
                           <div class="block-icon__icon">
@@ -324,7 +362,7 @@
                         </div>
                       </div>
 
-                      <!-- Last 3 small cards wrapped for alignment -->
+                      
                       <div class="uk-width-1-3@s small-cards-wrapper">
                         <div class="block-icon block-icon--small">
                           <div class="block-icon__icon">
@@ -389,18 +427,28 @@
                         data-uk-grid
                       >
                         <div>
-                          <img
-                            class="uk-width-1-1"
-                            src="assets/images/fast-driver.png"
-                            alt="about-gallery"
-                          />
+                          <picture class="responsive-media">
+                            <source
+                              type="image/webp"
+                              srcset="/assets/images/fast-driver-480w.webp 480w"
+                              sizes="(min-width: 1280px) 50vw, 100vw"
+                            />
+                            <img class="uk-width-1-1" alt="about-gallery" /
+                            src="/assets/images/fast-driver-480w.webp"
+                            loading="lazy" decoding="async">
+                          </picture>
                         </div>
                         <div>
-                          <img
-                            class="uk-width-1-1"
-                            src="assets/images/fast-bikes.png"
-                            alt="about-gallery"
-                          />
+                          <picture class="responsive-media">
+                            <source
+                              type="image/webp"
+                              srcset="/assets/images/fast-bikes-480w.webp 480w"
+                              sizes="(min-width: 1280px) 50vw, 100vw"
+                            />
+                            <img class="uk-width-1-1" alt="about-gallery" /
+                            src="/assets/images/fast-bikes-480w.webp"
+                            loading="lazy" decoding="async">
+                          </picture>
                         </div>
                       </div>
                     </div>
@@ -413,7 +461,7 @@
         <div class="page-content">
           <div class="uk-section uk-container">
             <div class="uk-section uk-container">
-              <!-- Centered team intro -->
+              
               <div class="uk-text-center uk-margin-bottom">
                 <p class="uk-h4 uk-margin-remove">Komandamız:</p>
                 <p class="uk-margin-remove">
@@ -425,15 +473,22 @@
                   onların bacarıqlarını ən yüksək səviyyəyə çıxarmağa sadiqik.
                 </p>
               </div>
-              <!-- Team gallery grid -->
+              
               <div
                 class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-6@m team-grid"
                 uk-grid
               >
-                <!-- Person 1 -->
+                
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                    <img src="./assets/images/team/mirfariz.png" alt="Person 1" />
+                    <img
+                      src="./assets/images/team/mirfariz.png"
+                      alt="Person 1"
+                      width="360"
+                      height="480"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div
                       class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
                     >
@@ -445,10 +500,17 @@
                   </div>
                 </div>
 
-                <!-- Person 2 -->
+                
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                    <img src="assets/images/team/mardan.webp" alt="Person 2" />
+                    <img
+                      src="assets/images/team/mardan.webp"
+                      alt="Person 2"
+                      width="360"
+                      height="480"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div
                       class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
                     >
@@ -460,10 +522,17 @@
                   </div>
                 </div>
 
-                <!-- Person 3 -->
+                
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                    <img src="./assets/images/team/mirruzi.png" alt="Person 3" />
+                    <img
+                      src="./assets/images/team/mirruzi.png"
+                      alt="Person 3"
+                      width="360"
+                      height="480"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div
                       class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
                     >
@@ -475,10 +544,17 @@
                   </div>
                 </div>
 
-                <!-- Person 4 -->
+                
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                    <img src="./assets/images/team/mirsahib.png" alt="Person 4" />
+                    <img
+                      src="./assets/images/team/mirsahib.png"
+                      alt="Person 4"
+                      width="360"
+                      height="480"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div
                       class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
                     >
@@ -490,10 +566,17 @@
                   </div>
                 </div>
 
-                <!-- Person 5 -->
+                
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                    <img src="./assets/images/team/mirmehdi.png" alt="Person 5" />
+                    <img
+                      src="./assets/images/team/mirmehdi.png"
+                      alt="Person 5"
+                      width="360"
+                      height="480"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div
                       class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
                     >
@@ -505,10 +588,17 @@
                   </div>
                 </div>
 
-                <!-- Person 5 -->
+                
                 <div>
                   <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                    <img src="assets/images/team/ali.webp" alt="Person 2" />
+                    <img
+                      src="assets/images/team/ali.webp"
+                      alt="Person 2"
+                      width="360"
+                      height="480"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div
                       class="uk-position-bottom uk-position-small uk-light uk-background-muted uk-text-center"
                     >
@@ -536,35 +626,97 @@
                 <ul>
                   <li>
                     <div class="video-thumb-grid__item">
-                      <img
-                        src="assets/images/125kub.jpeg"
-                        alt="img-video-thumb"
-                      />
+                      <picture class="responsive-media">
+                        <source
+                          type="image/webp"
+                          srcset="
+                            /assets/images/125kub-480w.webp   480w,
+                            /assets/images/125kub-768w.webp   768w,
+                            /assets/images/125kub-1200w.webp 1200w
+                          "
+                          sizes="(min-width: 1280px) 50vw, 100vw"
+                        />
+                        <img
+                          src="/assets/images/125kub-1200w.webp"
+                          alt="img-video-thumb"
+                          width="403"
+                          height="269"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
                       <p class="video-thumb-grid__caption">125 kub</p>
                     </div>
                   </li>
                   <li>
                     <div class="video-thumb-grid__item">
-                      <img
-                        src="assets/images/150-min.webp"
-                        alt="img-video-thumb"
-                       
-                      />
+                      <picture class="responsive-media">
+                        <source
+                          type="image/webp"
+                          srcset="
+                            /assets/images/150-min-480w.webp   480w,
+                            /assets/images/150-min-768w.webp   768w,
+                            /assets/images/150-min-1200w.webp 1200w
+                          "
+                          sizes="(min-width: 1280px) 50vw, 100vw"
+                        />
+                        <img
+                          src="/assets/images/150-min-1200w.webp"
+                          alt="img-video-thumb"
+                          width="403"
+                          height="269"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
                       <p class="video-thumb-grid__caption">150 kub</p>
                     </div>
                   </li>
                   <li>
                     <div class="video-thumb-grid__item">
-                      <img src="assets/images/300.webp" alt="img-video-thumb" />
+                      <picture class="responsive-media">
+                        <source
+                          type="image/webp"
+                          srcset="
+                            /assets/images/300-480w.webp   480w,
+                            /assets/images/300-768w.webp   768w,
+                            /assets/images/300-1200w.webp 1200w
+                          "
+                          sizes="(min-width: 1280px) 50vw, 100vw"
+                        />
+                        <img
+                          src="/assets/images/300-1200w.webp"
+                          alt="img-video-thumb"
+                          width="403"
+                          height="269"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
                       <p class="video-thumb-grid__caption">300 kub</p>
                     </div>
                   </li>
                   <li>
                     <div class="video-thumb-grid__item">
-                      <img
-                        src="assets/images/600kub.webp"
-                        alt="img-video-thumb"
-                      />
+                      <picture class="responsive-media">
+                        <source
+                          type="image/webp"
+                          srcset="
+                            /assets/images/600kub-480w.webp   480w,
+                            /assets/images/600kub-768w.webp   768w,
+                            /assets/images/600kub-1200w.webp 1200w
+                          "
+                          sizes="(min-width: 1280px) 50vw, 100vw"
+                        />
+                        <img
+                          src="/assets/images/600kub-1200w.webp"
+                          alt="img-video-thumb"
+                          width="403"
+                          height="269"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
                       <p class="video-thumb-grid__caption">600 kub</p>
                     </div>
                   </li>
@@ -576,18 +728,8 @@
                 href="https://www.instagram.com/p/C7cC3j2NC6d/embed"
                 data-caption="Instagram Post"
               >
-                <!-- <div class="btn-play">
-                  <img src="assets/img/icons/play.png" alt="play" />
-                  <span>Video</span>
-                </div> -->
-                <!-- <div class="btn-play">
-                  <img
-                    style="width: 250px; height: 250px"
-                    src="assets/images/logo.webp"
-                    alt=""
-                  />
-                  <span></span>
-                </div> -->
+                
+                
               </a>
             </div>
           </div>
@@ -606,6 +748,10 @@
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery1.webp"
                       alt="gallery1"
+                      width="403"
+                      height="269"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </a>
                 </div>
@@ -616,8 +762,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery2.webp"
-                      alt="gallery2"
-                    />
+                      alt="gallery2" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -627,8 +772,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery3.webp"
-                      alt="gallery3"
-                    />
+                      alt="gallery3" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -638,8 +782,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery4.webp"
-                      alt="gallery4"
-                    />
+                      alt="gallery4" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -649,8 +792,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery5.webp"
-                      alt="gallery5"
-                    />
+                      alt="gallery5" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -660,8 +802,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery6.webp"
-                      alt="gallery6"
-                    />
+                      alt="gallery6" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -671,8 +812,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery7.webp"
-                      alt="gallery7"
-                    />
+                      alt="gallery7" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -682,8 +822,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery8.webp"
-                      alt="gallery8"
-                    />
+                      alt="gallery8" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -693,8 +832,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery9.webp"
-                      alt="gallery9"
-                    />
+                      alt="gallery9" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -704,8 +842,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery10.webp"
-                      alt="gallery10"
-                    />
+                      alt="gallery10" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -715,8 +852,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery11.webp"
-                      alt="gallery11"
-                    />
+                      alt="gallery11" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -726,8 +862,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery12.webp"
-                      alt="gallery12"
-                    />
+                      alt="gallery12" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -737,8 +872,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery13.webp"
-                      alt="gallery13"
-                    />
+                      alt="gallery13" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -748,8 +882,7 @@
                     <img
                       class="uk-width-1-1"
                       src="assets/images/gallery/gallery14.webp"
-                      alt="gallery14"
-                    />
+                      alt="gallery14" width="403" height="269" loading="lazy" decoding="async" />
                   </a>
                 </div>
               </div>
@@ -760,6 +893,10 @@
                       class="uk-width-1-1"
                       src="assets/images/fast-driver.png"
                       alt="gallery14"
+                      width="480"
+                      height="320"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </a>
                 </div>
@@ -771,6 +908,10 @@
                       class="uk-width-1-1"
                       src="assets/images/fast-bikes.png"
                       alt="gallery14"
+                      width="480"
+                      height="320"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </a>
                 </div>
@@ -938,7 +1079,7 @@
                   <div class="logo">
                     <a class="logo__link" href="index.html">
                       <div class="logo__icon">
-                        <img src="assets/images/logo.webp" alt="KeyMoto" />
+                        <img src="assets/images/logo.webp" alt="KeyMoto" width="175" height="175" loading="lazy" decoding="async" />
                       </div>
                       <div class="logo__text">Moto Baku Academy</div>
                     </a>
@@ -1014,8 +1155,6 @@
                     <li><a href="./packages.html">Təlim paketlərimiz</a></li>
                     <li><a href="./blogs.html">Qara Geyimli Adam</a></li>
                     <li><a href="./contact.html">Əlaqə</a></li>
-
-                    
                   </ul>
                 </div>
               </div>
@@ -1029,6 +1168,10 @@
                           <img
                             src="assets/images/gallery/gallery1.webp"
                             alt="xəbər"
+                            width="120"
+                            height="80"
+                            loading="lazy"
+                            decoding="async"
                           />
                         </div>
                         <div class="latest-news-item__info">
@@ -1050,6 +1193,10 @@
                           <img
                             src="assets/images/gallery/gallery4.webp"
                             alt="xəbər"
+                            width="120"
+                            height="80"
+                            loading="lazy"
+                            decoding="async"
                           />
                         </div>
                         <div class="latest-news-item__info">
@@ -1122,7 +1269,7 @@
               <div class="logo">
                 <a class="logo__link" href="index.html">
                   <div class="logo__icon">
-                    <img src="assets/images/logo.webp" alt="KeyMoto" />
+                    <img src="assets/images/logo.webp" alt="KeyMoto" width="175" height="175" loading="lazy" decoding="async" />
                   </div>
                   <div class="logo__text">Moto Baku Academy</div>
                 </a>
@@ -1172,10 +1319,3 @@
     <script src="assets/js/main.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-

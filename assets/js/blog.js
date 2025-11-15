@@ -220,7 +220,9 @@ function handleMissingSlug(elements, t) {
     elements.articleTitle.textContent = t.missingSlugTitle;
   }
   if (elements.articleContent) {
-    elements.articleContent.innerHTML = `<p>${escapeHtml(t.missingSlugBody)}</p>`;
+    elements.articleContent.innerHTML = `<p>${escapeHtml(
+      t.missingSlugBody
+    )}</p>`;
   }
   if (elements.commentsStatus) {
     elements.commentsStatus.style.display = "block";
@@ -232,7 +234,10 @@ function handleMissingSlug(elements, t) {
 }
 
 function fetchPostDetails(state, elements, t, apiBase) {
-  const url = buildApiUrl(apiBase, `blog.php?slug=${encodeURIComponent(state.slug)}`);
+  const url = buildApiUrl(
+    apiBase,
+    `blog.php?slug=${encodeURIComponent(state.slug)}`
+  );
   return fetch(url)
     .then((response) => {
       if (!response.ok) {
@@ -254,7 +259,9 @@ function fetchPostDetails(state, elements, t, apiBase) {
         elements.articleTitle.textContent = t.fetchError;
       }
       if (elements.articleContent) {
-        elements.articleContent.innerHTML = `<p>${escapeHtml(t.fetchError)}</p>`;
+        elements.articleContent.innerHTML = `<p>${escapeHtml(
+          t.fetchError
+        )}</p>`;
       }
       throw error;
     });
@@ -263,11 +270,7 @@ function fetchPostDetails(state, elements, t, apiBase) {
 function populateArticle(data, state, elements) {
   const lang = state.lang;
   const title =
-    data[`title_${lang}`] ||
-    data.title ||
-    data.title_az ||
-    data.title_en ||
-    "";
+    data[`title_${lang}`] || data.title || data.title_az || data.title_en || "";
   const contentHtml =
     data[`content_${lang}`] ||
     data.content ||
@@ -302,9 +305,7 @@ function populateArticle(data, state, elements) {
   if (elements.articleContent) {
     elements.articleContent.innerHTML = contentHtml;
   }
-  document.title = title
-    ? `Moto Baku Academy – ${title}`
-    : document.title;
+  document.title = title ? `Moto Baku Academy – ${title}` : document.title;
   if (elements.canonicalLink) {
     try {
       const canonicalUrl = new URL(window.location.href);
@@ -337,9 +338,48 @@ function formatDate(isoString, lang) {
     return "";
   }
   const months = {
-    az: ["Yan", "Fev", "Mar", "Apr", "May", "İyn", "İyl", "Avq", "Sen", "Okt", "Noy", "Dek"],
-    ru: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
-    en: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    az: [
+      "Yan",
+      "Fev",
+      "Mar",
+      "Apr",
+      "May",
+      "İyn",
+      "İyl",
+      "Avq",
+      "Sen",
+      "Okt",
+      "Noy",
+      "Dek",
+    ],
+    ru: [
+      "Янв",
+      "Фев",
+      "Мар",
+      "Апр",
+      "Май",
+      "Июн",
+      "Июл",
+      "Авг",
+      "Сен",
+      "Окт",
+      "Ноя",
+      "Дек",
+    ],
+    en: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
   };
   const list = months[lang] || months.az;
   const day = String(date.getDate()).padStart(2, "0");
@@ -374,10 +414,7 @@ function initComments(state, elements, t, apiBase) {
 
   if (elements.loadMoreBtn) {
     elements.loadMoreBtn.addEventListener("click", () => {
-      if (
-        state.isLoadingComments ||
-        state.page >= state.lastPage
-      ) {
+      if (state.isLoadingComments || state.page >= state.lastPage) {
         return;
       }
       loadComments(state.page + 1, state, elements, t, apiBase, {
@@ -432,7 +469,9 @@ function loadComments(page, state, elements, t, apiBase, options = {}) {
   const perPage = 20;
   const url = buildApiUrl(
     apiBase,
-    `comments/get.php?slug=${encodeURIComponent(state.slug)}&page=${page}&per_page=${perPage}`
+    `comments/get.php?slug=${encodeURIComponent(
+      state.slug
+    )}&page=${page}&per_page=${perPage}`
   );
   fetch(url)
     .then((response) => {
@@ -475,9 +514,7 @@ function mergeComments(state, items) {
         message: raw.message || "",
         created_at: raw.created_at || null,
         parent_comment_id:
-          raw.parent_comment_id !== null
-            ? Number(raw.parent_comment_id)
-            : null,
+          raw.parent_comment_id !== null ? Number(raw.parent_comment_id) : null,
       });
       changed = true;
     }
@@ -619,8 +656,17 @@ function renderCommentNode(comment, state, elements, t, depth) {
   avatarWrap.className = "uk-width-auto@s";
   const avatar = document.createElement("img");
   avatar.className = "uk-comment-avatar";
-  avatar.src = "assets/images/team/mirfariz-blog.png";
+  avatar.width = 90;
+  avatar.height = 90;
+  const normalizedAuthor = (comment.author_name || "").trim().toLowerCase();
+  const isAdminAuthor = ["qara geyimli adam", "admin", "mirfariz"].includes(
+    normalizedAuthor
+  );
+  avatar.src = isAdminAuthor
+    ? "/assets/images/team/mirfariz-blog.png"
+    : "/assets/img/icons/default_user.jpg";
   avatar.alt = "avatar";
+  avatar.loading = "lazy";
   avatarWrap.appendChild(avatar);
 
   const bodyWrap = document.createElement("div");
@@ -809,9 +855,7 @@ function handleCommentSubmit(event, state, elements, t, apiBase) {
 }
 
 function clearFormErrors(elements) {
-  const errorElements = document.querySelectorAll(
-    "#comment-form .form-error"
-  );
+  const errorElements = document.querySelectorAll("#comment-form .form-error");
   errorElements.forEach((el) => {
     el.style.display = "none";
     el.textContent = "";
