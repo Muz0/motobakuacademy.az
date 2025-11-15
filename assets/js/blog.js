@@ -306,9 +306,18 @@ function populateArticle(data, state, elements) {
     ? `Moto Baku Academy – ${title}`
     : document.title;
   if (elements.canonicalLink) {
-    const base = window.location.origin || "https://www.motobakuacademy.az";
-    elements.canonicalLink.href =
-      base + `/blog.html?slug=${encodeURIComponent(state.slug)}`;
+    try {
+      const canonicalUrl = new URL(window.location.href);
+      canonicalUrl.search = `?slug=${encodeURIComponent(state.slug)}`;
+      elements.canonicalLink.href = canonicalUrl.toString();
+    } catch (error) {
+      const base = window.location.origin || "https://www.motobakuacademy.az";
+      elements.canonicalLink.href =
+        base +
+        `${window.location.pathname || "/blog.html"}?slug=${encodeURIComponent(
+          state.slug
+        )}`;
+    }
   }
 }
 
