@@ -213,3 +213,95 @@ function field_error(array $errors, string $field): ?string
 {
     return $errors[$field][0] ?? null;
 }
+
+/**
+ * Determine whether the current HTTP request is using HTTPS.
+ */
+function is_request_secure(): bool
+{
+    if (!empty($_SERVER['HTTPS']) && strtolower((string)$_SERVER['HTTPS']) !== 'off') {
+        return true;
+    }
+
+    if (isset($_SERVER['SERVER_PORT']) && (int)$_SERVER['SERVER_PORT'] === 443) {
+        return true;
+    }
+
+    $forwardedProto = $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? $_SERVER['HTTP_CF_VISITOR'] ?? null;
+    if (is_string($forwardedProto)) {
+        if (str_contains($forwardedProto, 'https')) {
+            return true;
+        }
+        if (strtolower($forwardedProto) === 'https') {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Retrieve the list of allowed origins for API responses.
+ */
+function allowed_origins(): array
+{
+    $origins = config('api.allowed_origins', []);
+
+    if (!is_array($origins) || empty($origins)) {
+        $fallback = (string)config('app.url', '');
+        if ($fallback !== '') {
+            $parts = parse_url($fallback);
+            if ($parts && isset($parts['scheme'], $parts['host'])) {
+                $origin = $parts['scheme'] . '://' . $parts['host'];
+                if (isset($parts['port'])) {
+                    $origin .= ':' . $parts['port'];
+                }
+                $origins = [$origin];
+            }
+        }
+    }
+
+    return array_values(array_unique(array_filter(array_map(
+        static fn ($value) => trim((string)$value),
+        $origins
+    ))));
+}
+
+/**
+ * Apply JSON + CORS headers according to configuration.
+ */
+function send_json_headers(array $methods = ['GET']): void
+{
+    static $sent = false;
+
+    if ($sent) {
+        return;
+    }
+
+    header('Content-Type: application/json; charset=utf-8');
+
+    $originHeader = $_SERVER['HTTP_ORIGIN'] ?? null;
+    $allowed = allowed_origins();
+
+    if ($originHeader && in_array($originHeader, $allowed, true)) {
+        header('Access-Control-Allow-Origin: ' . $originHeader);
+        header('Vary: Origin');
+    }
+
+    header('Access-Control-Allow-Methods: ' . implode(', ', array_unique(array_merge(['OPTIONS'], $methods))));
+    header('Access-Control-Allow-Headers: Content-Type, Accept');
+
+    $sent = true;
+}
+
+/**
+ * Send the configured preflight response if the request is OPTIONS.
+ */
+function handle_preflight(array $methods = ['GET']): void
+{
+    if (strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'OPTIONS') {
+        send_json_headers($methods);
+        http_response_code(204);
+        exit;
+    }
+}

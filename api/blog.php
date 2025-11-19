@@ -4,19 +4,8 @@ require __DIR__ . '/../admin/bootstrap.php';
 
 use MotoBaku\Admin\PostRepository;
 
-// header('Content-Type: application/json; charset=utf-8');
-// declare(strict_types=1);
-
-// Allow any origin (development only)
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json; charset=utf-8');
-
-// For preflight requests (if you plan to use POST/PUT/DELETE)
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type, Accept');
-    exit(0);
-}
+handle_preflight(['GET']);
+send_json_headers(['GET']);
 
 /**
  * Basic HTML sanitization to ensure unsafe markup never leaves the API.

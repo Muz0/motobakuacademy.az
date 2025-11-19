@@ -70,10 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const t = i18n[lang];
 
-  // Use relative path in real deployment.
-  // For local debugging against XAMPP keep your absolute if needed:
-  const API_URL = "http://localhost/motobakuacademy.az/api/blogs.php";
-  // const API_URL = "api/blogs.php";
+  const origin =
+    (window.location && window.location.origin) || "https://motobakuacademy.az";
+  const defaultApiBase = `${origin.replace(/\/$/, "")}/api`;
+  const apiBase = (window.blogApiBase || defaultApiBase).replace(/\/$/, "");
+  const API_URL = `${apiBase}/blogs.php`;
 
   fetch(API_URL)
     .then((response) => {

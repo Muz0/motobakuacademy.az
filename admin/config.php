@@ -8,6 +8,7 @@ return [
         'session_name' => (string)env('SESSION_NAME', 'motobaku_admin'),
         'debug' => (bool)env('APP_DEBUG', false),
         'timezone' => (string)env('APP_TIMEZONE', 'Asia/Baku'),
+        'force_https' => (bool)env('APP_FORCE_HTTPS', false),
     ],
     'db' => [
         'driver' => (string)env('DB_DRIVER', 'mysql'),
@@ -18,5 +19,11 @@ return [
         'password' => (string)env('DB_PASSWORD', ''),
         'charset' => (string)env('DB_CHARSET', 'utf8mb4'),
         'collation' => (string)env('DB_COLLATION', 'utf8mb4_unicode_ci'),
+    ],
+    'api' => [
+        'allowed_origins' => array_values(array_filter(array_map(
+            static fn ($value) => trim((string)$value),
+            explode(',', (string)env('API_ALLOWED_ORIGINS', ''))
+        ))),
     ],
 ];

@@ -1,18 +1,13 @@
 <?php
 
 require __DIR__ . '/../../admin/bootstrap.php';
+require_once __DIR__ . '/helpers.php';
 
 use MotoBaku\Admin\CommentRepository;
 use MotoBaku\Admin\PostRepository;
 
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Methods: GET, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Accept');
-
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
-}
+handle_preflight(['GET']);
+send_json_headers(['GET']);
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     http_response_code(405);
@@ -71,10 +66,13 @@ $response = [
         'accepts_comments' => (int)($post['accepts_comments'] ?? 1) === 1,
     ],
     'data' => array_map(static function (array $comment): array {
+        $author = sanitize_comment_author($comment['author_name'] ?? '');
+        $message = sanitize_comment_message($comment['message'] ?? '');
+
         return [
             'id' => (int)$comment['id'],
-            'author_name' => $comment['author_name'],
-            'message' => $comment['message'],
+            'author_name' => $author !== '' ? $author : 'Guest',
+            'message' => $message,
             'created_at' => $comment['created_at'],
             'parent_comment_id' => $comment['parent_comment_id'] !== null
                 ? (int)$comment['parent_comment_id']
