@@ -252,6 +252,8 @@ function fetchPostDetails(state, elements, t, apiBase) {
         throw new Error("Post not found");
       }
       populateArticle(data, state, elements);
+      patchArticleImageClick(data, state);
+      patchYoutubeButton(data, state);
       state.acceptsComments = (data.accepts_comments ?? true) === true;
       updateCommentFormState(state, elements, t);
     })
@@ -460,6 +462,70 @@ function buildApiUrl(base, path) {
     return cleanPath;
   }
   return `${base}/${cleanPath}`;
+}
+
+function patchYoutubeButton(data, state) {
+  const lang = state?.lang || "az";
+
+  const ytLabels = {
+    az: "Videonu izlə",
+    en: "Watch the video",
+    ru: "Смотреть видео",
+  };
+
+  const ytLink = document.getElementById("article-youtube-link");
+  const ytLabel = document.getElementById("article-youtube-label");
+
+  if (!ytLink || !ytLabel) {
+    return;
+  }
+
+  const youtubeLink =
+    data[`graphic_content_${lang}`] ||
+    data.graphic_content ||
+    data.graphic_content_az ||
+    data.graphic_content_en ||
+    "";
+
+  if (youtubeLink) {
+    ytLink.href = youtubeLink;
+    ytLink.target = "_blank";
+    ytLink.rel = "noopener";
+  }
+
+  ytLabel.textContent = ytLabels[lang] || ytLabels.en;
+}
+
+function patchArticleImageClick(data, state) {
+  const lang = state?.lang || "az";
+  const img = document.querySelector(".article__img");
+
+  if (!img) {
+    return;
+  }
+
+  const youtubeLink =
+    data[`graphic_content_${lang}`] ||
+    data.graphic_content ||
+    data.graphic_content_az ||
+    data.graphic_content_en ||
+    "";
+
+  if (!youtubeLink) {
+    return;
+  }
+
+  const parentAnchor = img.closest("a");
+  if (parentAnchor) {
+    parentAnchor.href = youtubeLink;
+    parentAnchor.target = "_blank";
+    parentAnchor.rel = "noopener";
+  }
+
+  img.style.cursor = "pointer";
+  img.addEventListener("click", () => {
+    window.open(youtubeLink, "_blank");
+  });
 }
 
 function loadComments(page, state, elements, t, apiBase, options = {}) {
