@@ -3,10 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const supportedLangs = ["az", "ru", "en"];
   const lang = supportedLangs.includes(htmlLang) ? htmlLang : "az";
 
+  const envConfig = window.APP_CONFIG || {};
   const fallbackOrigin =
     (window.location && window.location.origin) || "https://motobakuacademy.az";
   const defaultApiBase = `${fallbackOrigin.replace(/\/$/, "")}/api`;
-  const API_BASE = normalizeApiBase(window.blogApiBase || defaultApiBase);
+  const rawApiBase = envConfig.apiBase || window.blogApiBase || defaultApiBase;
+  const API_BASE = normalizeApiBase(rawApiBase);
   const state = {
     slug: new URLSearchParams(window.location.search).get("slug") || "",
     lang,

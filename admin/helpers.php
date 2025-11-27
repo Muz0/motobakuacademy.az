@@ -280,6 +280,15 @@ function send_json_headers(array $methods = ['GET']): void
 
     header('Content-Type: application/json; charset=utf-8');
 
+    // In debug mode, allow any origin to simplify local development.
+    if (config('app.debug', false)) {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: ' . implode(', ', array_unique(array_merge(['OPTIONS'], $methods))));
+        header('Access-Control-Allow-Headers: Content-Type, Accept');
+        $sent = true;
+        return;
+    }
+
     $originHeader = $_SERVER['HTTP_ORIGIN'] ?? null;
     $allowed = allowed_origins();
 

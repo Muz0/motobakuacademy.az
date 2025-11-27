@@ -73,7 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const origin =
     (window.location && window.location.origin) || "https://motobakuacademy.az";
   const defaultApiBase = `${origin.replace(/\/$/, "")}/api`;
-  const apiBase = (window.blogApiBase || defaultApiBase).replace(/\/$/, "");
+  const envConfig = window.APP_CONFIG || {};
+  const rawApiBase = envConfig.apiBase || window.blogApiBase || defaultApiBase;
+  const apiBase = normalizeApiBase(rawApiBase);
   const API_URL = `${apiBase}/blogs.php`;
 
   fetch(API_URL)
@@ -181,6 +183,10 @@ document.addEventListener("DOMContentLoaded", function () {
       return "Qara Geyimli Adam";
     }
     return raw;
+  }
+
+  function normalizeApiBase(value) {
+    return String(value || "").replace(/\/+$/, "");
   }
 
   function escapeHtml(str) {
