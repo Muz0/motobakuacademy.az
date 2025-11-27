@@ -96,6 +96,58 @@ CREATE TABLE IF NOT EXISTS comments (
         FOREIGN KEY (parent_comment_id) REFERENCES comments(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SQL,
+
+    <<<SQL
+CREATE TABLE IF NOT EXISTS team_members (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(191) NOT NULL,
+    role VARCHAR(191) NOT NULL,
+    description TEXT NULL,
+    photo_url VARCHAR(255) NOT NULL,
+    position INT UNSIGNED NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_team_position (position)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+SQL,
+
+    <<<SQL
+CREATE TABLE IF NOT EXISTS team_settings (
+    id TINYINT UNSIGNED NOT NULL PRIMARY KEY DEFAULT 1,
+    description TEXT NULL,
+    about_title_az VARCHAR(255) NULL,
+    about_title_ru VARCHAR(255) NULL,
+    about_title_en VARCHAR(255) NULL,
+    about_content_az LONGTEXT NULL,
+    about_content_ru LONGTEXT NULL,
+    about_content_en LONGTEXT NULL,
+    updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+SQL,
+
+    <<<SQL
+ALTER TABLE team_settings ADD COLUMN IF NOT EXISTS about_title_az VARCHAR(255) NULL;
+SQL,
+
+    <<<SQL
+ALTER TABLE team_settings ADD COLUMN IF NOT EXISTS about_title_ru VARCHAR(255) NULL;
+SQL,
+
+    <<<SQL
+ALTER TABLE team_settings ADD COLUMN IF NOT EXISTS about_title_en VARCHAR(255) NULL;
+SQL,
+
+    <<<SQL
+ALTER TABLE team_settings ADD COLUMN IF NOT EXISTS about_content_az LONGTEXT NULL;
+SQL,
+
+    <<<SQL
+ALTER TABLE team_settings ADD COLUMN IF NOT EXISTS about_content_ru LONGTEXT NULL;
+SQL,
+
+    <<<SQL
+ALTER TABLE team_settings ADD COLUMN IF NOT EXISTS about_content_en LONGTEXT NULL;
+SQL,
 ];
 
 

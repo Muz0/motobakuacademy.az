@@ -201,6 +201,16 @@ a:hover {
     margin-bottom: 1rem;
 }
 
+.form-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.form-grid .form__group {
+    margin: 0;
+}
+
 .form__label {
     display: block;
     font-weight: 600;
@@ -227,6 +237,23 @@ a:hover {
     justify-content: flex-end;
     gap: 0.75rem;
     margin-top: 1.5rem;
+}
+
+.form__hint {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.input-with-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: stretch;
+}
+
+.input-with-actions input {
+    flex: 1;
 }
 
 .alert {

@@ -29,6 +29,7 @@ $currentUser = $auth?->user();
             <a href="<?= htmlspecialchars(base_url('categories/index.php')) ?>">Categories</a>
             <a href="<?= htmlspecialchars(base_url('comments/index.php')) ?>">Comments</a>
             <a href="<?= htmlspecialchars(base_url('media/index.php')) ?>">Media</a>
+            <a href="<?= htmlspecialchars(base_url('team/index.php')) ?>">About/Team</a>
         </nav>
         <div class="topbar__user">
             <?php if ($currentUser): ?>
@@ -46,6 +47,7 @@ $currentUser = $auth?->user();
                 <a href="<?= htmlspecialchars(base_url('categories/index.php')) ?>">Categories</a>
                 <a href="<?= htmlspecialchars(base_url('comments/index.php')) ?>">Comments</a>
                 <a href="<?= htmlspecialchars(base_url('media/index.php')) ?>">Media Library</a>
+                <a href="<?= htmlspecialchars(base_url('team/index.php')) ?>">About/Team</a>
                 <a href="<?= htmlspecialchars(base_url('password.php')) ?>">Change Password</a>
             </nav>
         </aside>

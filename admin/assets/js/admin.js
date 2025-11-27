@@ -125,7 +125,7 @@
         }
 
         tinymce.init({
-            selector: 'textarea[data-editor="rich-text"]',
+            selector: 'textarea[data-editor^="rich-text"]',
             plugins: 'lists link table code',
             toolbar: [
                 'undo redo | bold italic underline | alignleft aligncenter alignright | ' +
@@ -160,7 +160,9 @@
                     }
                 }
 
-                if (contentText.length === 0) {
+                const isOptional = textarea.dataset.editor === 'rich-text-optional';
+
+                if (!isOptional && contentText.length === 0) {
                     event.preventDefault();
                     if (errorEl) {
                         errorEl.textContent = 'Content is required.';

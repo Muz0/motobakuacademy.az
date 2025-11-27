@@ -81,6 +81,7 @@
 .team-grid .uk-inline-clip img {
   width: 100% !important;
   height: auto;
+  max-height: 320px;
   object-fit: cover !important;
   aspect-ratio: 3 / 4;
   border-radius: var(--border-radius);

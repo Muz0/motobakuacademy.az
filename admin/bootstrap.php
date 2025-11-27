@@ -71,6 +71,7 @@ use MotoBaku\Admin\CategoryRepository;
 use MotoBaku\Admin\Database;
 use MotoBaku\Admin\CommentRepository;
 use MotoBaku\Admin\PostRepository;
+use MotoBaku\Admin\TeamRepository;
 
 $connection = Database::make(config('db'));
 
@@ -79,3 +80,4 @@ set_service('auth', new Auth($connection));
 set_service('posts', new PostRepository($connection));
 set_service('categories', new CategoryRepository($connection));
 set_service('comments', new CommentRepository($connection));
+set_service('team', new TeamRepository($connection));
