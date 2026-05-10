@@ -4,11 +4,17 @@ jQuery(document).ready(function ($) {
   const $header = $(".page-header");
 
   function updateStickyHeader() {
-    $header.toggleClass("is-scrolled", window.scrollY > 20);
+    const scrollTop =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+
+    $header.toggleClass("is-scrolled", scrollTop > 20);
   }
 
   updateStickyHeader();
-  $(window).on("scroll", updateStickyHeader);
+  $(window).on("scroll touchmove resize orientationchange", updateStickyHeader);
 
   
 
