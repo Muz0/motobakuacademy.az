@@ -11,6 +11,41 @@
   --transition-speed: 0.3s;
 }
 
+.site-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+}
+
+.page-home .section-hero .uk-slideshow-items {
+  position: relative;
+  min-height: 560px;
+  height: clamp(560px, 100vh, 950px);
+  overflow: hidden;
+}
+
+.page-home .section-hero .slideshow-item {
+  display: block !important;
+  position: relative !important;
+  width: 100%;
+  height: 100%;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.page-home .section-hero .responsive-media {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.page-home .section-hero .uk-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Sticky header */
 .page-header {
   position: fixed;

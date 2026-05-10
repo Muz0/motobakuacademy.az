@@ -1,6 +1,6 @@
 # MotoBaku Academy - Apache/Namecheap shared hosting rules
 
-DirectoryIndex index.html
+DirectoryIndex index.html index.php
 ErrorDocument 404 /404.html
 Options -Indexes -MultiViews
 
@@ -13,6 +13,9 @@ Options -Indexes -MultiViews
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP_HOST} ^(www\.)?motobakuacademy\.az$ [NC]
   RewriteRule ^ https://motobakuacademy.az%{REQUEST_URI} [R=301,L]
+
+  # Make the admin directory URL resolve even when directory indexes are disabled.
+  RewriteRule ^admin/?$ /admin/index.php [L]
 
   # Never expose repository or environment internals.
   RewriteRule (^|/)\.git - [F,L]

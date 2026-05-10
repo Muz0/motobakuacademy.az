@@ -1,11 +1,11 @@
 (function (global) {
   // Single toggle to flip between local/dev and production behavior.
   // Set DEBUG = true when developing locally; set to false for production.
-  const DEBUG = true;
+  const DEBUG = false;
   // Local XAMPP serves this repo from /motobakuacademy.az while production
   // serves from the domain root. This affects JS-built URLs such as API calls;
   // static HTML asset URLs may still 404 visually on localhost if root-relative.
-  const USE_LOCAL_PATH = true;
+  const USE_LOCAL_PATH = false;
 
   // Centralized endpoints and feature flags that depend on the environment.
   const LOCAL_PATH = "/motobakuacademy.az";
