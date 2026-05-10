@@ -19,7 +19,7 @@ $currentUser = $auth->user();
 
 if (!$currentUser) {
     flash('error', 'Unable to load your account. Please sign in again.');
-    redirect(base_url('logout.php'));
+    redirect(base_url('login.php'));
 }
 
 if (!$db) {

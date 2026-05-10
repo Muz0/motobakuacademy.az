@@ -12,6 +12,7 @@ $auth = app('auth');
 
 if ($auth) {
     $auth->requireAuth();
+    $auth->requireRole('admin');
 }
 
 if (!is_post()) {

@@ -20,8 +20,8 @@ $csrfToken = CSRF::getToken();
             <form data-media-upload-form enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="<?= htmlspecialchars($csrfToken) ?>">
                 <label class="media-picker__form-label" for="mediaPickerFile">Select a file to upload</label>
-                <input class="media-picker__file-input" type="file" id="mediaPickerFile" name="media" accept="image/*,video/*" required>
-                <small class="media-picker__helper">Allowed types: JPG, PNG, GIF, WEBP, SVG, MP4, WebM, OGG, MOV.</small>
+                <input class="media-picker__file-input" type="file" id="mediaPickerFile" name="media" accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/webm,video/ogg,video/quicktime" required>
+                <small class="media-picker__helper">Allowed types: JPG, PNG, GIF, WEBP, MP4, WebM, OGG, MOV.</small>
                 <div class="media-picker__actions">
                     <button class="button" type="submit">Upload</button>
                 </div>

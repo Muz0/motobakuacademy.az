@@ -9,6 +9,7 @@ use MotoBaku\Admin\TeamRepository;
 $auth = app('auth');
 if ($auth) {
     $auth->requireAuth();
+    $auth->requireRole('admin');
 }
 
 /** @var TeamRepository|null $teamRepo */

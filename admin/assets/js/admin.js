@@ -17,7 +17,7 @@
         if (/\.(mp4|webm|ogg|mov)$/.test(normalized)) {
             return 'video';
         }
-        if (/\.(jpe?g|png|gif|webp|svg)$/.test(normalized)) {
+        if (/\.(jpe?g|png|gif|webp)$/.test(normalized)) {
             return 'image';
         }
         return 'file';

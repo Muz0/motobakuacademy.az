@@ -1,6 +1,7 @@
 <?php
 
 use MotoBaku\Admin\Auth;
+use MotoBaku\Admin\CSRF;
 
 $title = $title ?? 'MotoBaku Admin';
 $isGuest = $isGuest ?? false;
@@ -34,7 +35,10 @@ $currentUser = $auth?->user();
         <div class="topbar__user">
             <?php if ($currentUser): ?>
                 <span class="topbar__user-name"><?= htmlspecialchars($currentUser['username'] ?? '') ?></span>
-                <a class="button button--light" href="<?= htmlspecialchars(base_url('logout.php')) ?>">Sign out</a>
+                <form method="post" action="<?= htmlspecialchars(base_url('logout.php')) ?>" style="margin:0;">
+                    <input type="hidden" name="_token" value="<?= htmlspecialchars(CSRF::getToken()) ?>">
+                    <button class="button button--light" type="submit">Sign out</button>
+                </form>
             <?php endif; ?>
         </div>
     </header>

@@ -49,8 +49,8 @@ include __DIR__ . '/../views/layout/header.php';
         <input type="hidden" name="_token" value="<?= htmlspecialchars(CSRF::getToken()) ?>">
         <div class="form__group" style="margin-bottom:1rem;">
             <label class="form__label" for="media-upload">Select file</label>
-            <input class="form__control" type="file" id="media-upload" name="media" accept="image/*,video/*" required>
-            <small style="color:#475569;">Allowed types: JPG, PNG, GIF, WEBP, SVG, MP4, WebM, OGG, MOV.</small>
+            <input class="form__control" type="file" id="media-upload" name="media" accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/webm,video/ogg,video/quicktime" required>
+            <small style="color:#475569;">Allowed types: JPG, PNG, GIF, WEBP, MP4, WebM, OGG, MOV.</small>
         </div>
         <div class="form__actions" style="justify-content:flex-start;">
             <button class="button" type="submit">Upload</button>

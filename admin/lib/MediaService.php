@@ -15,7 +15,6 @@ class MediaService
         'image/png',
         'image/gif',
         'image/webp',
-        'image/svg+xml',
     ];
 
     private const ALLOWED_VIDEO_MIME = [
@@ -30,7 +29,6 @@ class MediaService
         'image/png' => 'png',
         'image/gif' => 'gif',
         'image/webp' => 'webp',
-        'image/svg+xml' => 'svg',
         'video/mp4' => 'mp4',
         'video/webm' => 'webm',
         'video/ogg' => 'ogg',
@@ -210,7 +208,7 @@ class MediaService
         }
 
         if (str_starts_with($mime, 'image/')) {
-            throw new RuntimeException('Image type not allowed. Allowed: JPEG, PNG, GIF, WEBP, SVG.');
+            throw new RuntimeException('Image type not allowed. Allowed: JPEG, PNG, GIF, WEBP.');
         }
         if (str_starts_with($mime, 'video/')) {
             throw new RuntimeException('Video type not allowed. Allowed: MP4, WebM, OGG, MOV.');
@@ -223,7 +221,7 @@ class MediaService
     {
         $extension = strtolower((string)pathinfo($filename, PATHINFO_EXTENSION));
 
-        if (preg_match('/\.(jpe?g|png|gif|webp|svg)$/i', $filename)) {
+        if (preg_match('/\.(jpe?g|png|gif|webp)$/i', $filename)) {
             return 'image';
         }
 

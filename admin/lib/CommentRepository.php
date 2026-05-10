@@ -180,7 +180,7 @@ class CommentRepository
         }
 
         if (!empty($filters['post'])) {
-            $clauses[] = '(p.slug LIKE :post OR p.title LIKE :post)';
+            $clauses[] = '(p.slug LIKE :post OR p.title_az LIKE :post OR p.title_ru LIKE :post OR p.title_en LIKE :post)';
             $params[':post'] = '%' . $filters['post'] . '%';
         }
 
