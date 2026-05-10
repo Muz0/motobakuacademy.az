@@ -560,3 +560,266 @@ tr:last-child td {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     }
 }
+
+/* AdminLTE integration layer. The PHP pages still use the original small
+   class set, so these rules map it onto the Bootstrap/AdminLTE visual system. */
+:root {
+    --color-bg: #f4f6f9;
+    --color-surface: #ffffff;
+    --color-border: #dee2e6;
+    --color-text: #212529;
+    --color-muted: #6c757d;
+    --color-primary: #0d6efd;
+    --color-primary-dark: #0b5ed7;
+    --radius: 0.5rem;
+}
+
+body.layout-app {
+    font-family: var(--bs-body-font-family);
+    background: var(--color-bg);
+}
+
+.app-wrapper {
+    min-height: 100vh;
+}
+
+.app-header {
+    min-height: 3.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.04);
+}
+
+.app-header .navbar-nav {
+    align-items: center;
+}
+
+.app-header .navbar-text {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1;
+}
+
+.app-header form {
+    display: flex;
+    align-items: center;
+}
+
+.app-header .btn-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-height: 2rem;
+    line-height: 1;
+}
+
+.app-sidebar {
+    background: #212529 !important;
+    padding: 0;
+}
+
+.sidebar-brand {
+    min-height: 3.5rem;
+}
+
+.brand-link {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.brand-link:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar-menu .nav-link {
+    border-radius: 0.375rem;
+    margin: 0.125rem 0.75rem;
+}
+
+.sidebar-menu .nav-link.active {
+    background: var(--bs-primary);
+    color: #fff;
+}
+
+.app-content-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.content {
+    padding: 0;
+}
+
+.content--guest {
+    padding: 1.5rem;
+}
+
+.footer,
+.app-footer {
+    background: #fff;
+    border-top: 1px solid var(--color-border);
+}
+
+.card {
+    border: 0;
+    border-radius: var(--radius);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card__title {
+    color: var(--color-text);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.stats {
+    margin-bottom: 1.5rem;
+}
+
+.stats.row {
+    display: flex;
+    gap: 0;
+}
+
+.small-box .inner {
+    padding: 1rem;
+}
+
+.small-box-icon {
+    font-size: 3.5rem;
+}
+
+.stat {
+    position: relative;
+    min-height: 118px;
+    border: 0;
+    border-radius: var(--radius);
+    background: #fff;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.stat::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    background: rgba(13, 110, 253, 0.12);
+}
+
+.stat__label {
+    color: var(--color-muted);
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.stat__value {
+    color: var(--color-text);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.button {
+    min-height: 2.25rem;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--bs-primary);
+    border-radius: 0.375rem;
+    background: var(--bs-primary);
+    color: #fff;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.button:hover {
+    background: var(--bs-primary-dark, #0b5ed7);
+    border-color: var(--bs-primary-dark, #0b5ed7);
+    color: #fff;
+    text-decoration: none;
+}
+
+.button--light {
+    background: #fff;
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.button--light:hover {
+    background: #f8f9fa;
+    border-color: #adb5bd;
+    color: var(--color-text);
+}
+
+.form {
+    max-width: none;
+}
+
+.form__label {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.form__control,
+.media-picker__file-input {
+    min-height: 2.375rem;
+    border-radius: 0.375rem;
+    border-color: var(--color-border);
+    font-size: 0.9375rem;
+}
+
+.form__control:focus,
+.media-picker__file-input:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.alert {
+    border-radius: 0.375rem;
+    font-weight: 500;
+}
+
+.alert--success {
+    background: var(--bs-success-bg-subtle);
+    border-color: var(--bs-success-border-subtle);
+    color: var(--bs-success-text-emphasis);
+}
+
+.alert--error,
+.alert--danger {
+    background: var(--bs-danger-bg-subtle);
+    border-color: var(--bs-danger-border-subtle);
+    color: var(--bs-danger-text-emphasis);
+}
+
+.table-responsive {
+    border-radius: var(--radius);
+}
+
+table {
+    margin: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+th {
+    background: #f8f9fa;
+    color: #495057;
+    letter-spacing: 0;
+}
+
+td {
+    vertical-align: middle;
+}
+
+.media-picker__dialog,
+.media-preview,
+.media-picker__item {
+    border-color: var(--color-border);
+    border-radius: var(--radius);
+}
+
+@media (max-width: 991.98px) {
+    .app-main {
+        min-width: 0;
+    }
+}

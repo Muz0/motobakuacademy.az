@@ -43,18 +43,33 @@ include __DIR__ . '/views/layout/header.php';
 
 <?php include __DIR__ . '/views/partials/flash.php'; ?>
 
-<section class="stats">
-    <div class="stat">
-        <span class="stat__label">Total Posts</span>
-        <span class="stat__value"><?= htmlspecialchars((string)$stats['total']) ?></span>
+<section class="stats row">
+    <div class="col-12 col-md-4">
+        <div class="small-box text-bg-primary">
+            <div class="inner">
+                <h3><?= htmlspecialchars((string)$stats['total']) ?></h3>
+                <p>Total Posts</p>
+            </div>
+            <i class="small-box-icon bi bi-file-earmark-text"></i>
+        </div>
     </div>
-    <div class="stat">
-        <span class="stat__label">Published</span>
-        <span class="stat__value"><?= htmlspecialchars((string)$stats['published']) ?></span>
+    <div class="col-12 col-md-4">
+        <div class="small-box text-bg-success">
+            <div class="inner">
+                <h3><?= htmlspecialchars((string)$stats['published']) ?></h3>
+                <p>Published</p>
+            </div>
+            <i class="small-box-icon bi bi-check-circle"></i>
+        </div>
     </div>
-    <div class="stat">
-        <span class="stat__label">Drafts</span>
-        <span class="stat__value"><?= htmlspecialchars((string)$stats['drafts']) ?></span>
+    <div class="col-12 col-md-4">
+        <div class="small-box text-bg-warning">
+            <div class="inner">
+                <h3><?= htmlspecialchars((string)$stats['drafts']) ?></h3>
+                <p>Drafts</p>
+            </div>
+            <i class="small-box-icon bi bi-pencil-square"></i>
+        </div>
     </div>
 </section>
 
