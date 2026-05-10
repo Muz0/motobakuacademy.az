@@ -13,10 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const apiBase = normalizeApiBase(envConfig.apiBase || defaultApiBase);
 
   fetch(`${apiBase}/team.php`)
-    .then((response) => {
-      if (!response.ok) throw new Error("Failed to load team");
-      return response.json();
-    })
+    .then(parseJsonResponse)
     .then((payload) => {
       const members = Array.isArray(payload.data) ? payload.data : [];
       renderTeam(grid, members);
@@ -32,6 +29,19 @@ function normalizeApiBase(raw) {
   const trimmed = String(raw || "").trim();
   if (!trimmed) return "";
   return trimmed.endsWith("/") ? trimmed.slice(0, -1) : trimmed;
+}
+
+async function parseJsonResponse(response) {
+  const contentType = response.headers.get("content-type") || "";
+  if (!response.ok) {
+    throw new Error(`Failed to load team: HTTP ${response.status}`);
+  }
+  if (!contentType.includes("application/json")) {
+    const body = await response.text();
+    const excerpt = body.replace(/\s+/g, " ").trim().slice(0, 160);
+    throw new Error(`Failed to load team: expected JSON, received ${contentType || "unknown content type"}${excerpt ? ` (${excerpt})` : ""}`);
+  }
+  return response.json();
 }
 
 function renderTeam(grid, members) {

@@ -24,12 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const apiBase = normalizeApiBase(envConfig.apiBase || defaultApiBase);
 
   fetch(`${apiBase}/team.php`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to load about content");
-      }
-      return response.json();
-    })
+    .then(parseJsonResponse)
     .then((payload) => {
       const about = payload?.about || {};
 
@@ -66,4 +61,17 @@ function normalizeApiBase(raw) {
     return "";
   }
   return trimmed.endsWith("/") ? trimmed.slice(0, -1) : trimmed;
+}
+
+async function parseJsonResponse(response) {
+  const contentType = response.headers.get("content-type") || "";
+  if (!response.ok) {
+    throw new Error(`Failed to load about content: HTTP ${response.status}`);
+  }
+  if (!contentType.includes("application/json")) {
+    const body = await response.text();
+    const excerpt = body.replace(/\s+/g, " ").trim().slice(0, 160);
+    throw new Error(`Failed to load about content: expected JSON, received ${contentType || "unknown content type"}${excerpt ? ` (${excerpt})` : ""}`);
+  }
+  return response.json();
 }

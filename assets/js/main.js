@@ -1,6 +1,15 @@
 jQuery(document).ready(function ($) {
   "use strict";
 
+  const $header = $(".page-header");
+
+  function updateStickyHeader() {
+    $header.toggleClass("is-scrolled", window.scrollY > 20);
+  }
+
+  updateStickyHeader();
+  $(window).on("scroll", updateStickyHeader);
+
   
 
   $(".gallery-slider").slick({
@@ -239,9 +248,24 @@ function handleTabletChange(e) {
 /////////////////////////////////////////////////////////////////
 
 var $preloader = $("#page-preloader"),
-  $spinner = $preloader.find(".spinner-loader");
-$spinner.fadeOut();
-$preloader.delay(50).fadeOut("slow");
+  $spinner = $preloader.find(".spinner, .spinner-loader");
+
+function hidePreloader() {
+  if (!$preloader.length || $preloader.data("hidden")) {
+    return;
+  }
+
+  $preloader.data("hidden", true);
+  $spinner.fadeOut(150);
+  $preloader.delay(50).fadeOut("slow");
+}
+
+if (document.readyState === "complete") {
+  hidePreloader();
+} else {
+  $(window).on("load", hidePreloader);
+  setTimeout(hidePreloader, 10000);
+}
 
 mediaQueryTablet.addListener(handleTabletChange);
 handleTabletChange(mediaQueryTablet);
