@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Allow: /assets/
+
+Sitemap: https://motobakuacademy.az/sitemap.xml

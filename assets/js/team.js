@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initTeamGrid() {
   const grid = document.querySelector(".team-grid");
   if (!grid) return;
 
@@ -23,7 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Unable to load team:", err);
       grid.innerHTML = `<div class="uk-width-1-1"><p>${emptyMessage}</p></div>`;
     });
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initTeamGrid);
+} else {
+  initTeamGrid();
+}
 
 function normalizeApiBase(raw) {
   const trimmed = String(raw || "").trim();
